@@ -1,0 +1,123 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Share Tech Mono", monospace;
+  background: url("img/kafkacorp-eye.png") no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.banniere-kafka {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  font-size: 1rem;
+  padding: 8px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 999;
+}
+
+#message-container .message {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px 14px;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  font-size: 1rem;
+  box-shadow: 2px 2px 10px #ccc;
+  max-width: 300px;
+}
+
+#secret-message {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  z-index: 1000;
+}
+
+#secret-message.hidden {
+  display: none;
+}
+
+#timer {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 6px 14px;
+  border-radius: 6px;
+  box-shadow: 0 0 4px #0002;
+}
+
+.help-bubble {
+  position: fixed;
+  bottom: 80px;
+  left: 30px;
+  font-size: 1.3rem;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 10px;
+  border-radius: 50%;
+  cursor: help;
+  box-shadow: 0 0 6px #0002;
+}
+
+.help-text {
+  position: fixed;
+  bottom: 120px;
+  left: 30px;
+  font-size: 0.85rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  max-width: 250px;
+  box-shadow: 0 0 6px #0003;
+}
+
+.help-text.hidden {
+  display: none;
+}
+
+.consent {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-style: italic;
+  box-shadow: 0 -1px 4px #0002;
+  z-index: 9999;
+}
+
+.contact {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.92);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  box-shadow: 0 0 5px #0001;
+  font-style: italic;
+  z-index: 10;
+}
+
+.contact a {
+  color: #333;
+  text-decoration: underline;
+}
