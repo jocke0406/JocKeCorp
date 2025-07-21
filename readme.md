@@ -1,6 +1,4 @@
-╔════════════════════════════════════════════╗
-jocKeCorp — Page en construction 🔨  
-╚════════════════════════════════════════════╝
+**jocKeCorp — Page en construction 🔨**
 
 Bienvenue sur la page qui annonce l'arrivée  
 du futur lieu où l'inefficacité deviendra un art.
