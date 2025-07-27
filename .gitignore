@@ -1,0 +1,32 @@
+# Node (si jamais tu buildes avec npm ou yarn)
+node_modules/
+dist/
+build/
+
+# Mac & OS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Logs
+*.log
+
+# IDEs
+.vscode/
+.idea/
+
+# p5.js editor files (si jamais)
+.p5editor/
+
+# Assets temporaires ou générés
+*.mp4
+*.webm
+*.wav
+*.zip
+*.tar.gz
+*.bak
+
+# Environment / secrets (au cas où)
+.env
+.env.local
