@@ -68,9 +68,17 @@ class RetroEye {
     this.phi = 1.618;
     this.ouverture = 1.2;
     this.decoElements = [];
+
+    // 🎯 Mouvement unique par œil
+    this.freqX = random(2, 5);
+    this.freqY = random(1.5, 4);
+    this.phase = random(TWO_PI);
   }
 
   setup(w, h) {
+    this.ampX = min(w, h) * random(0, 0.1); // anciennement entre 30–60 px
+    this.ampY = min(w, h) * random(0, 0.1); // anciennement entre 15–35 px
+
     this.width = w;
     this.height = h;
 
@@ -149,8 +157,8 @@ class RetroEye {
       ellipse(0, 0, this.eyeW + i * 8, this.eyeH + i * 8);
     }
 
-    let nystagX = sin(t * 3.5) * 50;
-    let nystagY = cos(t * 3) * 20;
+    let nystagX = sin(t * this.freqX + this.phase) * this.ampX;
+    let nystagY = cos(t * this.freqY + this.phase) * this.ampY;
     if (glitch) {
       nystagX += random([-80, 80]);
       nystagY += random([-30, 30]);
@@ -186,6 +194,7 @@ class RetroEye {
     for (let a = PI; a >= 0; a -= 0.05)
       vertex((this.eyeW / 2) * cos(a), (this.lowerArcH / 2) * sin(a));
     endShape(CLOSE);
+
     pop();
   }
 }
@@ -194,92 +203,3 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   generateGrid(); // Recalculer la grille proprement
 }
-
-// === Palettes ===
-
-let palettes = [
-  {
-    name: "mauve",
-    background: "#14001a",
-    grid: "#d900ff",
-    halo: { color: [217, 0, 255], alphaStart: 40 },
-    cdZone: "#26092f",
-    iris: "#d900ff",
-    pupil: "#0a0010",
-    upperLid: "#6a1b9a",
-    lowerLid: "#ba68c8",
-    blockColors: ["#26092f", "#d900ff", "#6a1b9a"],
-    arcDeco: "#e1b7f2",
-    barDeco: "#d900ff",
-  },
-  {
-    name: "bleu",
-    background: "#001d2e",
-    grid: "#4ffff0",
-    halo: { color: [0, 255, 255], alphaStart: 30 },
-    cdZone: "#002b36",
-    iris: "#00f7ff",
-    pupil: "#001015",
-    upperLid: "#004e89",
-    lowerLid: "#7fd3f7",
-    blockColors: ["#001f2f", "#00f7ff", "#004e89"],
-    arcDeco: "#b3ecff",
-    barDeco: "#00f7ff",
-  },
-  {
-    name: "rouge",
-    background: "#2d0005",
-    grid: "#ff4d4d",
-    halo: { color: [255, 80, 80], alphaStart: 40 },
-    cdZone: "#400000",
-    iris: "#ff0033",
-    pupil: "#0a0000",
-    upperLid: "#8b0000",
-    lowerLid: "#ff6b6b",
-    blockColors: ["#400000", "#ff0033", "#8b0000"],
-    arcDeco: "#ffcccc",
-    barDeco: "#ff0033",
-  },
-  {
-    name: "jaune",
-    background: "#2e2a00",
-    grid: "#ffee00",
-    halo: { color: [255, 255, 0], alphaStart: 30 },
-    cdZone: "#3f3b00",
-    iris: "#f7e000",
-    pupil: "#1c1b00",
-    upperLid: "#a08f00",
-    lowerLid: "#fff700",
-    blockColors: ["#3f3b00", "#f7e000", "#a08f00"],
-    arcDeco: "#fffac0",
-    barDeco: "#f7e000",
-  },
-  {
-    name: "orange",
-    background: "#2b1500",
-    grid: "#ffb347",
-    halo: { color: [255, 165, 0], alphaStart: 35 },
-    cdZone: "#4a2300",
-    iris: "#ff7300",
-    pupil: "#1c0d00",
-    upperLid: "#c45a00",
-    lowerLid: "#ffae42",
-    blockColors: ["#4a2300", "#ff7300", "#c45a00"],
-    arcDeco: "#ffd9b3",
-    barDeco: "#ff7300",
-  },
-  {
-    name: "vert toxique",
-    background: "#001a00",
-    grid: "#aaff00",
-    halo: { color: [170, 255, 0], alphaStart: 35 },
-    cdZone: "#003300",
-    iris: "#aaff00",
-    pupil: "#001000",
-    upperLid: "#337f00",
-    lowerLid: "#bfff66",
-    blockColors: ["#003300", "#aaff00", "#337f00"],
-    arcDeco: "#e6ffcc",
-    barDeco: "#aaff00",
-  },
-];
