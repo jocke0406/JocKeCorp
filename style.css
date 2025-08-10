@@ -124,3 +124,49 @@ body {
   color: #333;
   text-decoration: underline;
 }
+/* JockeCorp — message permanent vers l'app */
+.jc-permanent {
+  position: fixed;
+  right: 12px;
+  top: 64px; /* sous la bannière */
+  z-index: 1000;
+  display: grid;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 2px solid #111;
+  border-radius: 12px;
+  padding: 10px 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  max-width: 300px;
+}
+.jc-permanent__title {
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+.jc-permanent__subtitle {
+  font-size: 12px;
+  color: #333;
+  opacity: 0.9;
+}
+.jc-permanent__cta {
+  justify-self: start;
+  font-weight: 800;
+  text-decoration: none;
+  color: #111;
+  background: #ffe066;
+  border: 2px solid #111;
+  border-radius: 10px;
+  padding: 6px 10px;
+}
+.jc-permanent__cta:hover {
+  filter: brightness(0.95);
+}
+@media (max-width: 560px) {
+  .jc-permanent {
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+    top: 56px;
+  }
+}
