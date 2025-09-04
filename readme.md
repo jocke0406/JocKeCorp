@@ -39,7 +39,7 @@ Des certificats de contemplation. Et des formations inutiles à ne pas suivre.
 🔓 Licence & Contact
 
 Licence : MIT (parce que même l'attente mérite liberté)  
-Contact : [jocke@jocke.be](mailto:jocke@jocke.be)
+Contact : [jocke0406@gmail.com](mailto:jocke0406@gmail.com)
 
 Merci de patienter avec style.  
 Le vrai jocKeCorp vous attend.
