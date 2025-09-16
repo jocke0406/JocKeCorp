@@ -23,13 +23,17 @@
 <body>
     <div class="banniere-kafka">🛠️ Construction lente mais certaine — Merci de ne rien faire — jocKeCorp</div>
     <!-- Encart permanent JockeCorp → /app/ -->
-    <div class="jc-permanent" role="complementary" aria-label="Entrée JockeCorp">
-        <div class="jc-permanent__title">Bienvenue chez JockeCorp</div>
-        <div class="jc-permanent__subtitle">Nous certifions l’inutile, mais l’entrée est sérieuse.</div>
-        <a class="jc-permanent__cta" href="http://localhost:4200/" aria-label="Entrer dans l’application JockeCorp">
-            Entrer dans l’application
+    <section class="jc-permanent" aria-labelledby="jc-title" aria-describedby="jc-subtitle">
+        <h1 id="jc-title" class="jc-permanent__title">JockeCorp</h1>
+        <p id="jc-subtitle" class="jc-permanent__subtitle">
+            Service central de l’Inutile Certifié™.<br>
+            Rien ne sert à rien. Nous l’attestons.
+        </p>
+        <a class="jc-permanent__cta" href="http://localhost:4200/"
+            aria-label="Ouvrir l’application JockeCorp — entrer au bureau intérieur">
+            inside the Jocke's side
         </a>
-    </div>
+    </section>
 
     <div id="message-container"></div>
     <div class="contact">

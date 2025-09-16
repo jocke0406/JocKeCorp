@@ -1,9 +1,15 @@
-<h1>Bienvenue chez JockeCorp</h1>
-<p>Nous certifions l’inutile, archivons l’oubli et rationalisons le vide.</p>
-<div class="grid">
-    <a routerLink="/certificats" class="card">Attestations & Certificats</a>
-    <a routerLink="/dossier" class="card">Dossier Existentiel</a>
-    <a routerLink="/deculpabilisation" class="card">Déculpabilisation</a>
-    <a routerLink="/formations" class="card">Formations inutiles</a>
-    <a routerLink="/anomalies" class="card">Observatoire des anomalies</a>
-</div>
+<section class="home">
+    <h1 class="home__title">Bienvenue chez JockeCorp</h1>
+    <p class="home__subtitle">
+        Nous certifions l’inutile, archivons l’oubli et rationalisons le vide.
+    </p>
+
+    <nav class="home__grid">
+        <a routerLink="/certificats" class="card" routerLinkActive="active">Attestations & Certificats</a>
+        <a routerLink="/dossier" class="card" routerLinkActive="active">Dossier Existentiel</a>
+        <a routerLink="/deculpabilisation" class="card" routerLinkActive="active">Déculpabilisation</a>
+        <a routerLink="/formations" class="card" routerLinkActive="active">Formations inutiles</a>
+        <a routerLink="/anomalies" class="card" routerLinkActive="active">Observatoire des anomalies</a>
+        <a routerLink="/anomalies" routerLinkActive="active">Anomalies</a>
+    </nav>
+</section>

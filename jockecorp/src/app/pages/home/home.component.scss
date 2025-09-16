@@ -1,18 +1,46 @@
-.grid {
+.home {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
-  margin-top: 16px;
+  place-items: center;
+  gap: 1.5rem;
+  padding: 3rem 1rem;
+  text-align: center;
+  background: var(--jc-bg);
+  color: var(--jc-text);
 }
+
+.home__title {
+  font-family: var(--jc-font-title);
+  font-size: clamp(1.8rem, 1rem + 4vw, 3rem);
+  font-weight: 900;
+  color: var(--jc-text);
+}
+
+.home__subtitle {
+  font-size: 1.1rem;
+  color: var(--jc-subtext);
+  max-width: 50ch;
+}
+
+.home__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  width: 100%;
+  max-width: 800px;
+}
+
 .card {
-  display: block;
-  padding: 16px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
+  background: var(--jc-card-bg);
+  color: var(--jc-card-text);
+  border-radius: var(--jc-radius);
+  padding: 1rem 1.2rem;
+  font-weight: 700;
   text-decoration: none;
-  color: #111;
+  box-shadow: var(--jc-shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
+
 .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
