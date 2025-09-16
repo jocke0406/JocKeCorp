@@ -1,18 +1,65 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { CertificatsComponent } from './pages/certificats/certificats.component';
-import { DossierExistentielComponent } from './pages/dossier-existentiel/dossier-existentiel.component';
-import { DeculpabilisationComponent } from './pages/deculpabilisation/deculpabilisation.component';
-import { FormationsInutilesComponent } from './pages/formations-inutiles/formations-inutiles.component';
-import { ObservatoireAnomaliesComponent } from './pages/observatoire-anomalies/observatoire-anomalies.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { HomeComponent } from './pages/home/home.component'; // Home reste eager pour l'instant
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'certificats', component: CertificatsComponent },
-    { path: 'dossier', component: DossierExistentielComponent },
-    { path: 'deculpabilisation', component: DeculpabilisationComponent },
-    { path: 'formations', component: FormationsInutilesComponent },
-    { path: 'anomalies', component: ObservatoireAnomaliesComponent },
-    { path: '**', component: NotFoundComponent },
+    { path: '', component: HomeComponent }, // Page d’accueil, chargée directement
+
+    // Auth
+    {
+        path: 'login',
+        loadComponent: () =>
+            import('./pages/login/login.component').then(m => m.LoginComponent),
+    },
+    {
+        path: 'register',
+        loadComponent: () =>
+            import('./pages/register/register.component').then(m => m.RegisterComponent),
+    },
+
+    // Pages JockeCorp
+    {
+        path: 'certificats',
+        loadComponent: () =>
+            import('./pages/certificats/certificats.component').then(
+                m => m.CertificatsComponent
+            ),
+    },
+    {
+        path: 'dossier',
+        loadComponent: () =>
+            import('./pages/dossier-existentiel/dossier-existentiel.component').then(
+                m => m.DossierExistentielComponent
+            ),
+    },
+    {
+        path: 'deculpabilisation',
+        loadComponent: () =>
+            import('./pages/deculpabilisation/deculpabilisation.component').then(
+                m => m.DeculpabilisationComponent
+            ),
+    },
+    {
+        path: 'formations',
+        loadComponent: () =>
+            import('./pages/formations-inutiles/formations-inutiles.component').then(
+                m => m.FormationsInutilesComponent
+            ),
+    },
+    {
+        path: 'anomalies',
+        loadComponent: () =>
+            import('./pages/observatoire-anomalies/observatoire-anomalies.component').then(
+                m => m.ObservatoireAnomaliesComponent
+            ),
+    },
+
+    // 404
+    {
+        path: '**',
+        loadComponent: () =>
+            import('./pages/not-found/not-found.component').then(
+                m => m.NotFoundComponent
+            ),
+    },
 ];
+
