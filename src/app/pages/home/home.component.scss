@@ -1,0 +1,317 @@
+:host {
+  display: block;
+  min-height: 100dvh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Canvas p5 derrière tout */
+.p5-host {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+/* 4) Bannière */
+.banniere-kafka {
+  position: fixed;
+  inset: 0 0 auto 0;
+  padding: calc(10px + var(--safe-top)) 16px 10px 16px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25)), #000;
+  color: #fff;
+  font-size: var(--fs-xs);
+  text-align: center;
+  letter-spacing: 0.3px;
+  z-index: 999;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+/* 5) Messages */
+#message-container .message {
+  position: absolute;
+  max-width: min(90vw, 34rem);
+  padding: 0.85em 1.05em;
+  background: rgba(255, 255, 255, 0.9);
+  color: #0e1116;
+  border-radius: var(--r-sm);
+  box-shadow: 0.2em 0.2em 0.8em #0002;
+  font-size: var(--fs-sm);
+  opacity: 0;
+  transition: opacity 260ms ease-out;
+}
+@media (prefers-color-scheme: dark) {
+  #message-container .message {
+    background: rgba(18, 19, 24, 0.9);
+    color: var(--ink);
+    box-shadow: 0.2em 0.2em 0.8em #0006;
+  }
+}
+
+/* Zone relative pour les messages absolus */
+#message-container {
+  position: relative;
+  height: 40vh;
+}
+
+/* 6) Secret modal */
+#secret-message {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  padding: 1.1em 1.6em;
+  background: rgba(0, 0, 0, 0.86);
+  color: #fff;
+  border-radius: var(--r-md);
+  font-size: var(--fs-md);
+  z-index: 1000;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 7) Chrono */
+#timer {
+  position: fixed;
+  right: calc(3vw + var(--safe-right));
+  bottom: calc(10vh + var(--safe-bottom));
+  font-size: var(--fs-xxs);
+  background: rgba(255, 255, 255, 0.9);
+  color: #0e1116;
+  padding: 0.6em 1em;
+  border-radius: var(--r-sm);
+  box-shadow: 0 0 0.4em #0003;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  z-index: 998;
+}
+@media (prefers-color-scheme: dark) {
+  #timer {
+    background: rgba(18, 19, 24, 0.9);
+    color: var(--ink);
+    box-shadow: 0 0 0.4em #0008;
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* 8) Aide */
+.help-bubble {
+  position: fixed;
+  left: calc(2vw + var(--safe-left));
+  bottom: calc(15vh + var(--safe-bottom));
+  display: grid;
+  place-items: center;
+  width: 2.6em;
+  height: 2.6em;
+  font-size: var(--fs-lg);
+  background: rgba(255, 255, 255, 0.88);
+  color: #0e1116;
+  border-radius: 50%;
+  cursor: help;
+  box-shadow: 0 0 0.5em #0003;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  user-select: none;
+  z-index: 998;
+}
+@media (prefers-color-scheme: dark) {
+  .help-bubble {
+    background: rgba(18, 19, 24, 0.92);
+    color: var(--ink);
+    box-shadow: 0 0 0.5em #0009;
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.help-text {
+  position: fixed;
+  left: calc(2vw + var(--safe-left));
+  bottom: calc(22vh + var(--safe-bottom));
+  max-width: min(80vw, 40rem);
+  font-size: var(--fs-xs);
+  background: rgba(0, 0, 0, 0.86);
+  color: #fff;
+  padding: 0.85em 1.05em;
+  border-radius: var(--r-sm);
+  box-shadow: 0 0 0.5em #0006;
+  z-index: 998;
+}
+
+/* 9) Consentement */
+.consent {
+  position: fixed;
+  inset: auto 0 0 0;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  color: #0e1116;
+  padding: 0.55em calc(1em + var(--safe-right))
+    calc(0.55em + var(--safe-bottom)) calc(1em + var(--safe-left));
+  font-size: var(--fs-xxs);
+  font-style: italic;
+  box-shadow: 0 -0.1em 0.4em #0003;
+  z-index: 9999;
+  border-top: 1px dashed rgba(0, 0, 0, 0.12);
+}
+@media (prefers-color-scheme: dark) {
+  .consent {
+    background: rgba(18, 19, 24, 0.94);
+    color: var(--ink);
+    box-shadow: 0 -0.1em 0.4em #0009;
+    border-top-color: rgba(255, 255, 255, 0.12);
+  }
+}
+
+/* 10) Contact */
+.contact {
+  position: fixed;
+  left: 50%;
+  bottom: calc(6vh + var(--safe-bottom));
+  translate: -50% 0;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0e1116;
+  padding: 0.75em 1.2em;
+  border-radius: var(--r-sm);
+  font-size: var(--fs-xxs);
+  box-shadow: 0 0 0.5em #0002;
+  font-style: italic;
+  z-index: 10;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+.contact a {
+  color: #111;
+  text-decoration: underline;
+}
+@media (prefers-color-scheme: dark) {
+  .contact {
+    background: rgba(18, 19, 24, 0.95);
+    color: var(--ink);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  .contact a {
+    color: #e7e9ee;
+  }
+}
+
+/* 11) Carte permanente vers l’app */
+@keyframes cardFloat {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-4px);
+  }
+}
+
+.jc-permanent {
+  position: fixed;
+  right: calc(14px + var(--safe-right));
+  top: calc(72px + var(--safe-top));
+  z-index: 1000;
+
+  display: grid;
+  gap: var(--gap);
+  align-content: start;
+
+  background: var(--paper);
+  border: 2px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--pad-card);
+  box-shadow: var(--shadow);
+
+  max-width: 340px;
+
+  -webkit-backdrop-filter: saturate(1.05) blur(0px);
+  backdrop-filter: saturate(1.05) blur(0px);
+}
+@supports (
+  (-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))
+) {
+  .jc-permanent {
+    -webkit-backdrop-filter: saturate(1.05) blur(var(--glass-blur));
+    backdrop-filter: saturate(1.05) blur(var(--glass-blur));
+  }
+}
+.jc-permanent__title {
+  font-size: var(--fs-lg);
+  font-weight: 900;
+  letter-spacing: 0.4px;
+  line-height: 1.15;
+  color: var(--ink);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+.jc-permanent__subtitle {
+  font-size: var(--fs-xs);
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+.jc-permanent__cta {
+  justify-self: start;
+  display: inline-grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  color: var(--accent-contrast);
+  background: var(--accent);
+  border: none;
+  border-radius: calc(var(--r-sm) + 2px);
+  padding: 10px 14px;
+  cursor: pointer;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.28), 0 10px 18px rgba(6, 182, 212, 0.28);
+  transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+}
+.jc-permanent__cta:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25), 0 14px 22px rgba(6, 182, 212, 0.38);
+}
+.jc-permanent__cta:active {
+  transform: translateY(0);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.25), 0 8px 14px rgba(6, 182, 212, 0.3);
+}
+.jc-permanent__cta:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+  box-shadow: var(--glow), 0 3px 0 rgba(0, 0, 0, 0.28);
+}
+.jc-permanent:has(.jc-permanent__cta:hover) {
+  border-color: color-mix(in srgb, var(--border) 70%, var(--stamp));
+}
+@media (prefers-reduced-motion: no-preference) {
+  .jc-permanent:hover {
+    animation: cardFloat 2.2s ease-in-out infinite alternate;
+  }
+}
+@media (max-width: 560px) {
+  .jc-permanent {
+    left: 50%;
+    translate: -50% 0;
+    right: auto;
+    top: calc(64px + var(--safe-top));
+    width: min(92vw, 340px);
+  }
+}
+.jc-permanent.jc-permanent--bottom {
+  top: auto;
+  bottom: calc(16px + var(--safe-bottom));
+}
+
+/* +) Bouton fixe (manquait dans le CSS initial) */
+.jc-btn-fixed {
+  position: fixed;
+  right: calc(16px + var(--safe-right));
+  bottom: calc(16px + var(--safe-bottom));
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border-radius: 9999px;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: var(--fs-xs);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+}
+.jc-btn-fixed:hover {
+  filter: brightness(1.05);
+}
+.jc-btn-label {
+  pointer-events: none;
+}

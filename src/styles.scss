@@ -1,0 +1,134 @@
+/* =======================
+   GLOBAL (Angular app)
+   ======================= */
+
+/* 1) Variables */
+:root {
+  --bg: #0f1014;
+  --paper: #f4f5f7;
+  --ink: #101114;
+  --ink-muted: #3b3f46;
+  --border: #0e0f12;
+  --shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
+
+  --accent: #ef4444;
+  --accent-contrast: #0b0d10;
+
+  --stamp: #ff6b6b;
+
+  --fs-xxs: clamp(0.75rem, 0.65rem + 0.3vw, 0.85rem);
+  --fs-xs: clamp(0.85rem, 0.75rem + 0.3vw, 0.95rem);
+  --fs-sm: clamp(0.95rem, 0.8rem + 0.5vw, 1.05rem);
+  --fs-md: clamp(1.08rem, 0.9rem + 0.7vw, 1.25rem);
+  --fs-lg: clamp(1.35rem, 1.1rem + 1.2vw, 1.85rem);
+
+  --r-xs: 8px;
+  --r-sm: 12px;
+  --r-md: 14px;
+  --pad-card: 14px 16px;
+  --gap: 10px;
+
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+
+  --glass-blur: 8px;
+  --focus: #3b82f6;
+  --glow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+
+  --grid-color: rgba(255, 255, 255, 0.08);
+  --grid-size: 28px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0c10;
+    --paper: rgba(18, 19, 24, 0.75);
+    --ink: #e7e9ee;
+    --ink-muted: #b6bac2;
+    --border: #e9eaee;
+    --shadow: 0 14px 36px rgba(0, 0, 0, 0.55);
+
+    --accent: #22d3ee;
+    --accent-contrast: #0b0d10;
+
+    --grid-color: rgba(255, 255, 255, 0.06);
+  }
+}
+
+/* 2) Reset & base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", monospace;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.45;
+  font-size: var(--fs-sm);
+  overflow: hidden; /* plein écran, p5 en fond */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  /* grille décorative */
+  background-image: linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size),
+    var(--grid-size) var(--grid-size);
+  background-position: center center;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  box-shadow: var(--glow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* 3) Utilitaires globaux */
+.hidden {
+  display: none !important;
+}
+.shadow {
+  box-shadow: var(--shadow) !important;
+}
+.rounded {
+  border-radius: var(--r-sm) !important;
+}
+.border {
+  border: 2px solid var(--border) !important;
+}
+
+/* 12) Thèmes alternatifs (globaux) */
+:root[data-theme="canary"] {
+  --accent: #ffd43b;
+  --accent-contrast: #111;
+  --paper: #f7f6f1;
+  --ink: #0f1115;
+  --ink-muted: #4b4f57;
+}
+:root[data-theme="stamp"] {
+  --accent: #ef4444;
+  --accent-contrast: #fff;
+}
+:root[data-theme="mint"] {
+  --accent: #22c55e;
+  --accent-contrast: #0b0d10;
+}

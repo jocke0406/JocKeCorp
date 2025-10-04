@@ -1,0 +1,38 @@
+<!-- Canvas p5 derrière tout -->
+<div #p5Host class="p5-host" aria-hidden="true"></div>
+
+<div class="banniere-kafka">🛠️ Construction lente mais certaine — Merci de ne rien faire — JocKeCorp™</div>
+
+<section class="jc-permanent" aria-labelledby="jc-title" aria-describedby="jc-subtitle">
+    <h1 id="jc-title" class="jc-permanent__title">JocKeCorp™;</h1>
+    <p id="jc-subtitle" class="jc-permanent__subtitle">
+        Service central de l’Inutile Certifié.<br />
+        Rien ne sert à rien. Nous l’attestons.
+    </p>
+    <a class="jc-permanent__cta" routerLink="/login">inside the Jocke's side</a>
+</section>
+
+<div id="message-container">
+    <div *ngFor="let m of liveMessages" class="message" [ngStyle]="m.style">{{ m.text }}</div>
+</div>
+
+<div class="contact">
+    📧 Une acclamation ? Une illumination ? Une interrogation ?
+    <a href="mailto:jockecorp&#64;proximus.be">jockecorp&#64;proximus.be</a>
+</div>
+
+<div id="secret-message" class="secret" [class.hidden]="!secretVisible">
+    🔒 Espace confidentiel de la vacuité.
+</div>
+
+<div id="timer">Session d'inaction : <span>{{ chrono$() }}</span></div>
+
+<div class="help-bubble" title="Besoin d’aide inutile ?" (mouseenter)="toggleHelp(true)"
+    (mouseleave)="toggleHelp(false)">❓</div>
+<div class="help-text" [class.hidden]="!helpVisible">Aucune réponse valide.</div>
+
+<div class="consent">🍪 En restant ici, vous acceptez de ne pas savoir pourquoi.</div>
+
+<a routerLink="/app" class="jc-btn-fixed" aria-label="Entrer dans l’application JocKeCorp">
+    <span class="jc-btn-label">Entrer</span>
+</a>
