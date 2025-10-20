@@ -1,16 +1,28 @@
 <!-- Canvas p5 derrière tout -->
 <div #p5Host class="p5-host" aria-hidden="true"></div>
 
-<div class="banniere-kafka">🛠️ Construction lente mais certaine — Merci de ne rien faire — JocKeCorp™</div>
+
 
 <section class="jc-permanent" aria-labelledby="jc-title" aria-describedby="jc-subtitle">
-    <h1 id="jc-title" class="jc-permanent__title">JocKeCorp™;</h1>
+    <h1 id="jc-title" class="jc-permanent__title">JocKeCorp™</h1>
     <p id="jc-subtitle" class="jc-permanent__subtitle">
         Service central de l’Inutile Certifié.<br />
         Rien ne sert à rien. Nous l’attestons.
     </p>
-    <a class="jc-permanent__cta" routerLink="/login">inside the Jocke's side</a>
+
+    <!-- ✅ Si non connecté -->
+    <a *ngIf="!isConnected()" class="jc-permanent__cta" routerLink="/login">
+        inside the Jocke’s side
+    </a>
+
+    <!-- ✅ Si connecté -->
+    <button *ngIf="isConnected()" class="jc-permanent__cta" type="button" (click)="logout()">
+        Exit the Bureau
+    </button>
 </section>
+
+
+
 
 <div id="message-container">
     <div *ngFor="let m of liveMessages" class="message" [ngStyle]="m.style">{{ m.text }}</div>

@@ -1,17 +1,22 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component'; // Home reste eager pour l'instant
+import { authCanMatch, authCanActivate, guestOnlyCanMatch } from './core/guards/auth.guard';
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent }, // Page d’accueil, chargée directement
+    { path: '', component: HomeComponent },
 
     // Auth
     {
         path: 'login',
+        title: 'Connexion — JocKeCorp',
+        canMatch: [guestOnlyCanMatch],
         loadComponent: () =>
             import('./pages/login/login.component').then(m => m.LoginComponent),
     },
     {
         path: 'register',
+        title: 'Créer un compte — JocKeCorp',
+        canMatch: [guestOnlyCanMatch],
         loadComponent: () =>
             import('./pages/register/register.component').then(m => m.RegisterComponent),
     },
@@ -19,6 +24,8 @@ export const routes: Routes = [
     // Pages JockeCorp
     {
         path: 'certificats',
+        canMatch: [authCanMatch],
+        canActivate: [authCanActivate],
         loadComponent: () =>
             import('./pages/certificats/certificats.component').then(
                 m => m.CertificatsComponent
@@ -26,6 +33,8 @@ export const routes: Routes = [
     },
     {
         path: 'dossier',
+        canMatch: [authCanMatch],
+        canActivate: [authCanActivate],
         loadComponent: () =>
             import('./pages/dossier-existentiel/dossier-existentiel.component').then(
                 m => m.DossierExistentielComponent
@@ -33,13 +42,36 @@ export const routes: Routes = [
     },
     {
         path: 'deculpabilisation',
+        canMatch: [authCanMatch],
+        canActivate: [authCanActivate],
         loadComponent: () =>
             import('./pages/deculpabilisation/deculpabilisation.component').then(
                 m => m.DeculpabilisationComponent
             ),
     },
+
+    // ⚙️ Nouvelles pages
+    {
+        path: 'auth/forgot-password',
+        title: 'Mot de passe oublié — JocKeCorp',
+        loadComponent: () =>
+            import('./pages/forgot-password/forgot-password.component').then(
+                m => m.ForgotPasswordComponent
+            ),
+    },
+    {
+        path: 'auth/reset-password',
+        title: 'Réinitialiser le mot de passe — JocKeCorp',
+        loadComponent: () =>
+            import('./pages/reset-password/reset-password.component').then(
+                m => m.ResetPasswordComponent
+            ),
+    },
+
     {
         path: 'formations',
+        canMatch: [authCanMatch],
+        canActivate: [authCanActivate],
         loadComponent: () =>
             import('./pages/formations-inutiles/formations-inutiles.component').then(
                 m => m.FormationsInutilesComponent
@@ -47,10 +79,29 @@ export const routes: Routes = [
     },
     {
         path: 'anomalies',
+        canMatch: [authCanMatch],
+        canActivate: [authCanActivate],
         loadComponent: () =>
             import('./pages/observatoire-anomalies/observatoire-anomalies.component').then(
                 m => m.ObservatoireAnomaliesComponent
             ),
+    },
+    {
+        path: 'auth/verify-email',
+        title: 'Vérification email — JocKeCorp',
+        loadComponent: () =>
+            import('./pages/verify-email/verify-email.component').then(
+                m => m.VerifyEmailComponent
+            ),
+    },
+
+    {
+        path: 'welcome',
+        title: 'Bienvenue — JocKeCorp',
+        canMatch: [authCanMatch],
+        canActivate: [authCanActivate],
+        loadComponent: () =>
+            import('./pages/welcome/welcome.component').then(m => m.WelcomeComponent),
     },
 
     // 404
@@ -62,4 +113,3 @@ export const routes: Routes = [
             ),
     },
 ];
-

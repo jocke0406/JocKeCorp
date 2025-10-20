@@ -1,0 +1,43 @@
+.welcome {
+  padding: 24px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.lead {
+  margin: 8px 0 18px;
+  font-size: var(--fs-md);
+}
+
+.alias {
+  padding: 3px 8px;
+  border-radius: var(--r-xs);
+  border: 2px solid var(--border);
+  display: inline-block;
+  margin-left: 6px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 12px 0 4px;
+}
+
+.btn {
+  appearance: none;
+  border: 2px solid var(--border);
+  background: var(--accent);
+  color: var(--accent-contrast);
+  padding: 8px 14px;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.hint {
+  margin-top: 10px;
+  font-size: var(--fs-xs);
+  color: var(--ink-muted);
+}

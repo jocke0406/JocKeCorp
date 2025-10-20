@@ -1,1 +1,48 @@
-<p>register works!</p>
+<section class="login shadow rounded border">
+    <h1>Créer un compte</h1>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+        <label class="field">
+            <span>Nom d'affichage (optionnel)</span>
+            <input type="text" formControlName="display_name" placeholder="Le Greffier de l’Inutile" />
+        </label>
+
+        <label class="field">
+            <span>Email</span>
+            <input type="email" inputmode="email" autocomplete="email" formControlName="email"
+                [class.invalid]="showInvalid('email')" placeholder="nom@domaine.tld" />
+            <small *ngIf="showInvalid('email')">{{ emailError() }}</small>
+        </label>
+
+        <label class="field">
+            <span>Mot de passe</span>
+            <input type="password" autocomplete="new-password" formControlName="password"
+                [class.invalid]="showInvalid('password')" placeholder="••••••••" />
+            <small *ngIf="showInvalid('password')">{{ passwordError() }}</small>
+        </label>
+
+        <label class="field">
+            <span>Confirmer le mot de passe</span>
+            <input type="password" autocomplete="new-password" formControlName="confirm"
+                [class.invalid]="showConfirmMismatch()" placeholder="••••••••" />
+            <small *ngIf="showConfirmMismatch()">Les mots de passe ne correspondent pas.</small>
+        </label>
+
+        <label class="field">
+            <span>Rôle</span>
+            <select formControlName="role">
+                <option *ngFor="let r of roles" [value]="r">{{ r }}</option>
+            </select>
+        </label>
+
+        <button class="btn" type="submit" [disabled]="pending() || form.invalid">
+            {{ pending() ? 'Création…' : 'Créer le compte' }}
+        </button>
+
+        <p class="hint" *ngIf="errMsg()">{{ errMsg() }}</p>
+    </form>
+
+    <p class="register-link" style="margin-top:12px;font-size:var(--fs-xs);">
+        Déjà inscrit ? <a routerLink="/login">Se connecter</a>
+    </p>
+</section>

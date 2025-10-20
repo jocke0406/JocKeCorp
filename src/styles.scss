@@ -71,8 +71,9 @@ body {
 
 body {
   margin: 0;
-  font-family: "Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, "Liberation Mono", monospace;
+  font-family:
+    'Share Tech Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    monospace;
   color: var(--ink);
   background: var(--bg);
   line-height: 1.45;
@@ -82,9 +83,11 @@ body {
   text-rendering: optimizeLegibility;
 
   /* grille décorative */
-  background-image: linear-gradient(var(--grid-color) 1px, transparent 1px),
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-  background-size: var(--grid-size) var(--grid-size),
+  background-size:
+    var(--grid-size) var(--grid-size),
     var(--grid-size) var(--grid-size);
   background-position: center center;
 }
@@ -117,18 +120,18 @@ body {
 }
 
 /* 12) Thèmes alternatifs (globaux) */
-:root[data-theme="canary"] {
+:root[data-theme='canary'] {
   --accent: #ffd43b;
   --accent-contrast: #111;
   --paper: #f7f6f1;
   --ink: #0f1115;
   --ink-muted: #4b4f57;
 }
-:root[data-theme="stamp"] {
+:root[data-theme='stamp'] {
   --accent: #ef4444;
   --accent-contrast: #fff;
 }
-:root[data-theme="mint"] {
+:root[data-theme='mint'] {
   --accent: #22c55e;
   --accent-contrast: #0b0d10;
 }

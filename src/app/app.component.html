@@ -1,5 +1,10 @@
 <header class="jc-header">
-  <a class="brand" routerLink="/">JockeCorp&#8482;</a>
+  <a class="brand" routerLink="/">
+    JockeCorp&#8482;
+    <span *ngIf="isConnected() && currentAlias()" class="alias">
+      — {{ currentAlias() }}
+    </span>
+  </a>
   <nav class="nav">
     <a routerLink="/certificats" routerLinkActive="active">Certificats</a>
     <a routerLink="/dossier" routerLinkActive="active">Dossier</a>
@@ -8,9 +13,12 @@
     <a routerLink="/anomalies" routerLinkActive="active">Anomalies</a>
   </nav>
 </header>
+
 <main class="container">
+  <p-toast></p-toast>
   <router-outlet />
 </main>
+
 <footer class="jc-footer">
   <small>© Service des Dates Provisoires — 1893*–aujourd’hui* (*susceptible de changer)</small>
 </footer>

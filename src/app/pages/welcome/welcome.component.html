@@ -1,0 +1,21 @@
+<section class="welcome shadow rounded border">
+    <h1>Bienvenue au Bureau</h1>
+
+    <p class="lead">
+        Bonjour, <strong>{{ displayName() }}</strong>.
+        <br />
+        Conformément au protocole KafkaCorp, votre identité opérationnelle du jour est :
+        <span class="alias" *ngIf="alias(); else loading">{{ alias() }}</span>
+        <ng-template #loading>génération en cours…</ng-template>
+    </p>
+
+    <div class="actions">
+        <a class="btn" routerLink="/">Aller au Hall d’accueil</a>
+        <a class="btn" routerLink="/certificats">Consulter les certificats</a>
+        <a class="btn" routerLink="/anomalies">Observer les anomalies</a>
+    </div>
+
+    <p class="hint">
+        Astuce : votre alias s’affiche aussi en haut à gauche, à côté de <em>JockeCorp™</em>.
+    </p>
+</section>

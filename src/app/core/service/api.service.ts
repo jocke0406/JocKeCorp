@@ -1,34 +1,54 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { ENV } from '../../env';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { ENV } from '../../env'; // adapte le chemin selon où est ton env.ts
+
+type Primitive = string | number | boolean | null | undefined;
+
+function ensureApiBaseUrl(): string {
+    const url = ENV?.apiBase as string | undefined;
+    if (!url) {
+        throw new Error('ENV.apiBase manquant. Défini-le dans env.ts (ex: apiBase: "https://api.jocke.be").');
+    }
+    return url.replace(/\/+$/, '');
+}
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
-    private http = inject(HttpClient);
-    private base = ENV.apiBase;
-    private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    private readonly http = inject(HttpClient);
+    private readonly base = ensureApiBaseUrl();
 
-    get<T>(path: string, params?: Record<string, any>): Observable<T> {
-        return this.http.get<T>(`${this.base}${path}`, { params, headers: this.headers })
-            .pipe(catchError(this.handle));
-    }
-    post<T>(path: string, body: unknown): Observable<T> {
-        return this.http.post<T>(`${this.base}${path}`, body, { headers: this.headers })
-            .pipe(catchError(this.handle));
-    }
-    patch<T>(path: string, body: unknown): Observable<T> {
-        return this.http.patch<T>(`${this.base}${path}`, body, { headers: this.headers })
-            .pipe(catchError(this.handle));
-    }
-    delete<T>(path: string): Observable<T> {
-        return this.http.delete<T>(`${this.base}${path}`, { headers: this.headers })
-            .pipe(catchError(this.handle));
+    private paramsFrom(obj?: Record<string, Primitive>): HttpParams | undefined {
+        if (!obj) return undefined;
+        let p = new HttpParams();
+        for (const [k, v] of Object.entries(obj)) {
+            if (v === undefined || v === null) continue;
+            p = p.set(k, String(v));
+        }
+        return p;
     }
 
-    private handle(err: HttpErrorResponse) {
-        console.error('❌ API error:', err);
-        return throwError(() => err);
+    private url(path: string): string {
+        return `${this.base}${path.startsWith('/') ? path : '/' + path}`;
+    }
+
+    get<TResponse>(path: string, opts?: { params?: Record<string, Primitive>; headers?: Record<string, string> }): Observable<TResponse> {
+        return this.http.get<TResponse>(this.url(path), { params: this.paramsFrom(opts?.params), headers: opts?.headers });
+    }
+
+    post<TResponse, TBody = unknown>(path: string, body: TBody, opts?: { params?: Record<string, Primitive>; headers?: Record<string, string> }): Observable<TResponse> {
+        return this.http.post<TResponse>(this.url(path), body, { params: this.paramsFrom(opts?.params), headers: opts?.headers });
+    }
+
+    put<TResponse, TBody = unknown>(path: string, body: TBody, opts?: { params?: Record<string, Primitive>; headers?: Record<string, string> }): Observable<TResponse> {
+        return this.http.put<TResponse>(this.url(path), body, { params: this.paramsFrom(opts?.params), headers: opts?.headers });
+    }
+
+    patch<TResponse, TBody = unknown>(path: string, body: TBody, opts?: { params?: Record<string, Primitive>; headers?: Record<string, string> }): Observable<TResponse> {
+        return this.http.patch<TResponse>(this.url(path), body, { params: this.paramsFrom(opts?.params), headers: opts?.headers });
+    }
+
+    delete<TResponse>(path: string, opts?: { params?: Record<string, Primitive>; headers?: Record<string, string> }): Observable<TResponse> {
+        return this.http.delete<TResponse>(this.url(path), { params: this.paramsFrom(opts?.params), headers: opts?.headers });
     }
 }

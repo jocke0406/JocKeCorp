@@ -1,0 +1,14 @@
+<section class="login shadow rounded border">
+    <h1>Vérification de l'email</h1>
+
+    <p *ngIf="state() === 'pending'">Vérification en cours…</p>
+    <p *ngIf="state() === 'ok'" class="ok">Email vérifié ✅ Redirection vers la connexion…</p>
+    <ng-container *ngIf="state() === 'err'">
+        <p class="err">{{ errorMsg() }}</p>
+        <div class="actions">
+            <button class="btn" (click)="resend()" [disabled]="resending()">Renvoyer l’email</button>
+            <a routerLink="/login" class="btn">Aller à la connexion</a>
+        </div>
+        <p *ngIf="resendMsg()" class="info">{{ resendMsg() }}</p>
+    </ng-container>
+</section>

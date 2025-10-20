@@ -1,0 +1,36 @@
+.login {
+  max-width: 560px;
+  margin: clamp(24px, 6vh, 64px) auto;
+  padding: 20px;
+  background: var(--paper);
+  color: var(--ink);
+}
+.actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.btn {
+  padding: 10px 14px;
+  border: 2px solid var(--border);
+  border-radius: var(--r-sm);
+  background: #fff;
+  color: var(--ink);
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn.primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+.ok {
+  color: #16a34a;
+}
+.err {
+  color: #ef4444;
+}
+.info {
+  font-size: var(--fs-xs);
+  margin-top: 6px;
+}

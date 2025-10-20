@@ -4,9 +4,10 @@
   justify-content: space-between;
   padding: 12px 20px;
   border-bottom: 1px solid #eee;
-  position: sticky;
+  position: relative;
   top: 0;
   background: #fff;
+  z-index: 2;
 }
 .brand {
   font-weight: 800;
@@ -29,6 +30,8 @@
   max-width: 1000px;
   margin: 24px auto;
   padding: 0 20px;
+  position: relative;
+  z-index: 1;
 }
 .jc-footer {
   border-top: 1px solid #eee;

@@ -6,23 +6,30 @@ import {
   OnDestroy,
   ViewChild,
   signal,
-  inject
+  inject, computed
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import type P5 from 'p5';
 import { palettes, type Palette } from '../../shared/palettes';
+import { AuthService } from '../../core/service/auth.service';
+import { MessageService } from 'primeng/api'; // pour le petit toast de sortie (optionnel)
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, ToastModule, RouterModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
   // ✅ injection moderne Angular 19
   private zone = inject(NgZone);
+  private readonly auth = inject(AuthService);
+  private readonly router = inject(Router);
+  private readonly msg = inject(MessageService);
+  isConnected = computed(() => this.auth.isAuthenticated());
 
   // === p5
   @ViewChild('p5Host', { static: true }) p5Host!: ElementRef<HTMLDivElement>;
@@ -114,6 +121,17 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
         });
       }, 1000);
     }, 6500);
+  }
+
+  logout() {
+    this.auth.clear();
+    this.msg.add({
+      severity: 'info',
+      summary: 'Déconnexion',
+      detail: 'Le Bureau vous oubliera... jusqu’à votre prochain retour.',
+      life: 3500,
+    });
+    setTimeout(() => this.router.navigateByUrl('/login'), 300);
   }
 
   private async mountP5() {

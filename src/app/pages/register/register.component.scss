@@ -1,0 +1,64 @@
+/* Tu peux laisser vide si tout est global */
+.login {
+  max-width: 480px;
+  margin: clamp(24px, 6vh, 64px) auto;
+  padding: 20px;
+  background: var(--paper);
+  color: var(--ink);
+}
+.field {
+  display: grid;
+  gap: 6px;
+  margin-top: 8px;
+}
+.field span {
+  font-size: var(--fs-xs);
+  color: var(--ink-muted);
+}
+input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--r-sm);
+  border: 2px solid var(--border);
+  background: #fff;
+  color: #0b0d10;
+  font-size: var(--fs-sm);
+}
+input.invalid {
+  border-color: #ef4444;
+}
+small {
+  color: #ef4444;
+  font-size: var(--fs-xxs);
+}
+.btn {
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: var(--r-sm);
+  border: 2px solid var(--border);
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.hint {
+  margin-top: 6px;
+  font-size: var(--fs-xs);
+  color: #ef4444;
+}
+.hint.ok {
+  color: #16a34a;
+}
+.tiny {
+  margin-top: 6px;
+  font-size: var(--fs-xxs);
+  color: var(--ink-muted);
+}
+a {
+  color: var(--ink);
+  text-decoration-color: var(--ink-muted);
+}
