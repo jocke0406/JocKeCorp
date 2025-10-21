@@ -15,11 +15,12 @@ export const routes: Routes = [
     },
     {
         path: 'register',
-        title: 'Créer un compte — JocKeCorp',
-        canMatch: [guestOnlyCanMatch],
+        title: 'Inscriptions fermées — JocKeCorp',
         loadComponent: () =>
-            import('./pages/register/register.component').then(m => m.RegisterComponent),
+            import('./pages/register-closed/register-closed.component')
+                .then(m => m.RegisterClosedComponent),
     },
+
 
     // Pages JockeCorp
     {

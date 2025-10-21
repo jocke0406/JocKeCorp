@@ -1,0 +1,56 @@
+.reg-closed {
+  padding: 24px;
+  background: var(--paper);
+  color: var(--ink);
+  max-width: 720px;
+  margin: 24px auto;
+
+  h1 {
+    margin: 0 0 8px 0;
+    font-size: var(--fs-lg);
+  }
+
+  .subtitle {
+    margin: 0 0 16px 0;
+    color: var(--ink-muted);
+    font-size: var(--fs-sm);
+  }
+
+  .card {
+    border: 2px solid var(--border);
+    border-radius: var(--r-sm);
+    padding: 14px 16px;
+    background: color-mix(in oklab, var(--paper), black 3%);
+
+    p {
+      margin: 8px 0;
+    }
+    a {
+      font-weight: 600;
+      text-decoration: underline;
+    }
+  }
+
+  .actions {
+    margin-top: 14px;
+
+    .btn {
+      appearance: none;
+      display: inline-block;
+      border: 2px solid var(--border);
+      background: var(--accent);
+      color: var(--accent-contrast);
+      padding: 8px 14px;
+      border-radius: var(--r-sm);
+      text-decoration: none;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+
+  .footnote {
+    margin-top: 14px;
+    font-size: var(--fs-xs);
+    color: var(--ink-muted);
+  }
+}

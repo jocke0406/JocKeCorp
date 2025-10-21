@@ -106,12 +106,15 @@ export class LoginComponent {
         next: async (user) => {
           // ✅ mets à jour l’état global d’auth: l’UI bascule sans reload
           this.auth.setUser(user);
+          console.log('[DEBUG] display_name reçu du back:', user.display_name);
 
           // Choix du nom d’affichage — jamais l’email
+          const rawName = (user.display_name || '').trim();
           const name =
-            (user.display_name && user.display_name.trim()) ||
-            (localStorage.getItem('jocke:last-display')?.trim() || '') ||
-            'Initié de l’Inutile';
+            (rawName && !rawName.includes('@'))
+              ? rawName
+              : (localStorage.getItem('jocke:last-display')?.trim() || 'Initié de l’Inutile');
+
           localStorage.setItem('jocke:last-display', name);
 
           // Alias KafkaCorp (à partir de /names.txt dans public/)
