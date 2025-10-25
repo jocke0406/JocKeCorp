@@ -94,12 +94,13 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     if (this.p5) this.p5.remove();
   }
 
+
   private keyHandler = (e: KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === 'Escape') this.revealSecret();
   };
   private clickHandler = () => this.revealSecret();
 
-  private revealSecret() {
+  revealSecret() {
     this.secretVisible = true;
     setTimeout(() => (this.secretVisible = false), 5000);
   }
@@ -122,6 +123,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       }, 1000);
     }, 6500);
   }
+
 
   logout() {
     this.auth.clear();

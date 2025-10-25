@@ -1,8 +1,6 @@
 <!-- Canvas p5 derrière tout -->
 <div #p5Host class="p5-host" aria-hidden="true"></div>
 
-
-
 <section class="jc-permanent" aria-labelledby="jc-title" aria-describedby="jc-subtitle">
     <h1 id="jc-title" class="jc-permanent__title">JocKeCorp™</h1>
     <p id="jc-subtitle" class="jc-permanent__subtitle">
@@ -10,37 +8,44 @@
         Rien ne sert à rien. Nous l’attestons.
     </p>
 
-    <!-- ✅ Si non connecté -->
+    <!-- ✅ On garde ton texte culte -->
     <a *ngIf="!isConnected()" class="jc-permanent__cta" routerLink="/login">
         inside the Jocke’s side
     </a>
 
-    <!-- ✅ Si connecté -->
     <button *ngIf="isConnected()" class="jc-permanent__cta" type="button" (click)="logout()">
         Exit the Bureau
     </button>
 </section>
 
-
-
-
-<div id="message-container">
-    <div *ngFor="let m of liveMessages" class="message" [ngStyle]="m.style">{{ m.text }}</div>
+<!-- Messages dynamiques -->
+<div id="message-container" role="region" aria-live="polite" aria-atomic="false">
+    <p *ngFor="let m of liveMessages" class="message" [ngStyle]="m.style">{{ m.text }}</p>
 </div>
 
+<!-- Contact : version fun mais directe -->
 <div class="contact">
     📧 Une acclamation ? Une illumination ? Une interrogation ?
     <a href="mailto:jockecorp&#64;proximus.be">jockecorp&#64;proximus.be</a>
 </div>
 
+<!-- Secret : toujours présent -->
+<button type="button" class="secret-trigger" (click)="revealSecret()" aria-controls="secret-message"
+    [attr.aria-expanded]="secretVisible">
+    🔒 Débloquer le néant
+</button>
+
 <div id="secret-message" class="secret" [class.hidden]="!secretVisible">
-    🔒 Espace confidentiel de la vacuité.
+    Espace confidentiel de la vacuité.
 </div>
 
 <div id="timer">Session d'inaction : <span>{{ chrono$() }}</span></div>
 
-<div class="help-bubble" title="Besoin d’aide inutile ?" (mouseenter)="toggleHelp(true)"
-    (mouseleave)="toggleHelp(false)">❓</div>
-<div class="help-text" [class.hidden]="!helpVisible">Aucune réponse valide.</div>
+<button class="help-bubble" type="button" [attr.aria-expanded]="helpVisible" (mouseenter)="toggleHelp(true)"
+    (mouseleave)="toggleHelp(false)" (click)="toggleHelp(!helpVisible)">
+    ❓
+</button>
 
-<div class="consent">🍪 En restant ici, vous acceptez de ne pas savoir pourquoi.</div>
+<p id="help-text" class="help-text" [class.hidden]="!helpVisible">
+    Aucune réponse valide.
+</p>

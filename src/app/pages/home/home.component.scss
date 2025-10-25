@@ -2,7 +2,8 @@
   display: block;
   min-height: 100dvh;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  padding-bottom: 12px;
 }
 
 /* Canvas p5 derrière tout */
@@ -310,4 +311,67 @@
 }
 .jc-btn-label {
   pointer-events: none;
+}
+
+/* ===========================
+   ✅ Mode mobile (≤ 560px)
+   - On remet les éléments "fixes" dans le flux
+   - On évite tous les chevauchements
+   =========================== */
+@media (max-width: 560px) {
+  /* Carte permanente : déjà gérée (position statique via ta règle existante), on affine */
+  .jc-permanent {
+    position: static !important;
+    inset: auto !important;
+    translate: none !important;
+    margin: 12px auto;
+    width: min(92vw, 360px);
+    z-index: 1;
+  }
+
+  /* Contact, Timer, Help, Consent -> dans le flux, centrés */
+  .contact,
+  #timer,
+  .help-text,
+  .consent {
+    position: static !important;
+    inset: auto !important;
+    translate: none !important;
+    margin: 10px auto;
+    max-width: min(92vw, 560px);
+    text-align: center;
+    z-index: 1;
+  }
+
+  /* La bulle d'aide flottante devient un petit bouton inline */
+  .help-bubble {
+    position: static !important;
+    display: inline-grid;
+    margin: 8px auto 0;
+    z-index: 1;
+  }
+
+  /* Messages : réduire la zone pour éviter de couvrir le CTA */
+  #message-container {
+    height: 28vh;
+  }
+
+  /* Les messages absolus gardent leur position, mais on peut réduire la taille */
+  #message-container .message {
+    font-size: var(--fs-xxs);
+    max-width: min(88vw, 28rem);
+  }
+
+  /* Le bandeau de consentement n'est plus fixe pour ne pas masquer le reste */
+  .consent {
+    box-shadow: none;
+    border-top-style: solid;
+  }
+
+  /* Le CTA principal reste visible sans recouvrement */
+  .jc-permanent__cta {
+    width: 100%;
+    justify-self: stretch;
+    text-align: center;
+  }
 }

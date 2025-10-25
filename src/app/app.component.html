@@ -1,24 +1,35 @@
-<header class="jc-header">
+<header class="jc-header" role="banner">
   <a class="brand" routerLink="/">
     JockeCorp&#8482;
     <span *ngIf="isConnected() && currentAlias()" class="alias">
       — {{ currentAlias() }}
     </span>
   </a>
-  <nav class="nav">
-    <a routerLink="/certificats" routerLinkActive="active">Certificats</a>
-    <a routerLink="/dossier" routerLinkActive="active">Dossier</a>
-    <a routerLink="/deculpabilisation" routerLinkActive="active">Déculpabilisation</a>
-    <a routerLink="/formations" routerLinkActive="active">Formations</a>
-    <a routerLink="/anomalies" routerLinkActive="active">Anomalies</a>
+
+  <button class="burger" type="button" [attr.aria-label]="isMenuOpen() ? 'Fermer le menu' : 'Ouvrir le menu'"
+    [attr.aria-expanded]="isMenuOpen()" aria-controls="primary-nav" (click)="toggleMenu()">
+    <span class="burger-bar"></span>
+    <span class="burger-bar"></span>
+    <span class="burger-bar"></span>
+  </button>
+
+  <nav id="primary-nav" class="nav" [class.open]="isMenuOpen()" aria-label="Navigation principale">
+    <a routerLink="/certificats" routerLinkActive="active" (click)="closeMenu()">Certificats</a>
+    <a routerLink="/dossier" routerLinkActive="active" (click)="closeMenu()">Dossier</a>
+    <a routerLink="/deculpabilisation" routerLinkActive="active" (click)="closeMenu()">Déculpabilisation</a>
+    <a routerLink="/formations" routerLinkActive="active" (click)="closeMenu()">Formations</a>
+    <a routerLink="/anomalies" routerLinkActive="active" (click)="closeMenu()">Anomalies</a>
   </nav>
 </header>
-<p-toast></p-toast>
-<main class="container">
 
+<div class="nav-backdrop" *ngIf="isMenuOpen()" (click)="closeMenu()"></div>
+
+<p-toast></p-toast>
+
+<main id="main" class="container" role="main">
   <router-outlet />
 </main>
 
-<footer class="jc-footer">
+<footer class="jc-footer" role="contentinfo">
   <small>© Service des Dates Provisoires — 1893*–aujourd’hui* (*susceptible de changer)</small>
 </footer>

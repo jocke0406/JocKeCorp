@@ -78,7 +78,8 @@ body {
   background: var(--bg);
   line-height: 1.45;
   font-size: var(--fs-sm);
-  overflow: hidden; /* plein écran, p5 en fond */
+  overflow-x: hidden;
+  overflow-y: hidden;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 

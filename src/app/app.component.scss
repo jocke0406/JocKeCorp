@@ -1,3 +1,4 @@
+/* Base desktop (tes styles actuels) */
 .jc-header {
   display: flex;
   align-items: center;
@@ -7,13 +8,15 @@
   position: relative;
   top: 0;
   background: #fff;
-  z-index: 2;
+  z-index: 3; /* au-dessus du fond p5 et du contenu */
 }
+
 .brand {
   font-weight: 800;
   text-decoration: none;
   color: #111;
 }
+
 .nav a {
   margin-left: 12px;
   text-decoration: none;
@@ -21,23 +24,131 @@
   padding: 6px 10px;
   border-radius: 8px;
 }
+
 .nav a.active,
 .nav a:hover {
   background: #111;
   color: #fff;
 }
+
 .container {
   max-width: 1000px;
   margin: 24px auto;
   padding: 0 20px;
   position: relative;
 }
+
 .jc-footer {
   border-top: 1px solid #eee;
   padding: 12px 20px;
   color: #666;
   text-align: center;
 }
+
 .p-toast {
   z-index: 10000 !important;
+}
+
+/* ====== Burger et nav responsive ====== */
+.burger {
+  display: none; /* visible seulement en mobile */
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.burger:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.burger-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #111;
+  margin: 4px 0;
+  border-radius: 2px;
+}
+
+/* Backdrop mobile */
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 2;
+}
+
+/* Mobile (≤ 560px) */
+@media (max-width: 560px) {
+  .burger {
+    display: inline-flex;
+  }
+
+  /* La nav devient un panneau déroulant */
+  .nav {
+    position: fixed;
+    top: 56px; /* hauteur approx. du header */
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    display: none;
+    flex-direction: column;
+    padding: 10px 12px;
+    gap: 6px;
+    z-index: 3; /* au-dessus du backdrop */
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .nav a {
+    margin: 0;
+    padding: 10px 12px;
+    border-radius: 8px;
+  }
+
+  /* Améliore le touch + évite les collisions avec le contenu */
+  .container {
+    margin-top: 16px;
+  }
+
+  /* Lien "Aller au contenu" */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+  }
+
+  .skip-link:focus {
+    left: 12px;
+    top: 12px;
+    z-index: 10001;
+    background: #111;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+
+  /* Respect accessibility / motion preferences */
+  @media (prefers-reduced-motion: no-preference) {
+    .nav {
+      transition:
+        transform 140ms ease,
+        opacity 140ms ease;
+      transform: translateY(-8px);
+      opacity: 0;
+    }
+    .nav.open {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 }
