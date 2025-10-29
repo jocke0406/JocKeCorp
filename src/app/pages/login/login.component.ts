@@ -1,10 +1,11 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { finalize } from 'rxjs';
 import { ApiService } from '../../core/service/api.service';
-
+import { SeoService } from '../../core/seo.service';
+import { getSeoFor } from '../../core/seo.loader';
 // PrimeNG
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
@@ -26,7 +27,9 @@ interface LoginResponse {
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+
+  private seo = inject(SeoService);
   private readonly fb = inject(FormBuilder);
   private readonly api = inject(ApiService);
   private readonly router = inject(Router);
@@ -60,6 +63,25 @@ export class LoginComponent {
     } else if (reset === 'ok') {
       this.okMsg.set(`Mot de passe mis à jour ✅ Vous pouvez vous connecter.`);
     }
+  }
+
+  ngOnInit(): void {
+    const cfg = getSeoFor('/login');
+    this.seo.setMeta({
+      title: cfg?.title,
+      description: cfg?.description,
+      canonical: cfg?.canonical,
+      robots: cfg?.robots,
+      image: cfg?.ogImage,
+      jsonLd: {
+        "@context": "https://schema.org",
+        "@type": cfg?.schemaType ?? "WebPage",
+        "name": cfg?.title,
+        "url": cfg?.canonical,
+        "breadcrumb": cfg?.breadcrumbs
+      }
+    });
+
   }
 
   emailError = computed(() => {

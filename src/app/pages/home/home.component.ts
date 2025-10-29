@@ -1,5 +1,5 @@
 import {
-  AfterViewInit,
+  AfterViewInit, OnInit,
   Component,
   ElementRef,
   NgZone,
@@ -15,6 +15,8 @@ import { palettes, type Palette } from '../../shared/palettes';
 import { AuthService } from '../../core/service/auth.service';
 import { MessageService } from 'primeng/api'; // pour le petit toast de sortie (optionnel)
 import { ToastModule } from 'primeng/toast';
+import { SeoService } from '../../core/seo.service';
+import { getSeoFor } from '../../core/seo.loader';
 
 @Component({
   selector: 'app-home',
@@ -23,8 +25,9 @@ import { ToastModule } from 'primeng/toast';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent implements AfterViewInit, OnDestroy {
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   // ✅ injection moderne Angular 19
+  private seo = inject(SeoService);
   private zone = inject(NgZone);
   private readonly auth = inject(AuthService);
   private readonly router = inject(Router);
@@ -64,8 +67,28 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   toggleHelp(v: boolean) { this.helpVisible = v; }
 
+
+  ngOnInit(): void {
+    const cfg = getSeoFor('/');
+    this.seo.setMeta({
+      title: cfg?.title,
+      description: cfg?.description,
+      canonical: cfg?.canonical,
+      robots: cfg?.robots,
+      image: cfg?.ogImage,
+      jsonLd: {
+        "@context": "https://schema.org",
+        "@type": cfg?.schemaType ?? "WebPage",
+        "name": cfg?.title,
+        "url": cfg?.canonical
+      }
+    });
+  }
+
   ngAfterViewInit(): void {
     // Timer + messages
+
+
     this.zone.runOutsideAngular(() => {
       this.chronoInt = window.setInterval(() => {
         this.seconds++;

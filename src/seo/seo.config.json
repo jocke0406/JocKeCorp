@@ -1,0 +1,72 @@
+{
+  "/": {
+    "title": "JocKeCorp — Administration de l’Inutile et Gestion du Néant",
+    "description": "Soleil chez JocKeCorp, là où les certificats ne prouvent rien, les dossiers s’empilent, la culpabilité s’enfuit, et les formations ne forment à rien.",
+    "canonical": "https://jocke.be/",
+    "robots": "index,follow",
+
+    "ogTitle": "JocKeCorp — Administration de l’Inutile et Gestion du Néant",
+    "ogDescription": "Soleil chez JocKeCorp, là où les certificats ne prouvent rien, les dossiers s’empilent, la culpabilité s’enfuit, et les formations ne forment à rien.",
+    "ogImage": "https://jocke.be/og/home.jpg",
+    "ogImageAlt": "L’Œil JocKeCorp observe l’inutile d’un léger tremblement existentiel.",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@JocKeCorp",
+
+    "schemaType": "WebPage",
+    "breadcrumbs": [{ "name": "Accueil", "url": "https://jocke.be/" }],
+    "datePublished": "",
+    "dateModified": "",
+
+    "h1": "Bienvenue chez JocKeCorp.",
+    "primaryKeyword": "JocKeCorp administration absurde",
+    "secondaryKeywords": [
+      "certificats inutiles",
+      "dossier existentiel",
+      "déculpabilisation administrative",
+      "formulaires absurdes",
+      "formations inutiles",
+      "anomalies humaines",
+      "œil ultime",
+      "bureaucratie métaphysique",
+      "ministère du néant",
+      "existence déclarée"
+    ],
+    "lcpImage": "/hero/home.avif",
+    "lcpImageAlt": "L’Œil ultime veille, silencieux et mobile."
+  },
+  "/login": {
+    "title": "Connexion — JocKeCorp",
+    "description": "Connectez-vous à JocKeCorp. Ici, nous vérifierons si vous existez.",
+    "canonical": "https://jocke.be/login",
+    "robots": "noindex,follow",
+
+    "ogTitle": "Connexion — JocKeCorp",
+    "ogDescription": "Connectez-vous à JocKeCorp. Ici, nous vérifierons si vous existez.",
+    "ogImage": "https://jocke.be/og/login.jpg",
+    "ogImageAlt": "L’Œil JocKeCorp observe l’inutile d’un léger tremblement existentiel.",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@JocKeCorp",
+
+    "schemaType": "LoginPage",
+    "breadcrumbs": [
+      { "name": "Accueil", "url": "https://jocke.be/" },
+      { "name": "Connexion", "url": "https://jocke.be/login" }
+    ],
+    "datePublished": "",
+    "dateModified": "",
+
+    "h1": "Connexion",
+    "primaryKeyword": "connexion JocKeCorp",
+    "secondaryKeywords": [
+      "authentification inexistentielle",
+      "identification prédéterminée",
+      "connexion au néant",
+      "déconnexion du néant",
+      "passe vérificationnel",
+      "danger de non-retour",
+      "erreur 12"
+    ],
+    "lcpImage": "/hero/home.avif",
+    "lcpImageAlt": "L’Œil ultime veille, silencieux et mobile."
+  }
+}
