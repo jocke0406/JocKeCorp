@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-dossier-existentiel',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './dossier-existentiel.component.html',
-  styleUrl: './dossier-existentiel.component.scss'
+  styleUrl: './dossier-existentiel.component.scss',
 })
-export class DossierExistentielComponent {
-
-}
+export class DossierExistentielComponent {}

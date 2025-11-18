@@ -34,6 +34,7 @@
     "lcpImage": "/hero/home.avif",
     "lcpImageAlt": "L’Œil ultime veille, silencieux et mobile."
   },
+
   "/login": {
     "title": "Connexion — JocKeCorp",
     "description": "Connectez-vous à JocKeCorp. Ici, nous vérifierons si vous existez.",
@@ -66,6 +67,150 @@
       "danger de non-retour",
       "erreur 12"
     ],
+    "lcpImage": "/hero/home.avif",
+    "lcpImageAlt": "L’Œil ultime veille, silencieux et mobile."
+  },
+
+  "/certificats": {
+    "title": "Certificats — JocKeCorp",
+    "description": "Là où les états internes deviennent documents poético-administratifs.",
+    "canonical": "https://jocke.be/certificats",
+    "robots": "index,follow",
+
+    "ogTitle": "Certificats — JocKeCorp",
+    "ogDescription": "Le Département des Certificats JocKeCorp™ transforme vos états intérieurs en documents officiels.",
+    "ogImage": "https://jocke.be/og/construction.jpg",
+    "ogImageAlt": "Page JocKeCorp en construction poético-administrative.",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@JocKeCorp",
+
+    "schemaType": "WebPage",
+    "breadcrumbs": [
+      { "name": "Accueil", "url": "https://jocke.be/" },
+      { "name": "Certificats", "url": "https://jocke.be/certificats" }
+    ],
+    "datePublished": "",
+    "dateModified": "",
+
+    "h1": "Certificats",
+    "primaryKeyword": "certificats JocKeCorp",
+    "secondaryKeywords": [
+      "certificats émotionnels",
+      "documents poétiques",
+      "certificats officiels"
+    ],
+    "lcpImage": "/hero/home.avif",
+    "lcpImageAlt": "L’Œil ultime veille, silencieux et mobile."
+  },
+
+  "/deculpabilisation": {
+    "title": "Déculpabilisation — JocKeCorp",
+    "description": "Le guichet où l’on dépose ce qui pèse, même si ça ne pèse rien.",
+    "canonical": "https://jocke.be/deculpabilisation",
+    "robots": "index,follow",
+
+    "ogTitle": "Déculpabilisation — JocKeCorp",
+    "ogDescription": "Guichet officiel des regrets, maladresses et fautes douces.",
+    "ogImage": "https://jocke.be/og/construction.jpg",
+    "ogImageAlt": "Page JocKeCorp en construction poético-administrative.",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@JocKeCorp",
+
+    "schemaType": "WebPage",
+    "breadcrumbs": [
+      { "name": "Accueil", "url": "https://jocke.be/" },
+      { "name": "Déculpabilisation", "url": "https://jocke.be/deculpabilisation" }
+    ],
+    "datePublished": "",
+    "dateModified": "",
+
+    "h1": "Déculpabilisation",
+    "primaryKeyword": "déculpabilisation JocKeCorp",
+    "secondaryKeywords": ["gestion des regrets", "reçu de déculpabilisation"],
+    "lcpImage": "/hero/home.avif",
+    "lcpImageAlt": "L’Œil ultime veille, silencieux et mobile."
+  },
+
+  "/dossier": {
+    "title": "Dossier Existentiel — JocKeCorp",
+    "description": "Le dossier où l’ordre tente de rester flou.",
+    "canonical": "https://jocke.be/dossier",
+    "robots": "index,follow",
+
+    "ogTitle": "Dossier Existentiel — JocKeCorp",
+    "ogDescription": "Votre Dossier Existentiel : timeline, liens entre Anomalies, Certificats et Dépôts.",
+    "ogImage": "https://jocke.be/og/construction.jpg",
+    "ogImageAlt": "Page JocKeCorp en construction poético-administrative.",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@JocKeCorp",
+
+    "schemaType": "WebPage",
+    "breadcrumbs": [
+      { "name": "Accueil", "url": "https://jocke.be/" },
+      { "name": "Dossier Existentiel", "url": "https://jocke.be/dossier" }
+    ],
+    "datePublished": "",
+    "dateModified": "",
+
+    "h1": "Dossier Existentiel",
+    "primaryKeyword": "dossier existentiel JocKeCorp",
+    "secondaryKeywords": ["timeline existentielle", "relevé d’existence"],
+    "lcpImage": "/hero/home.avif",
+    "lcpImageAlt": "L’Œil ultime veille, silencieux et mobile."
+  },
+
+  "/formations": {
+    "title": "Formations — JocKeCorp",
+    "description": "Formations destinées à n’améliorer personne, mais à poser de meilleures questions.",
+    "canonical": "https://jocke.be/formations",
+    "robots": "index,follow",
+
+    "ogTitle": "Formations — JocKeCorp",
+    "ogDescription": "Initiation aux Anomalies, auto-certification et maîtrise du Dossier Existentiel.",
+    "ogImage": "https://jocke.be/og/construction.jpg",
+    "ogImageAlt": "Page JocKeCorp en construction poético-administrative.",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@JocKeCorp",
+
+    "schemaType": "WebPage",
+    "breadcrumbs": [
+      { "name": "Accueil", "url": "https://jocke.be/" },
+      { "name": "Formations", "url": "https://jocke.be/formations" }
+    ],
+    "datePublished": "",
+    "dateModified": "",
+
+    "h1": "Formations",
+    "primaryKeyword": "formations JocKeCorp",
+    "secondaryKeywords": ["formation anomalies", "auto-certification"],
+    "lcpImage": "/hero/home.avif",
+    "lcpImageAlt": "L’Œil ultime veille, silencieux et mobile."
+  },
+
+  "/anomalies": {
+    "title": "Anomalies — JocKeCorp",
+    "description": "Là où les phénomènes refusent d’être ordinaires.",
+    "canonical": "https://jocke.be/anomalies",
+    "robots": "index,follow",
+
+    "ogTitle": "Anomalies — JocKeCorp",
+    "ogDescription": "Galerie des Anomalies JocKeCorp™ : phénomènes qui vibrent trop ou pas assez.",
+    "ogImage": "https://jocke.be/og/construction.jpg",
+    "ogImageAlt": "Page JocKeCorp en construction poético-administrative.",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@JocKeCorp",
+
+    "schemaType": "WebPage",
+    "breadcrumbs": [
+      { "name": "Accueil", "url": "https://jocke.be/" },
+      { "name": "Anomalies", "url": "https://jocke.be/anomalies" }
+    ],
+    "datePublished": "",
+    "dateModified": "",
+
+    "h1": "Anomalies",
+    "primaryKeyword": "anomalies JocKeCorp",
+    "secondaryKeywords": ["galerie anomalies", "art génératif"],
     "lcpImage": "/hero/home.avif",
     "lcpImageAlt": "L’Œil ultime veille, silencieux et mobile."
   }

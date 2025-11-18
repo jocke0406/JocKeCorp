@@ -1,24 +1,8 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ApiService } from '../../core/service/api.service'; // ajuste le chemin
-
+import { Component } from '@angular/core';
 @Component({
-  standalone: true,
   selector: 'jc-certificats',
-  imports: [CommonModule],
-  template: `
-    <h2>Attestations & Certificats</h2>
-    <p>Status API : <strong>{{ status }}</strong></p>
-  `,
+  imports: [],
+  templateUrl: './certificats.component.html',
+  styleUrl: './certificats.component.scss',
 })
-export class CertificatsComponent implements OnInit {
-  private api = inject(ApiService);
-  status = '…';
-
-  ngOnInit() {
-    this.api.get<{ ok: boolean }>('/health').subscribe({
-      next: () => (this.status = 'OK ✅'),
-      error: () => (this.status = 'KO ❌'),
-    });
-  }
-}
+export class CertificatsComponent {}
