@@ -1,46 +1,230 @@
-<main class="jkc-construction-page" data-section="certificats">
-  <header class="jkc-construction-header">
-    <h1 class="jkc-construction-title">Certificats</h1>
-    <p class="jkc-construction-subtitle">
-      Là où les états internes deviennent documents.
+<main class="jkc-cert-hub-page">
+  <!-- HEADER GLOBAL -->
+  <header class="jkc-cert-hub-header">
+    <div class="jkc-cert-hub-breadcrumb">
+      <a routerLink="/">Accueil</a>
+      <span aria-hidden="true">›</span>
+      <span>Certificats</span>
+    </div>
+
+    <h1 class="jkc-cert-hub-title">Bureau des Certificats JocKeCorp™</h1>
+    <p class="jkc-cert-hub-subtitle">
+      Centre de tri des formes officielles. Ici, les états internes deviennent documents,
+      les doutes recoivent un visa, et les paradoxes obtiennent un numéro de référence.
     </p>
   </header>
 
-  <section class="jkc-construction-card" data-stamp="SECTION ADMINISTRATIVE EN COURS D’ÉTABLISSEMENT">
-    <div class="jkc-construction-icon">📄</div>
+  <!-- ÉCRAN CRT CENTRAL -->
+  <section class="jkc-cert-hub-terminal" aria-label="Catalogue des certificats">
+    <header class="jkc-cert-hub-terminal-header">
+      <div class="jkc-cert-hub-terminal-meta">
+        <span class="jkc-chip jkc-chip--soft">Formes actives&nbsp;: 1</span>
+        <span class="jkc-chip jkc-chip--soft">Formes en préparation&nbsp;: 4</span>
+      </div>
 
-    <h2 class="jkc-construction-card-title">Section administrative en cours d’établissement</h2>
+      <!-- Toggles de département (un seul actif pour l’instant) -->
+      <div class="jkc-cert-dept-toggle" role="tablist" aria-label="Filtrer par département">
+        <button type="button" class="jkc-cert-dept-btn jkc-cert-dept-btn--active" role="tab" aria-selected="true"
+          data-dept="etre">
+          Département de l’Être
+        </button>
+        <button type="button" class="jkc-cert-dept-btn jkc-cert-dept-btn--disabled" role="tab" aria-disabled="true">
+          Autres départements (bientôt)
+        </button>
+      </div>
+    </header>
 
-    <p class="jkc-construction-card-intro">
-      Le Département rassemble encore les fragments d’états intérieurs afin d’atteindre
-      le calme administratif minimal requis.<br>
-      Votre patience est requise&nbsp;: l’administration avance à vitesse poétique.
+    <!-- Légende / mode d’emploi compact -->
+    <section class="jkc-cert-hub-legend">
+      <p>
+        <span class="jkc-label">Mode d’emploi&nbsp;:</span>
+        choisir un département, consulter un certificat, l’ajouter à votre Dossier
+        Existentiel lorsque l’effondrement, l’incertitude ou le surmenage deviennent
+        administrativement manifestes.
+      </p>
+    </section>
+
+    <!-- LISTE DES CERTIFICATS (tous = Département de l’Être pour l’instant) -->
+    <section class="jkc-cert-hub-list" aria-label="Liste des certificats du Département de l’Être">
+      <!-- Ligne : CEIC-07/AE -->
+      <article class="jkc-cert-row" data-dept="etre">
+        <header class="jkc-cert-row-head">
+          <div class="jkc-cert-row-id">
+            <span class="jkc-cert-code">CEIC-07/AE</span>
+            <span class="jkc-cert-dept">Département de l’Être</span>
+          </div>
+          <ul class="jkc-cert-tags">
+            <li>Identité</li>
+            <li>Effondrement</li>
+            <li>Multiplicité</li>
+          </ul>
+        </header>
+
+        <div class="jkc-cert-row-main">
+          <div class="jkc-cert-row-titleblock">
+            <h2 class="jkc-cert-row-title">
+              Certificat d’Effondrement Identitaire Contrôlé
+            </h2>
+            <p class="jkc-cert-row-status jkc-cert-row-status--active">
+              Actif — consultable et archivable
+            </p>
+          </div>
+          <p class="jkc-cert-row-desc">
+            Constate qu’un Sujet se présente au monde sous une forme stable tout en abritant
+            plusieurs états internes parfois contradictoires. Ne guérit rien, ne tranche
+            rien&nbsp;: atteste simplement que la coexistence tient encore debout.
+          </p>
+        </div>
+
+        <footer class="jkc-cert-row-footer">
+          <a routerLink="/certificats/ceic-07-ae" class="jkc-cert-row-link">
+            ➜ Consulter ce certificat
+          </a>
+        </footer>
+      </article>
+
+      <!-- CIEA-02 -->
+      <article class="jkc-cert-row" data-dept="etre">
+        <header class="jkc-cert-row-head">
+          <div class="jkc-cert-row-id">
+            <span class="jkc-cert-code">CIEA-02</span>
+            <span class="jkc-cert-dept">Département de l’Être</span>
+          </div>
+          <ul class="jkc-cert-tags">
+            <li>Incertitude</li>
+            <li>Acceptation</li>
+          </ul>
+        </header>
+
+        <div class="jkc-cert-row-main">
+          <div class="jkc-cert-row-titleblock">
+            <h2 class="jkc-cert-row-title">
+              Certificat d’Incertitude Existentielle Acceptée
+            </h2>
+            <p class="jkc-cert-row-status jkc-cert-row-status--pending">
+              En rédaction — non encore délivrable
+            </p>
+          </div>
+          <p class="jkc-cert-row-desc">
+            Destiné à reconnaître officiellement que l’absence de réponse définitive ne
+            constitue pas une anomalie, mais un mode de fonctionnement viable — sous
+            réserve de café régulier.
+          </p>
+        </div>
+
+        <footer class="jkc-cert-row-footer">
+          <span class="jkc-cert-row-note">
+            Diffusion prévue dès stabilisation du formulaire.
+          </span>
+        </footer>
+      </article>
+
+      <!-- CSIO-03 -->
+      <article class="jkc-cert-row" data-dept="etre">
+        <header class="jkc-cert-row-head">
+          <div class="jkc-cert-row-id">
+            <span class="jkc-cert-code">CSIO-03</span>
+            <span class="jkc-cert-dept">Département de l’Être</span>
+          </div>
+          <ul class="jkc-cert-tags">
+            <li>Surmenage</li>
+            <li>Fatigue mentale</li>
+          </ul>
+        </header>
+
+        <div class="jkc-cert-row-main">
+          <div class="jkc-cert-row-titleblock">
+            <h2 class="jkc-cert-row-title">Certificat de Surmenage Intérieur Officiel</h2>
+            <p class="jkc-cert-row-status jkc-cert-row-status--pending">
+              En préparation — diffusion ultérieure
+            </p>
+          </div>
+          <p class="jkc-cert-row-desc">
+            Conçu pour les jours où l’intérieur dépasse largement le quota de pensées
+            supportables, mais où le Sujet continue néanmoins à répondre “ça va, merci”.
+          </p>
+        </div>
+
+        <footer class="jkc-cert-row-footer">
+          <span class="jkc-cert-row-note">
+            Utilisable en annexe de toute journée trop bien remplie.
+          </span>
+        </footer>
+      </article>
+
+      <!-- CPO-04 -->
+      <article class="jkc-cert-row" data-dept="etre">
+        <header class="jkc-cert-row-head">
+          <div class="jkc-cert-row-id">
+            <span class="jkc-cert-code">CPO-04</span>
+            <span class="jkc-cert-dept">Département de l’Être</span>
+          </div>
+          <ul class="jkc-cert-tags">
+            <li>Paradoxe</li>
+            <li>Contradictions</li>
+          </ul>
+        </header>
+
+        <div class="jkc-cert-row-main">
+          <div class="jkc-cert-row-titleblock">
+            <h2 class="jkc-cert-row-title">Certificat de Paradoxe Officiel</h2>
+            <p class="jkc-cert-row-status jkc-cert-row-status--pending">
+              Prototype — calibration en cours
+            </p>
+          </div>
+          <p class="jkc-cert-row-desc">
+            Pour les situations où deux vérités incompatibles coexistent, s’observent et
+            refusent poliment de disparaître. Le Département se contente de l’acter.
+          </p>
+        </div>
+
+        <footer class="jkc-cert-row-footer">
+          <span class="jkc-cert-row-note">
+            Applicable aux choix de carrière, aux relations et aux dimanche soirs.
+          </span>
+        </footer>
+      </article>
+
+      <!-- CIP-05 (placeholder 5e certificat) -->
+      <article class="jkc-cert-row" data-dept="etre">
+        <header class="jkc-cert-row-head">
+          <div class="jkc-cert-row-id">
+            <span class="jkc-cert-code">CIP-05</span>
+            <span class="jkc-cert-dept">Département de l’Être</span>
+          </div>
+          <ul class="jkc-cert-tags">
+            <li>Inadéquation</li>
+            <li>Persistance</li>
+          </ul>
+        </header>
+
+        <div class="jkc-cert-row-main">
+          <div class="jkc-cert-row-titleblock">
+            <h2 class="jkc-cert-row-title">Certificat d’Inadéquation Persistante</h2>
+            <p class="jkc-cert-row-status jkc-cert-row-status--pending">
+              Observé — pas encore formulé
+            </p>
+          </div>
+          <p class="jkc-cert-row-desc">
+            Destiné aux êtres qui se sentent systématiquement à côté, mais toujours
+            présents au rendez-vous. La forme existe déjà, le texte viendra plus tard.
+          </p>
+        </div>
+
+        <footer class="jkc-cert-row-footer">
+          <span class="jkc-cert-row-note">
+            Document encore à l’état de rumeur administrative.
+          </span>
+        </footer>
+      </article>
+    </section>
+  </section>
+
+  <!-- Bas de page / teaser -->
+  <section class="jkc-cert-hub-footer">
+    <p>
+      D’autres départements élaborent leurs propres formes. Elles apparaîtront ici dès que
+      l’administration aura trouvé où poser le tampon.
     </p>
-
-    <div class="jkc-separator"></div>
-
-    <section class="jkc-construction-section">
-      <h3 class="jkc-construction-section-title">Ce que vous trouverez ici bientôt</h3>
-      <ul class="jkc-construction-list">
-        <li>Certificats officiels JocKeCorp™ tels que CEIC, CIEA, CSIO, CPO, CIP</li>
-        <li>Génération de documents PDF à valeur poético-administrative</li>
-        <li>Archivage direct dans votre Dossier Existentiel</li>
-      </ul>
-    </section>
-
-    <section class="jkc-construction-section jkc-construction-section--alt">
-      <h3 class="jkc-construction-section-title">En attendant</h3>
-      <ul class="jkc-construction-list">
-        <li>
-          Signaler une anomalie →
-          <a href="mailto:jockecorp&#64;jocke.be">jockecorp&#64;jocke.be</a>
-        </li>
-        <li>
-          Déposer une requête de Déculpabilisation existentielle →
-          <a href="mailto:jockecorp&#64;jocke.be">jockecorp&#64;jocke.be</a>
-        </li>
-        <li>Regarder l’Œil et tenter de comprendre pourquoi il regarde aussi</li>
-      </ul>
-    </section>
   </section>
 </main>

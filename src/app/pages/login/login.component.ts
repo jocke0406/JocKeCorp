@@ -17,7 +17,10 @@ import { RandomNameService } from '../../core/service/random-name.service';
 import { AuthService } from '../../core/service/auth.service';
 
 interface LoginResponse {
-  _id: string; email: string; role?: string; display_name?: string | null;
+  _id: string;
+  email: string;
+  role?: string;
+  display_name?: string | null;
 }
 
 @Component({
@@ -28,7 +31,6 @@ interface LoginResponse {
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
   private seo = inject(SeoService);
   private readonly fb = inject(FormBuilder);
   private readonly api = inject(ApiService);
@@ -54,7 +56,7 @@ export class LoginComponent implements OnInit {
   constructor() {
     const verify = this.route.snapshot.queryParamMap.get('verify'); // 'sent' | 'ok'
     const email = this.route.snapshot.queryParamMap.get('email');
-    const reset = this.route.snapshot.queryParamMap.get('reset');  // 'ok'
+    const reset = this.route.snapshot.queryParamMap.get('reset'); // 'ok'
 
     if (verify === 'sent' && email) {
       this.okMsg.set(`Email de confirmation envoyé à ${email}. Pense à vérifier tes spams ✉️`);
@@ -67,21 +69,36 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     const cfg = getSeoFor('/login');
+    const jsonLd: any = {
+      '@context': 'https://schema.org',
+      '@type': cfg?.schemaType ?? 'WebPage',
+      name: cfg?.title,
+      url: cfg?.canonical,
+    };
+
+    // ✅ Ajout du BreadcrumbList conforme à Google
+    if (cfg?.breadcrumbs?.length) {
+      jsonLd.breadcrumb = {
+        '@type': 'BreadcrumbList',
+        itemListElement: cfg.breadcrumbs.map(
+          (crumb: { name: string; url: string }, index: number) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            name: crumb.name,
+            item: crumb.url,
+          })
+        ),
+      };
+    }
+
     this.seo.setMeta({
       title: cfg?.title,
       description: cfg?.description,
       canonical: cfg?.canonical,
       robots: cfg?.robots,
       image: cfg?.ogImage,
-      jsonLd: {
-        "@context": "https://schema.org",
-        "@type": cfg?.schemaType ?? "WebPage",
-        "name": cfg?.title,
-        "url": cfg?.canonical,
-        "breadcrumb": cfg?.breadcrumbs
-      }
+      jsonLd,
     });
-
   }
 
   emailError = computed(() => {
@@ -122,7 +139,8 @@ export class LoginComponent implements OnInit {
       password: this.form.value.password!,
     };
 
-    this.api.post<LoginResponse>('/auth/login', payload)
+    this.api
+      .post<LoginResponse>('/auth/login', payload)
       .pipe(finalize(() => this.pending.set(false)))
       .subscribe({
         next: async (user) => {
@@ -133,9 +151,9 @@ export class LoginComponent implements OnInit {
           // Choix du nom d’affichage — jamais l’email
           const rawName = (user.display_name || '').trim();
           const name =
-            (rawName && !rawName.includes('@'))
+            rawName && !rawName.includes('@')
               ? rawName
-              : (localStorage.getItem('jocke:last-display')?.trim() || 'Initié de l’Inutile');
+              : localStorage.getItem('jocke:last-display')?.trim() || 'Initié de l’Inutile';
 
           localStorage.setItem('jocke:last-display', name);
 

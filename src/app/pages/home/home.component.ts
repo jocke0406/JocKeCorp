@@ -1,12 +1,14 @@
 import {
-  AfterViewInit, OnInit,
+  AfterViewInit,
+  OnInit,
   Component,
   ElementRef,
   NgZone,
   OnDestroy,
   ViewChild,
   signal,
-  inject, computed
+  inject,
+  computed,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
@@ -23,7 +25,7 @@ import { getSeoFor } from '../../core/seo.loader';
   standalone: true,
   imports: [CommonModule, ToastModule, RouterModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   // ✅ injection moderne Angular 19
@@ -65,10 +67,54 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     '« J’ai obtenu une attestation de présence à mon absence. » — Le Soleil, 11 août 1999',
   ];
 
-  toggleHelp(v: boolean) { this.helpVisible = v; }
-
+  toggleHelp(v: boolean) {
+    this.helpVisible = v;
+  }
 
   ngOnInit(): void {
+    const cfg = getSeoFor('/');
+
+    const jsonLd: any = {
+      '@context': 'https://schema.org',
+      '@type': cfg?.schemaType ?? 'WebPage',
+      name: cfg?.title,
+      url: cfg?.canonical,
+    };
+
+    // ✅ Ajout du BreadcrumbList conforme à Google
+    if (cfg?.breadcrumbs?.length) {
+      jsonLd.breadcrumb = {
+        '@type': 'BreadcrumbList',
+        itemListElement: cfg.breadcrumbs.map(
+          (crumb: { name: string; url: string }, index: number) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            name: crumb.name,
+            item: crumb.url,
+          })
+        ),
+      };
+    }
+
+    this.seo.setMeta({
+      title: cfg?.title,
+      description: cfg?.description,
+      canonical: cfg?.canonical,
+      robots: cfg?.robots,
+      image: cfg?.ogImage,
+      jsonLd,
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.chronoInt) clearInterval(this.chronoInt);
+    if (this.msgInt) clearInterval(this.msgInt);
+    document.removeEventListener('keydown', this.keyHandler);
+    document.removeEventListener('click', this.clickHandler);
+    if (this.p5) this.p5.remove();
+  }
+  ngAfterViewInit(): void {
+    // 1. Toujours appliquer le SEO (côté serveur ET côté navigateur)
     const cfg = getSeoFor('/');
     this.seo.setMeta({
       title: cfg?.title,
@@ -77,18 +123,19 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       robots: cfg?.robots,
       image: cfg?.ogImage,
       jsonLd: {
-        "@context": "https://schema.org",
-        "@type": cfg?.schemaType ?? "WebPage",
-        "name": cfg?.title,
-        "url": cfg?.canonical
-      }
+        '@context': 'https://schema.org',
+        '@type': cfg?.schemaType ?? 'WebPage',
+        name: cfg?.title,
+        url: cfg?.canonical,
+      },
     });
-  }
 
-  ngAfterViewInit(): void {
-    // Timer + messages
+    // 2. Si on est côté serveur (SSR / prerender), on s'arrête là
+    if (typeof window === 'undefined') {
+      return;
+    }
 
-
+    // 3. Tout ce qui suit ne tourne QUE dans le navigateur
     this.zone.runOutsideAngular(() => {
       this.chronoInt = window.setInterval(() => {
         this.seconds++;
@@ -105,18 +152,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     document.addEventListener('keydown', this.keyHandler);
     document.addEventListener('click', this.clickHandler);
 
-    // ✅ appel asynchrone
+    // ✅ appel asynchrone p5 uniquement côté navigateur
     this.mountP5();
   }
-
-  ngOnDestroy(): void {
-    if (this.chronoInt) clearInterval(this.chronoInt);
-    if (this.msgInt) clearInterval(this.msgInt);
-    document.removeEventListener('keydown', this.keyHandler);
-    document.removeEventListener('click', this.clickHandler);
-    if (this.p5) this.p5.remove();
-  }
-
 
   private keyHandler = (e: KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === 'Escape') this.revealSecret();
@@ -134,19 +172,22 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     const left = 20 + Math.random() * 60;
 
     const item = { text, style: { top: `${top}%`, left: `${left}%`, opacity: '0' } };
-    this.zone.run(() => { this.liveMessages = [...this.liveMessages, item]; });
-    queueMicrotask(() => { item.style.opacity = '1'; });
+    this.zone.run(() => {
+      this.liveMessages = [...this.liveMessages, item];
+    });
+    queueMicrotask(() => {
+      item.style.opacity = '1';
+    });
 
     setTimeout(() => {
       item.style.opacity = '0';
       setTimeout(() => {
         this.zone.run(() => {
-          this.liveMessages = this.liveMessages.filter(m => m !== item);
+          this.liveMessages = this.liveMessages.filter((m) => m !== item);
         });
       }, 1000);
     }, 6500);
   }
-
 
   logout() {
     this.auth.clear();
@@ -165,7 +206,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.zone.runOutsideAngular(() => {
       const sketch = (p: P5) => {
-        let cols = 0, rows = 0, cellW = 0, cellH = 0;
+        let cols = 0,
+          rows = 0,
+          cellW = 0,
+          cellH = 0;
         let cells: { eye: RetroEye }[][] = [];
 
         class RetroEye {
@@ -224,7 +268,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
                 x: p.random(w),
                 y: p.random(h),
                 size: p.random(minSize, maxSize),
-                col: this.palette.blockColors[Math.floor(p.random(this.palette.blockColors.length))],
+                col: this.palette.blockColors[
+                  Math.floor(p.random(this.palette.blockColors.length))
+                ],
               });
             }
 
@@ -287,7 +333,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
             p.noFill();
             for (let i = 0; i < 60; i++) {
               const alpha = p.map(i, 0, 60, this.palette.halo.alphaStart, 0);
-              p.stroke(this.palette.halo.color[0], this.palette.halo.color[1], this.palette.halo.color[2], alpha);
+              p.stroke(
+                this.palette.halo.color[0],
+                this.palette.halo.color[1],
+                this.palette.halo.color[2],
+                alpha
+              );
               p.strokeWeight(30);
               p.ellipse(0, 0, this.eyeW + i * 8, this.eyeH + i * 8);
             }
@@ -304,8 +355,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
             p.noStroke();
             p.beginShape();
             p.fill(this.palette.cdZone as any);
-            for (let a = p.PI; a >= 0; a -= 0.05) p.vertex((this.eyeW / 2) * p.cos(a), -(this.upperArcH / 2) * p.sin(a));
-            for (let a = 0; a <= p.PI; a += 0.05) p.vertex((this.eyeW / 2) * p.cos(a), (this.lowerArcH / 2) * p.sin(a));
+            for (let a = p.PI; a >= 0; a -= 0.05)
+              p.vertex((this.eyeW / 2) * p.cos(a), -(this.upperArcH / 2) * p.sin(a));
+            for (let a = 0; a <= p.PI; a += 0.05)
+              p.vertex((this.eyeW / 2) * p.cos(a), (this.lowerArcH / 2) * p.sin(a));
             p.endShape(p.CLOSE);
 
             // iris + pupille
@@ -318,14 +371,18 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
             // paupières
             p.fill(this.palette.upperLid as any);
             p.beginShape();
-            for (let a = p.PI; a >= 0; a -= 0.05) p.vertex((this.eyeW / 2) * p.cos(a), -(this.eyeH / 2) * p.sin(a));
-            for (let a = 0; a <= p.PI; a += 0.05) p.vertex((this.eyeW / 2) * p.cos(a), -(this.upperArcH / 2) * p.sin(a));
+            for (let a = p.PI; a >= 0; a -= 0.05)
+              p.vertex((this.eyeW / 2) * p.cos(a), -(this.eyeH / 2) * p.sin(a));
+            for (let a = 0; a <= p.PI; a += 0.05)
+              p.vertex((this.eyeW / 2) * p.cos(a), -(this.upperArcH / 2) * p.sin(a));
             p.endShape(p.CLOSE);
 
             p.fill(this.palette.lowerLid as any);
             p.beginShape();
-            for (let a = 0; a <= p.PI; a += 0.05) p.vertex((this.eyeW / 2) * p.cos(a), (this.eyeH / 2) * p.sin(a));
-            for (let a = p.PI; a >= 0; a -= 0.05) p.vertex((this.eyeW / 2) * p.cos(a), (this.lowerArcH / 2) * p.sin(a));
+            for (let a = 0; a <= p.PI; a += 0.05)
+              p.vertex((this.eyeW / 2) * p.cos(a), (this.eyeH / 2) * p.sin(a));
+            for (let a = p.PI; a >= 0; a -= 0.05)
+              p.vertex((this.eyeW / 2) * p.cos(a), (this.lowerArcH / 2) * p.sin(a));
             p.endShape(p.CLOSE);
 
             p.pop();
@@ -340,13 +397,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
           cells = Array.from({ length: cols }, () =>
             Array.from({ length: rows }, () => ({
-              eye: new RetroEye(palettes[Math.floor(Math.random() * palettes.length)])
+              eye: new RetroEye(palettes[Math.floor(Math.random() * palettes.length)]),
             }))
           );
 
           for (let i = 0; i < cols; i++)
-            for (let j = 0; j < rows; j++)
-              cells[i][j].eye.setup(cellW, cellH);
+            for (let j = 0; j < rows; j++) cells[i][j].eye.setup(cellW, cellH);
         };
 
         p.setup = () => {
@@ -368,7 +424,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
           for (let i = 0; i < cols; i++) {
             for (let j = 0; j < rows; j++) {
-              const x = i * cellW, y = j * cellH;
+              const x = i * cellW,
+                y = j * cellH;
               p.push();
               p.translate(x, y);
               (p as any).drawingContext.save();
