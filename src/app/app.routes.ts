@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component'; // Home reste eager pour l'instant
-import { authCanMatch, authCanActivate, guestOnlyCanMatch } from './core/guards/auth.guard';
+import { authCanMatch, authCanActivate, guestOnlyCanMatch, initiatesOnlyCanMatch, initiatesOnlyCanActivate } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -88,6 +88,46 @@ export const routes: Routes = [
     canActivate: [authCanActivate],
     loadComponent: () =>
       import('./pages/welcome/welcome.component').then((m) => m.WelcomeComponent),
+  },
+  {
+    path: 'certificats/ceic-07-ae',
+    title: 'CEIC-07/AE — Certificat d’Effondrement Identitaire Contrôlé',
+
+    loadComponent: () =>
+      import('./pages/certificats/ceic-07-ae/ceic-07-ae.component').then(
+        m => m.Ceic07AeComponent
+      ),
+  },
+  {
+    path: 'certificats/ciea-02',
+    // guards éventuels ici si tu veux la réserver ensuite
+    loadComponent: () =>
+      import('./pages/certificats/ciea-02/ciea-02.component').then(
+        m => m.Ciea02Component,
+      ),
+  },
+  {
+    path: 'certificats/csio-03',
+    // à garder public ou à protéger plus tard comme CEIC-07
+    loadComponent: () =>
+      import('./pages/certificats/csio-03/csio-03.component').then(
+        m => m.Csio03Component,
+      ),
+  },
+  {
+    path: 'certificats/cpo-04',
+    // guards éventuels si tu veux le réserver plus tard
+    loadComponent: () =>
+      import('./pages/certificats/cpo-04/cpo-04.component').then(
+        m => m.Cpo04Component,
+      ),
+  },
+  {
+    path: 'certificats/cip-05',
+    loadComponent: () =>
+      import('./pages/certificats/cip-05/cip-05.component').then(
+        m => m.Cip05Component,
+      ),
   },
 
   // 404

@@ -1,0 +1,319 @@
+<main class="jkc-cert-page" data-cert-ref="CPO-04">
+    <!-- HEADER -->
+    <header class="jkc-cert-header">
+        <div class="jkc-cert-breadcrumb">
+            <a routerLink="/certificats">Certificats</a>
+            <span aria-hidden="true">›</span>
+            <span>CPO-04</span>
+        </div>
+
+        <div class="jkc-cert-header-main">
+            <div>
+                <p class="jkc-cert-department">DÉPARTEMENT DE L’ÊTRE</p>
+                <h1 class="jkc-cert-title">
+                    Certificat de Poursuite sous Obstacle
+                </h1>
+            </div>
+
+            <div class="jkc-cert-ref-block">
+                <span class="jkc-cert-ref-label">Réf.</span>
+                <span class="jkc-cert-ref-code">CPO-04</span>
+            </div>
+        </div>
+
+        <p class="jkc-cert-tagline">
+            Certificat destiné à attester qu’un obstacle bien réel est présent, mais que la
+            trajectoire, la pensée ou le geste continuent malgré tout.
+        </p>
+
+        <!-- Petit bloc sujet + date côté UI -->
+        <div class="jkc-cert-header-meta">
+            <span class="jkc-chip">
+                Sujet observé&nbsp;: {{ displayName() }}
+            </span>
+            <span class="jkc-chip jkc-chip--soft">
+                Date d’émission (exemple)&nbsp;:
+                {{ today | jkcDate : jkcLongWithGregorian }}
+            </span>
+        </div>
+    </header>
+
+    <!-- LAYOUT 2 COLONNES -->
+    <div class="jkc-cert-layout">
+        <!-- SIDEBAR -->
+        <aside class="jkc-cert-sidebar">
+            <section class="jkc-cert-meta-card">
+                <h2 class="jkc-cert-meta-title">Informations</h2>
+
+                <dl class="jkc-cert-meta-list">
+                    <div>
+                        <dt>Département</dt>
+                        <dd>Département de l’Être</dd>
+                    </div>
+                    <div>
+                        <dt>Type</dt>
+                        <dd>Certificat de Poursuite sous Obstacle</dd>
+                    </div>
+                    <div>
+                        <dt>Référence</dt>
+                        <dd>CPO-04</dd>
+                    </div>
+                    <div>
+                        <dt>Statut</dt>
+                        <dd>Actif · Édition standard</dd>
+                    </div>
+                </dl>
+            </section>
+
+            <section class="jkc-cert-actions-card">
+                <h2 class="jkc-cert-meta-title">Actions</h2>
+
+                <button type="button" class="jkc-btn jkc-btn--primary" (click)="requireAuth('demander-certificat')">
+                    Demander ce certificat
+                </button>
+
+                <button type="button" class="jkc-btn jkc-btn--ghost" (click)="requireAuth('ajouter-dossier')">
+                    Ajouter au Dossier existentiel
+                </button>
+
+                <button type="button" class="jkc-btn jkc-btn--ghost" (click)="requireAuth('pdf')">
+                    Télécharger en PDF
+                </button>
+            </section>
+
+            <section class="jkc-cert-links-card">
+                <h2 class="jkc-cert-meta-title">Certificats voisins</h2>
+                <ul class="jkc-cert-links-list">
+                    <li>
+                        <a routerLink="/certificats/ceic-07-ae">
+                            CEIC — Certificat d’Effondrement Identitaire Contrôlé
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/certificats/ciea-02">
+                            CIEA — Certificat d’Incertitude Existentielle Active
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/certificats/csio-03">
+                            CSIO — Certificat de Surmenage Intérieur Officiel
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+
+        <!-- ÉCRAN PRINCIPAL -->
+        <section class="jkc-cert-main">
+            <div class="jkc-cert-screen">
+                <!-- Bandeau de ref / statut -->
+                <header class="jkc-cert-screen-header">
+                    <div class="jkc-cert-screen-id">
+                        <span class="jkc-chip">CPO-04</span>
+                        <span class="jkc-chip jkc-chip--soft">Département de l’Être</span>
+                    </div>
+                    <div class="jkc-cert-screen-status">
+                        <span class="jkc-status-dot"></span>
+                        <span class="jkc-status-label">Continuité observée sous contrainte</span>
+                    </div>
+                </header>
+
+                <!-- Onglets -->
+                <nav class="jkc-cert-tabs" aria-label="Navigation du certificat">
+                    <button type="button" class="jkc-cert-tab"
+                        [class.jkc-cert-tab--active]="isActivePanel('certificat')" (click)="selectPanel('certificat')">
+                        Certificat
+                    </button>
+                    <button type="button" class="jkc-cert-tab" [class.jkc-cert-tab--active]="isActivePanel('fiche')"
+                        (click)="selectPanel('fiche')">
+                        Fiche de service
+                    </button>
+                    <button type="button" class="jkc-cert-tab"
+                        [class.jkc-cert-tab--active]="isActivePanel('temoignages')"
+                        (click)="selectPanel('temoignages')">
+                        Témoignages enregistrés
+                    </button>
+                </nav>
+
+                <!-- 1) CERTIFICAT (texte officiel) -->
+                <article class="jkc-cert-panel" [class.jkc-cert-panel--active]="isActivePanel('certificat')"
+                    [attr.hidden]="!isActivePanel('certificat')" data-panel-id="certificat">
+                    <section class="jkc-cert-body">
+                        <p>
+                            En date du {{ today | jkcDate : jkcLong }}, à ________ heures,<br />
+                            le Département de l’Être atteste ce qui suit&nbsp;:
+                        </p>
+                        <p>
+                            Il est constaté qu’un obstacle bien identifié existe&nbsp;: concret, mesurable,
+                            potentiellement dissuasif.
+                        </p>
+                        <p>
+                            Il est simultanément constaté que la Personne observée poursuit cependant son
+                            mouvement, sa trajectoire ou son activité de pensée.
+                        </p>
+                        <p>
+                            Cette persistance ne garantit ni la disparition de la douleur, ni une issue
+                            victorieuse.
+                        </p>
+                        <p>
+                            Elle atteste uniquement la continuité d’un être au sein d’une résistance.
+                        </p>
+                        <p>
+                            Le Département ne formule aucune hypothèse sur les raisons de cette poursuite.
+                        </p>
+                        <p>
+                            Il note la traversée.
+                        </p>
+                        <p>L’Œil constate.</p>
+                    </section>
+
+                    <footer class="jkc-cert-footer">
+                        <div class="jkc-cert-visa">
+                            <span class="jkc-cert-visa-label">Visa&nbsp;:</span>
+                            <span class="jkc-cert-visa-mark">■</span>
+                        </div>
+                        <p class="jkc-cert-footnote">Fin du document.</p>
+                    </footer>
+                </article>
+
+                <!-- 2) FICHE DE SERVICE -->
+                <article class="jkc-cert-panel" [class.jkc-cert-panel--active]="isActivePanel('fiche')"
+                    [attr.hidden]="!isActivePanel('fiche')" data-panel-id="fiche">
+                    <header class="jkc-cert-subheader">
+                        <h2>FICHE DE SERVICE — CPO-04</h2>
+                    </header>
+
+                    <section class="jkc-cert-section">
+                        <h3>Objet</h3>
+                        <p>
+                            Objet&nbsp;: documenter la poursuite d’un mouvement malgré la présence d’un
+                            obstacle structurel, matériel ou moral.
+                        </p>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Constats possibles ou observables</h3>
+                        <ul class="jkc-cert-list">
+                            <li>Empêchement réel, nommé, identifié.</li>
+                            <li>Maintien d’une activité, d’un geste ou d’une pensée.</li>
+                            <li>Absence de garantie de résultat.</li>
+                            <li>
+                                Persistance parfois irrationnelle, considérée comme donnée naturelle de
+                                l’espèce.
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Mentions administratives</h3>
+                        <ul class="jkc-cert-taglist">
+                            <li>Obstacle&nbsp;: confirmé.</li>
+                            <li>Mouvement&nbsp;: maintenu.</li>
+                        </ul>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Mention officielle de classement</h3>
+                        <ul class="jkc-cert-list">
+                            <li>Continuité observée sous contrainte.</li>
+                        </ul>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Nota bene</h3>
+                        <p>
+                            Le Département n’encourage ni ne décourage&nbsp;; il enregistre les passages.
+                        </p>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Service émetteur</h3>
+                        <p>Service émetteur&nbsp;: Département de l’Être — sous l’Œil de l’Œil.</p>
+                        <p>Visa&nbsp;: ■</p>
+                    </section>
+                </article>
+
+                <!-- 3) TÉMOIGNAGES ENREGISTRÉS -->
+                <article class="jkc-cert-panel" [class.jkc-cert-panel--active]="isActivePanel('temoignages')"
+                    [attr.hidden]="!isActivePanel('temoignages')" data-panel-id="temoignages">
+                    <header class="jkc-cert-subheader">
+                        <h2>TÉMOIGNAGES ENREGISTRÉS — CPO-04</h2>
+                    </header>
+
+                    <section class="jkc-cert-testimonies">
+                        <!-- Stephen Hawking -->
+                        <article class="jkc-cert-testimony">
+                            <header class="jkc-cert-testimony-header">
+                                <h3 class="jkc-cert-testimony-title">
+                                    ■■ Dossier Stephen Hawking — Témoignage enregistré
+                                </h3>
+                                <p class="jkc-cert-testimony-meta">
+                                    Date d’émission&nbsp;: 14 mars 2018 — Cambridge
+                                </p>
+                            </header>
+                            <p class="jkc-cert-testimony-body">
+                                Stephen Hawking a sollicité un Certificat de Poursuite sous Obstacle pour
+                                officialiser un paradoxe humain&nbsp;: un corps extrêmement limité, une pensée
+                                en expansion constante. Un mouvement intellectuel sans mobilité physique. Le
+                                certificat a été délivré sans équation jointe. L’Œil a certifié&nbsp;:
+                                obstacle massif, trajectoire maintenue.
+                            </p>
+                            <footer class="jkc-cert-testimony-footer">
+                                <span class="jkc-cert-visa-label">Visa&nbsp;:</span>
+                                <span class="jkc-cert-visa-mark">■</span>
+                            </footer>
+                        </article>
+
+                        <!-- Nelson Mandela -->
+                        <article class="jkc-cert-testimony">
+                            <header class="jkc-cert-testimony-header">
+                                <h3 class="jkc-cert-testimony-title">
+                                    ■■ Dossier Nelson Mandela — Témoignage enregistré
+                                </h3>
+                                <p class="jkc-cert-testimony-meta">
+                                    Date d’émission&nbsp;: 11 février 1990 — Le Cap
+                                </p>
+                            </header>
+                            <p class="jkc-cert-testimony-body">
+                                Nelson Mandela a sollicité un Certificat de Poursuite sous Obstacle pour
+                                reconnaître une continuité d’existence malgré la clôture&nbsp;: vingt-sept
+                                années d’incarcération, mouvement ralenti, pensée intacte. Le certificat a
+                                été délivré sans dérogation morale. L’Œil a certifié&nbsp;: obstacle prolongé,
+                                direction préservée.
+                            </p>
+                            <footer class="jkc-cert-testimony-footer">
+                                <span class="jkc-cert-visa-label">Visa&nbsp;:</span>
+                                <span class="jkc-cert-visa-mark">■</span>
+                            </footer>
+                        </article>
+
+                        <!-- Marie Curie -->
+                        <article class="jkc-cert-testimony">
+                            <header class="jkc-cert-testimony-header">
+                                <h3 class="jkc-cert-testimony-title">
+                                    ■■ Dossier Marie Curie — Témoignage enregistré
+                                </h3>
+                                <p class="jkc-cert-testimony-meta">
+                                    Date d’émission&nbsp;: 10 décembre 1911 — Stockholm
+                                </p>
+                            </header>
+                            <p class="jkc-cert-testimony-body">
+                                Marie Curie a sollicité un Certificat de Poursuite sous Obstacle pour attester
+                                d’une recherche menée au-delà de la fatigue, du deuil et de la suspicion. Une
+                                expérimentation continue, malgré l’irradiation et la solitude. Le certificat a
+                                été délivré dans un silence brillant. L’Œil a certifié&nbsp;: obstacle irradiant,
+                                persistance confirmée.
+                            </p>
+                            <footer class="jkc-cert-testimony-footer">
+                                <span class="jkc-cert-visa-label">Visa&nbsp;:</span>
+                                <span class="jkc-cert-visa-mark">■</span>
+                            </footer>
+                        </article>
+                    </section>
+                </article>
+            </div>
+        </section>
+    </div>
+</main>
+
+<p-toast position="top-center"></p-toast>

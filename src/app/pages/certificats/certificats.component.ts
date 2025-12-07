@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, computed } from '@angular/core';
+import { Component, OnInit, inject, computed, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SeoService } from '../../core/seo.service';
@@ -6,18 +6,19 @@ import { getSeoFor } from '../../core/seo.loader';
 import { AuthService } from '../../core/service/auth.service';
 
 @Component({
-  selector: 'jc-certificats',
+  selector: 'jkc-certificats',
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './certificats.component.html',
-  styleUrl: './certificats.component.scss',
+  styleUrls: ['./certificats.component.scss'], // ✅ important : pluriel
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CertificatsComponent implements OnInit {
   private seo = inject(SeoService);
   private auth = inject(AuthService);
 
-  // ✅ Signal computed — fonctionne parfaitement
-  displayName = computed(() => {
+  /** Nom affiché dans la page catalogue (optionnel si pas connecté) */
+  readonly displayName = computed(() => {
     const user = this.auth.user();
     const fromUser = (user?.display_name || '').trim();
     const fromStorage = (localStorage.getItem('jocke:last-display') || '').trim();
@@ -43,7 +44,7 @@ export class CertificatsComponent implements OnInit {
             position: index + 1,
             name: crumb.name,
             item: crumb.url,
-          })
+          }),
         ),
       };
     }

@@ -3,7 +3,6 @@ import {
   OnInit,
   Component,
   ElementRef,
-  NgZone,
   OnDestroy,
   ViewChild,
   signal,
@@ -30,7 +29,6 @@ import { getSeoFor } from '../../core/seo.loader';
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   // ✅ injection moderne Angular 19
   private seo = inject(SeoService);
-  private zone = inject(NgZone);
   private readonly auth = inject(AuthService);
   private readonly router = inject(Router);
   private readonly msg = inject(MessageService);
@@ -136,24 +134,22 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     // 3. Tout ce qui suit ne tourne QUE dans le navigateur
-    this.zone.runOutsideAngular(() => {
-      this.chronoInt = window.setInterval(() => {
-        this.seconds++;
-        const h = String(Math.floor(this.seconds / 3600)).padStart(2, '0');
-        const m = String(Math.floor((this.seconds % 3600) / 60)).padStart(2, '0');
-        const s = String(this.seconds % 60).padStart(2, '0');
-        this.zone.run(() => this.chrono$.set(`${h}:${m}:${s}`));
-      }, 1000);
+    this.chronoInt = window.setInterval(() => {
+      this.seconds++;
+      const h = String(Math.floor(this.seconds / 3600)).padStart(2, '0');
+      const m = String(Math.floor((this.seconds % 3600) / 60)).padStart(2, '0');
+      const s = String(this.seconds % 60).padStart(2, '0');
+      this.chrono$.set(`${h}:${m}:${s}`);
+    }, 1000);
 
-      this.showRandomMessage();
-      this.msgInt = window.setInterval(() => this.showRandomMessage(), 7000);
-    });
+    this.showRandomMessage();
+    this.msgInt = window.setInterval(() => this.showRandomMessage(), 7000);
 
     document.addEventListener('keydown', this.keyHandler);
     document.addEventListener('click', this.clickHandler);
 
-    // ✅ appel asynchrone p5 uniquement côté navigateur
-    this.mountP5();
+    // ✅ appel asynchrone p5 différé pour ne pas bloquer l'affichage initial
+    setTimeout(() => this.mountP5(), 100);
   }
 
   private keyHandler = (e: KeyboardEvent) => {
@@ -172,9 +168,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     const left = 20 + Math.random() * 60;
 
     const item = { text, style: { top: `${top}%`, left: `${left}%`, opacity: '0' } };
-    this.zone.run(() => {
-      this.liveMessages = [...this.liveMessages, item];
-    });
+    this.liveMessages = [...this.liveMessages, item];
     queueMicrotask(() => {
       item.style.opacity = '1';
     });
@@ -182,9 +176,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     setTimeout(() => {
       item.style.opacity = '0';
       setTimeout(() => {
-        this.zone.run(() => {
-          this.liveMessages = this.liveMessages.filter((m) => m !== item);
-        });
+        this.liveMessages = this.liveMessages.filter((m) => m !== item);
       }, 1000);
     }, 6500);
   }
@@ -204,247 +196,245 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     const { default: P5 } = await import('p5');
     const host = this.p5Host.nativeElement;
 
-    this.zone.runOutsideAngular(() => {
-      const sketch = (p: P5) => {
-        let cols = 0,
-          rows = 0,
-          cellW = 0,
-          cellH = 0;
-        let cells: { eye: RetroEye }[][] = [];
+    const sketch = (p: P5) => {
+      let cols = 0,
+        rows = 0,
+        cellW = 0,
+        cellH = 0;
+      let cells: { eye: RetroEye }[][] = [];
 
-        class RetroEye {
-          palette: Palette;
-          phi = 1.618;
-          ouverture = 1.2;
-          decoElements: any[] = [];
-          freqX: number;
-          freqY: number;
-          phase: number;
+      class RetroEye {
+        palette: Palette;
+        phi = 1.618;
+        ouverture = 1.2;
+        decoElements: any[] = [];
+        freqX: number;
+        freqY: number;
+        phase: number;
 
-          width = 0;
-          height = 0;
-          ampX = 0;
-          ampY = 0;
-          eyeH = 0;
-          eyeW = 0;
-          innerH = 0;
-          upperArcH = 0;
-          lowerArcH = 0;
-          irisDiameter = 0;
-          pupilDiameter = 0;
+        width = 0;
+        height = 0;
+        ampX = 0;
+        ampY = 0;
+        eyeH = 0;
+        eyeW = 0;
+        innerH = 0;
+        upperArcH = 0;
+        lowerArcH = 0;
+        irisDiameter = 0;
+        pupilDiameter = 0;
 
-          constructor(palette?: Palette) {
-            this.palette = palette ?? palettes[Math.floor(Math.random() * palettes.length)];
-            this.freqX = p.random(2, 5);
-            this.freqY = p.random(1.5, 4);
-            this.phase = p.random(p.TWO_PI);
-          }
+        constructor(palette?: Palette) {
+          this.palette = palette ?? palettes[Math.floor(Math.random() * palettes.length)];
+          this.freqX = p.random(2, 5);
+          this.freqY = p.random(1.5, 4);
+          this.phase = p.random(p.TWO_PI);
+        }
 
-          setup(w: number, h: number) {
-            this.ampX = Math.min(w, h) * p.random(0, 0.1);
-            this.ampY = Math.min(w, h) * p.random(0, 0.1);
+        setup(w: number, h: number) {
+          this.ampX = Math.min(w, h) * p.random(0, 0.1);
+          this.ampY = Math.min(w, h) * p.random(0, 0.1);
 
-            this.width = w;
-            this.height = h;
+          this.width = w;
+          this.height = h;
 
-            this.eyeH = h * 0.7;
-            this.eyeW = this.eyeH * this.phi;
+          this.eyeH = h * 0.7;
+          this.eyeW = this.eyeH * this.phi;
 
-            this.innerH = this.eyeH * this.ouverture;
-            this.upperArcH = this.innerH * (1 / (1 + 1 / this.phi));
-            this.lowerArcH = this.innerH - this.upperArcH;
+          this.innerH = this.eyeH * this.ouverture;
+          this.upperArcH = this.innerH * (1 / (1 + 1 / this.phi));
+          this.lowerArcH = this.innerH - this.upperArcH;
 
-            this.irisDiameter = this.innerH * 0.6;
-            this.pupilDiameter = this.irisDiameter * 0.4;
+          this.irisDiameter = this.innerH * 0.6;
+          this.pupilDiameter = this.irisDiameter * 0.4;
 
-            this.decoElements = [];
-            const minSize = Math.min(w, h) * 0.08;
-            const maxSize = Math.min(w, h) * 0.15;
+          this.decoElements = [];
+          const minSize = Math.min(w, h) * 0.08;
+          const maxSize = Math.min(w, h) * 0.15;
 
-            // petits rectangles décoratifs
-            for (let i = 0; i < 10; i++) {
-              this.decoElements.push({
-                type: 'rect',
-                x: p.random(w),
-                y: p.random(h),
-                size: p.random(minSize, maxSize),
-                col: this.palette.blockColors[
-                  Math.floor(p.random(this.palette.blockColors.length))
-                ],
-              });
-            }
-
-            const arcSize = Math.min(w, h) * 0.4;
+          // petits rectangles décoratifs
+          for (let i = 0; i < 10; i++) {
             this.decoElements.push({
-              type: 'arc',
-              x: w * 0.15,
-              y: h * 0.15,
-              size: arcSize,
-              col: this.palette.arcDeco,
-            });
-
-            this.decoElements.push({
-              type: 'bar',
-              x: w * 0.75,
-              y: h * 0.9,
-              w: w * 0.15,
-              h: h * 0.025,
-              col: this.palette.barDeco,
+              type: 'rect',
+              x: p.random(w),
+              y: p.random(h),
+              size: p.random(minSize, maxSize),
+              col: this.palette.blockColors[
+                Math.floor(p.random(this.palette.blockColors.length))
+              ],
             });
           }
 
-          draw(t: number, glitch = false) {
-            p.background(this.palette.background as any);
+          const arcSize = Math.min(w, h) * 0.4;
+          this.decoElements.push({
+            type: 'arc',
+            x: w * 0.15,
+            y: h * 0.15,
+            size: arcSize,
+            col: this.palette.arcDeco,
+          });
 
-            // grille de fond
-            p.stroke(this.palette.grid as any);
-            p.strokeWeight(0.5);
-            const spacing = 36;
-            for (let x = 0; x < this.width; x += spacing) p.line(x, 0, x, this.height);
-            for (let y = 0; y < this.height; y += spacing) p.line(0, y, this.width, y);
+          this.decoElements.push({
+            type: 'bar',
+            x: w * 0.75,
+            y: h * 0.9,
+            w: w * 0.15,
+            h: h * 0.025,
+            col: this.palette.barDeco,
+          });
+        }
 
-            const hexWithAlpha = (hex: string, a: number) => {
-              const v = hex.replace('#', '');
-              const r = parseInt(v.slice(0, 2), 16);
-              const g = parseInt(v.slice(2, 4), 16);
-              const b = parseInt(v.slice(4, 6), 16);
-              return p.color(r, g, b, Math.round(a * 255));
-            };
+        draw(t: number, glitch = false) {
+          p.background(this.palette.background as any);
 
-            // éléments décoratifs
-            for (const d of this.decoElements) {
-              p.noStroke();
-              if (d.type === 'rect') {
-                p.fill(hexWithAlpha(d.col, 0.53));
-                p.rect(d.x, d.y, d.size, d.size);
-              } else if (d.type === 'arc') {
-                p.fill(hexWithAlpha(d.col, 0.6));
-                p.arc(d.x, d.y, d.size, d.size, p.PI, 0, p.CHORD);
-              } else if (d.type === 'bar') {
-                p.fill(hexWithAlpha(d.col, 0.67));
-                p.rect(d.x, d.y, d.w, d.h);
-              }
-            }
+          // grille de fond
+          p.stroke(this.palette.grid as any);
+          p.strokeWeight(0.5);
+          const spacing = 36;
+          for (let x = 0; x < this.width; x += spacing) p.line(x, 0, x, this.height);
+          for (let y = 0; y < this.height; y += spacing) p.line(0, y, this.width, y);
 
-            p.push();
-            p.translate(this.width / 2, this.height / 2);
+          const hexWithAlpha = (hex: string, a: number) => {
+            const v = hex.replace('#', '');
+            const r = parseInt(v.slice(0, 2), 16);
+            const g = parseInt(v.slice(2, 4), 16);
+            const b = parseInt(v.slice(4, 6), 16);
+            return p.color(r, g, b, Math.round(a * 255));
+          };
 
-            // halo
-            p.noFill();
-            for (let i = 0; i < 60; i++) {
-              const alpha = p.map(i, 0, 60, this.palette.halo.alphaStart, 0);
-              p.stroke(
-                this.palette.halo.color[0],
-                this.palette.halo.color[1],
-                this.palette.halo.color[2],
-                alpha
-              );
-              p.strokeWeight(30);
-              p.ellipse(0, 0, this.eyeW + i * 8, this.eyeH + i * 8);
-            }
-
-            // mouvement nystagmus
-            let nystagX = p.sin(t * this.freqX + this.phase) * this.ampX;
-            let nystagY = p.cos(t * this.freqY + this.phase) * this.ampY;
-            if (glitch) {
-              nystagX += p.random([-80, 80]);
-              nystagY += p.random([-30, 30]);
-            }
-
-            // zone centrale
+          // éléments décoratifs
+          for (const d of this.decoElements) {
             p.noStroke();
-            p.beginShape();
-            p.fill(this.palette.cdZone as any);
-            for (let a = p.PI; a >= 0; a -= 0.05)
-              p.vertex((this.eyeW / 2) * p.cos(a), -(this.upperArcH / 2) * p.sin(a));
-            for (let a = 0; a <= p.PI; a += 0.05)
-              p.vertex((this.eyeW / 2) * p.cos(a), (this.lowerArcH / 2) * p.sin(a));
-            p.endShape(p.CLOSE);
+            if (d.type === 'rect') {
+              p.fill(hexWithAlpha(d.col, 0.53));
+              p.rect(d.x, d.y, d.size, d.size);
+            } else if (d.type === 'arc') {
+              p.fill(hexWithAlpha(d.col, 0.6));
+              p.arc(d.x, d.y, d.size, d.size, p.PI, 0, p.CHORD);
+            } else if (d.type === 'bar') {
+              p.fill(hexWithAlpha(d.col, 0.67));
+              p.rect(d.x, d.y, d.w, d.h);
+            }
+          }
 
-            // iris + pupille
-            p.fill(this.palette.iris as any);
-            p.ellipse(nystagX, nystagY, this.irisDiameter, this.irisDiameter);
+          p.push();
+          p.translate(this.width / 2, this.height / 2);
 
-            p.fill(this.palette.pupil as any);
-            p.ellipse(nystagX, nystagY, this.pupilDiameter, this.pupilDiameter);
+          // halo
+          p.noFill();
+          for (let i = 0; i < 60; i++) {
+            const alpha = p.map(i, 0, 60, this.palette.halo.alphaStart, 0);
+            p.stroke(
+              this.palette.halo.color[0],
+              this.palette.halo.color[1],
+              this.palette.halo.color[2],
+              alpha
+            );
+            p.strokeWeight(30);
+            p.ellipse(0, 0, this.eyeW + i * 8, this.eyeH + i * 8);
+          }
 
-            // paupières
-            p.fill(this.palette.upperLid as any);
-            p.beginShape();
-            for (let a = p.PI; a >= 0; a -= 0.05)
-              p.vertex((this.eyeW / 2) * p.cos(a), -(this.eyeH / 2) * p.sin(a));
-            for (let a = 0; a <= p.PI; a += 0.05)
-              p.vertex((this.eyeW / 2) * p.cos(a), -(this.upperArcH / 2) * p.sin(a));
-            p.endShape(p.CLOSE);
+          // mouvement nystagmus
+          let nystagX = p.sin(t * this.freqX + this.phase) * this.ampX;
+          let nystagY = p.cos(t * this.freqY + this.phase) * this.ampY;
+          if (glitch) {
+            nystagX += p.random([-80, 80]);
+            nystagY += p.random([-30, 30]);
+          }
 
-            p.fill(this.palette.lowerLid as any);
-            p.beginShape();
-            for (let a = 0; a <= p.PI; a += 0.05)
-              p.vertex((this.eyeW / 2) * p.cos(a), (this.eyeH / 2) * p.sin(a));
-            for (let a = p.PI; a >= 0; a -= 0.05)
-              p.vertex((this.eyeW / 2) * p.cos(a), (this.lowerArcH / 2) * p.sin(a));
-            p.endShape(p.CLOSE);
+          // zone centrale
+          p.noStroke();
+          p.beginShape();
+          p.fill(this.palette.cdZone as any);
+          for (let a = p.PI; a >= 0; a -= 0.05)
+            p.vertex((this.eyeW / 2) * p.cos(a), -(this.upperArcH / 2) * p.sin(a));
+          for (let a = 0; a <= p.PI; a += 0.05)
+            p.vertex((this.eyeW / 2) * p.cos(a), (this.lowerArcH / 2) * p.sin(a));
+          p.endShape(p.CLOSE);
 
+          // iris + pupille
+          p.fill(this.palette.iris as any);
+          p.ellipse(nystagX, nystagY, this.irisDiameter, this.irisDiameter);
+
+          p.fill(this.palette.pupil as any);
+          p.ellipse(nystagX, nystagY, this.pupilDiameter, this.pupilDiameter);
+
+          // paupières
+          p.fill(this.palette.upperLid as any);
+          p.beginShape();
+          for (let a = p.PI; a >= 0; a -= 0.05)
+            p.vertex((this.eyeW / 2) * p.cos(a), -(this.eyeH / 2) * p.sin(a));
+          for (let a = 0; a <= p.PI; a += 0.05)
+            p.vertex((this.eyeW / 2) * p.cos(a), -(this.upperArcH / 2) * p.sin(a));
+          p.endShape(p.CLOSE);
+
+          p.fill(this.palette.lowerLid as any);
+          p.beginShape();
+          for (let a = 0; a <= p.PI; a += 0.05)
+            p.vertex((this.eyeW / 2) * p.cos(a), (this.eyeH / 2) * p.sin(a));
+          for (let a = p.PI; a >= 0; a -= 0.05)
+            p.vertex((this.eyeW / 2) * p.cos(a), (this.lowerArcH / 2) * p.sin(a));
+          p.endShape(p.CLOSE);
+
+          p.pop();
+        }
+      }
+
+      const generateGrid = () => {
+        cols = Math.floor(p.random(1, 5));
+        rows = Math.floor(p.random(1, 5));
+        cellW = p.width / cols;
+        cellH = p.height / rows;
+
+        cells = Array.from({ length: cols }, () =>
+          Array.from({ length: rows }, () => ({
+            eye: new RetroEye(palettes[Math.floor(Math.random() * palettes.length)]),
+          }))
+        );
+
+        for (let i = 0; i < cols; i++)
+          for (let j = 0; j < rows; j++) cells[i][j].eye.setup(cellW, cellH);
+      };
+
+      p.setup = () => {
+        const c = p.createCanvas(host.clientWidth, host.clientHeight);
+        c.parent(host);
+        p.frameRate(60);
+        generateGrid();
+        setInterval(generateGrid, 3000);
+      };
+
+      p.windowResized = () => {
+        p.resizeCanvas(host.clientWidth, host.clientHeight);
+        generateGrid();
+      };
+
+      p.draw = () => {
+        const t = p.millis() / 1000;
+        const glitch = p.frameCount % 240 < 2 && p.random() < 0.5;
+
+        for (let i = 0; i < cols; i++) {
+          for (let j = 0; j < rows; j++) {
+            const x = i * cellW,
+              y = j * cellH;
+            p.push();
+            p.translate(x, y);
+            (p as any).drawingContext.save();
+            (p as any).drawingContext.beginPath();
+            (p as any).drawingContext.rect(0, 0, cellW, cellH);
+            (p as any).drawingContext.clip();
+            cells[i][j].eye.draw(t, glitch);
+            (p as any).drawingContext.restore();
             p.pop();
           }
         }
-
-        const generateGrid = () => {
-          cols = Math.floor(p.random(1, 5));
-          rows = Math.floor(p.random(1, 5));
-          cellW = p.width / cols;
-          cellH = p.height / rows;
-
-          cells = Array.from({ length: cols }, () =>
-            Array.from({ length: rows }, () => ({
-              eye: new RetroEye(palettes[Math.floor(Math.random() * palettes.length)]),
-            }))
-          );
-
-          for (let i = 0; i < cols; i++)
-            for (let j = 0; j < rows; j++) cells[i][j].eye.setup(cellW, cellH);
-        };
-
-        p.setup = () => {
-          const c = p.createCanvas(host.clientWidth, host.clientHeight);
-          c.parent(host);
-          p.frameRate(60);
-          generateGrid();
-          setInterval(generateGrid, 3000);
-        };
-
-        p.windowResized = () => {
-          p.resizeCanvas(host.clientWidth, host.clientHeight);
-          generateGrid();
-        };
-
-        p.draw = () => {
-          const t = p.millis() / 1000;
-          const glitch = p.frameCount % 240 < 2 && p.random() < 0.5;
-
-          for (let i = 0; i < cols; i++) {
-            for (let j = 0; j < rows; j++) {
-              const x = i * cellW,
-                y = j * cellH;
-              p.push();
-              p.translate(x, y);
-              (p as any).drawingContext.save();
-              (p as any).drawingContext.beginPath();
-              (p as any).drawingContext.rect(0, 0, cellW, cellH);
-              (p as any).drawingContext.clip();
-              cells[i][j].eye.draw(t, glitch);
-              (p as any).drawingContext.restore();
-              p.pop();
-            }
-          }
-        };
-
-        p.keyPressed = () => {
-          if (p.key === ' ') generateGrid();
-        };
       };
 
-      this.p5 = new P5(sketch);
-    });
+      p.keyPressed = () => {
+        if (p.key === ' ') generateGrid();
+      };
+    };
+
+    this.p5 = new P5(sketch);
   }
 }

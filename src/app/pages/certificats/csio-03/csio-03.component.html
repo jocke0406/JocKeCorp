@@ -1,0 +1,326 @@
+<main class="jkc-cert-page" data-cert-ref="CSIO-03">
+    <!-- HEADER -->
+    <header class="jkc-cert-header">
+        <div class="jkc-cert-breadcrumb">
+            <a routerLink="/certificats">Certificats</a>
+            <span aria-hidden="true">›</span>
+            <span>CSIO-03</span>
+        </div>
+
+        <div class="jkc-cert-header-main">
+            <div>
+                <p class="jkc-cert-department">DÉPARTEMENT DE L’ÊTRE</p>
+                <h1 class="jkc-cert-title">
+                    Certificat de Stabilisation Identitaire Observée
+                </h1>
+            </div>
+
+            <div class="jkc-cert-ref-block">
+                <span class="jkc-cert-ref-label">Réf.</span>
+                <span class="jkc-cert-ref-code">CSIO-03</span>
+            </div>
+        </div>
+
+        <p class="jkc-cert-tagline">
+            Certificat destiné à documenter une forme stable au moment T, sans présumer de sa
+            durée ni de la prochaine métamorphose.
+        </p>
+
+        <!-- Petit bloc sujet + date côté UI -->
+        <div class="jkc-cert-header-meta">
+            <span class="jkc-chip">
+                Sujet observé&nbsp;: {{ displayName() }}
+            </span>
+            <span class="jkc-chip jkc-chip--soft">
+                Date d’émission (exemple)&nbsp;:
+                {{ today | jkcDate : jkcLongWithGregorian }}
+            </span>
+        </div>
+    </header>
+
+    <!-- LAYOUT 2 COLONNES -->
+    <div class="jkc-cert-layout">
+        <!-- SIDEBAR -->
+        <aside class="jkc-cert-sidebar">
+            <section class="jkc-cert-meta-card">
+                <h2 class="jkc-cert-meta-title">Informations</h2>
+
+                <dl class="jkc-cert-meta-list">
+                    <div>
+                        <dt>Département</dt>
+                        <dd>Département de l’Être</dd>
+                    </div>
+                    <div>
+                        <dt>Type</dt>
+                        <dd>Certificat de Stabilisation Identitaire Observée</dd>
+                    </div>
+                    <div>
+                        <dt>Référence</dt>
+                        <dd>CSIO-03</dd>
+                    </div>
+                    <div>
+                        <dt>Statut</dt>
+                        <dd>Actif · Édition standard</dd>
+                    </div>
+                </dl>
+            </section>
+
+            <section class="jkc-cert-actions-card">
+                <h2 class="jkc-cert-meta-title">Actions</h2>
+
+                <button type="button" class="jkc-btn jkc-btn--primary" (click)="requireAuth('demander-certificat')">
+                    Demander ce certificat
+                </button>
+
+                <button type="button" class="jkc-btn jkc-btn--ghost" (click)="requireAuth('ajouter-dossier')">
+                    Ajouter au Dossier existentiel
+                </button>
+
+                <button type="button" class="jkc-btn jkc-btn--ghost" (click)="requireAuth('pdf')">
+                    Télécharger en PDF
+                </button>
+            </section>
+
+            <section class="jkc-cert-links-card">
+                <h2 class="jkc-cert-meta-title">Certificats voisins</h2>
+                <ul class="jkc-cert-links-list">
+                    <li>
+                        <a routerLink="/certificats/ceic-07-ae">
+                            CEIC — Certificat d’Effondrement Identitaire Contrôlé
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/certificats/ciea-02">
+                            CIEA — Certificat d’Incertitude Existentielle Active
+                        </a>
+                    </li>
+                    <!-- autres liens à ajouter plus tard -->
+                </ul>
+            </section>
+        </aside>
+
+        <!-- ÉCRAN PRINCIPAL -->
+        <section class="jkc-cert-main">
+            <div class="jkc-cert-screen">
+                <!-- Bandeau de ref / statut -->
+                <header class="jkc-cert-screen-header">
+                    <div class="jkc-cert-screen-id">
+                        <span class="jkc-chip">CSIO-03</span>
+                        <span class="jkc-chip jkc-chip--soft">Département de l’Être</span>
+                    </div>
+                    <div class="jkc-cert-screen-status">
+                        <span class="jkc-status-dot"></span>
+                        <span class="jkc-status-label">Forme actuelle : admise</span>
+                    </div>
+                </header>
+
+                <!-- Onglets -->
+                <nav class="jkc-cert-tabs" aria-label="Navigation du certificat">
+                    <button type="button" class="jkc-cert-tab"
+                        [class.jkc-cert-tab--active]="isActivePanel('certificat')" (click)="selectPanel('certificat')">
+                        Certificat
+                    </button>
+                    <button type="button" class="jkc-cert-tab" [class.jkc-cert-tab--active]="isActivePanel('fiche')"
+                        (click)="selectPanel('fiche')">
+                        Fiche de service
+                    </button>
+                    <button type="button" class="jkc-cert-tab"
+                        [class.jkc-cert-tab--active]="isActivePanel('temoignages')"
+                        (click)="selectPanel('temoignages')">
+                        Témoignages enregistrés
+                    </button>
+                </nav>
+
+                <!-- 1) CERTIFICAT (texte officiel) -->
+                <article class="jkc-cert-panel" [class.jkc-cert-panel--active]="isActivePanel('certificat')"
+                    [attr.hidden]="!isActivePanel('certificat')" data-panel-id="certificat">
+                    <section class="jkc-cert-body">
+                        <p>
+                            En date du {{ today | jkcDate : jkcLong }}, à ________ heures,<br />
+                            le Département de l’Être atteste ce qui suit&nbsp;:
+                        </p>
+                        <p>
+                            Il est constaté qu’à l’instant de l’émission du présent certificat, la Personne
+                            observée se présente sous une forme identifiable et stable.
+                        </p>
+                        <p>
+                            Il est reconnu que cette forme fixe permet la lisibilité publique et la
+                            coordination sociale.
+                        </p>
+                        <p>
+                            Il est simultanément constaté que cette stabilité n’a pas valeur de permanence.
+                        </p>
+                        <p>
+                            Elle désigne un état observé, susceptible d’évolution à tout instant.
+                        </p>
+                        <p>
+                            L’existence d’une forme stable n’exclut pas la possibilité de changement.
+                        </p>
+                        <p>
+                            La fixité est ici comprise comme respiration entre deux métamorphoses.
+                        </p>
+                        <p>
+                            Le Département ne délivre pas d’explication.
+                        </p>
+                        <p>Il enregistre.</p>
+                        <p>L’Œil constate.</p>
+                    </section>
+
+                    <footer class="jkc-cert-footer">
+                        <div class="jkc-cert-visa">
+                            <span class="jkc-cert-visa-label">Visa&nbsp;:</span>
+                            <span class="jkc-cert-visa-mark">■</span>
+                        </div>
+                        <p class="jkc-cert-footnote">Fin du document.</p>
+                    </footer>
+                </article>
+
+                <!-- 2) FICHE DE SERVICE — texte exact -->
+                <article class="jkc-cert-panel" [class.jkc-cert-panel--active]="isActivePanel('fiche')"
+                    [attr.hidden]="!isActivePanel('fiche')" data-panel-id="fiche">
+                    <header class="jkc-cert-subheader">
+                        <h2>FICHE DE SERVICE — CSIO-03</h2>
+                    </header>
+
+                    <section class="jkc-cert-section">
+                        <h3>Objet</h3>
+                        <p>
+                            Objet&nbsp;: documenter les périodes de stabilité identitaire temporaire au
+                            sein d’êtres à morphologie existentielle variable.
+                        </p>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Constats possibles ou observables</h3>
+                        <ul class="jkc-cert-list">
+                            <li>Forme lisible, comportement cohérent.</li>
+                            <li>Identité publique homogène et fonctionnelle.</li>
+                            <li>Stabilité sans garantie de durée.</li>
+                            <li>Transition probable vers une autre forme non encore déclarée.</li>
+                        </ul>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Mentions administratives</h3>
+                        <ul class="jkc-cert-taglist">
+                            <li>Présence stable ; variations latentes.</li>
+                        </ul>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Mention officielle de classement</h3>
+                        <ul class="jkc-cert-list">
+                            <li>Forme actuelle : admise.</li>
+                            <li>Autres formes possibles : en réserve.</li>
+                        </ul>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Nota bene</h3>
+                        <p>
+                            La stabilité observée ne vaut que pour l’instanté.
+                        </p>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Service émetteur</h3>
+                        <p>Service émetteur&nbsp;: Département de l’Être — sous l’Œil de l’Œil.</p>
+                        <p>Visa&nbsp;: ■</p>
+                    </section>
+                </article>
+
+                <!-- 3) TÉMOIGNAGES ENREGISTRÉS -->
+                <article class="jkc-cert-panel" [class.jkc-cert-panel--active]="isActivePanel('temoignages')"
+                    [attr.hidden]="!isActivePanel('temoignages')" data-panel-id="temoignages">
+                    <header class="jkc-cert-subheader">
+                        <h2>TÉMOIGNAGES ENREGISTRÉS — CSIO-03</h2>
+                    </header>
+
+                    <section class="jkc-cert-testimonies">
+                        <!-- David Bowie -->
+                        <article class="jkc-cert-testimony">
+                            <header class="jkc-cert-testimony-header">
+                                <h3 class="jkc-cert-testimony-title">
+                                    ■■ Dossier David Bowie — Témoignage enregistré
+                                </h3>
+                                <p class="jkc-cert-testimony-meta">
+                                    Date d’émission&nbsp;: 3 juillet 1973, Londres — dernier concert de Ziggy
+                                    Stardust
+                                </p>
+                            </header>
+                            <p class="jkc-cert-testimony-quote">
+                                “Je laisse mourir celui que j’ai inventé.”
+                            </p>
+                            <p class="jkc-cert-testimony-body">
+                                David Bowie a sollicité un Certificat de Stabilisation Identitaire Observée
+                                pour officialiser une succession de formes : Ziggy, Aladdin Sane, Thin White
+                                Duke. Chaque figure : stabilisée, exploitée, puis dissoute. Le certificat a
+                                été délivré sans annotation esthétique. La forme observée fut validée, la
+                                suivante attendue. L’Œil a certifié.
+                            </p>
+                            <footer class="jkc-cert-testimony-footer">
+                                <span class="jkc-cert-visa-label">Visa&nbsp;:</span>
+                                <span class="jkc-cert-visa-mark">■</span>
+                            </footer>
+                        </article>
+
+                        <!-- Daniel Day-Lewis -->
+                        <article class="jkc-cert-testimony">
+                            <header class="jkc-cert-testimony-header">
+                                <h3 class="jkc-cert-testimony-title">
+                                    ■■ Dossier Daniel Day-Lewis — Témoignage enregistré
+                                </h3>
+                                <p class="jkc-cert-testimony-meta">
+                                    Date d’émission&nbsp;: 20 novembre 2012, Los Angeles — promotion de “Lincoln”
+                                </p>
+                            </header>
+                            <p class="jkc-cert-testimony-quote">
+                                “Je ne quitte pas le rôle, j’attends qu’il me quitte.”
+                            </p>
+                            <p class="jkc-cert-testimony-body">
+                                Daniel Day-Lewis a sollicité un Certificat de Stabilisation Identitaire
+                                Observée pour reconnaître une méthode : fusion temporaire entre l’être et le
+                                rôle. Identité-personnage stable durant la période d’incarnation, réversible
+                                ensuite. Le certificat a été délivré à titre expérimental. Forme lisible,
+                                authenticité incertaine. L’Œil a certifié.
+                            </p>
+                            <footer class="jkc-cert-testimony-footer">
+                                <span class="jkc-cert-visa-label">Visa&nbsp;:</span>
+                                <span class="jkc-cert-visa-mark">■</span>
+                            </footer>
+                        </article>
+
+                        <!-- Prince -->
+                        <article class="jkc-cert-testimony">
+                            <header class="jkc-cert-testimony-header">
+                                <h3 class="jkc-cert-testimony-title">
+                                    ■■ Dossier Prince — Témoignage enregistré
+                                </h3>
+                                <p class="jkc-cert-testimony-meta">
+                                    Date d’émission&nbsp;: 7 juin 1993, Minneapolis — adoption du symbole
+                                    imprononçable
+                                </p>
+                            </header>
+                            <p class="jkc-cert-testimony-quote">
+                                “Le nom est une cage que j’ai repeinte.”
+                            </p>
+                            <p class="jkc-cert-testimony-body">
+                                Prince a sollicité un Certificat de Stabilisation Identitaire Observée pour
+                                officialiser une mutation nominale : identité administrative figée, essence en
+                                recomposition. Forme publique inchangée, signification fondue. Le certificat a
+                                été délivré sans commentaire musical. Forme stable, sens liquide. L’Œil a
+                                certifié.
+                            </p>
+                            <footer class="jkc-cert-testimony-footer">
+                                <span class="jkc-cert-visa-label">Visa&nbsp;:</span>
+                                <span class="jkc-cert-visa-mark">■</span>
+                            </footer>
+                        </article>
+                    </section>
+                </article>
+            </div>
+        </section>
+    </div>
+</main>
+
+<p-toast position="top-center"></p-toast>

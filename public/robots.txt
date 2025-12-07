@@ -1,17 +1,19 @@
-# robots.txt — JocKeCorp
-# Directive pour les robots d'exploration
+# ================================
+#   robots.txt — JocKeCorp™
+# ================================
+
 User-agent: *
 Allow: /
 
-# Ne pas indexer les pages d'authentification
+# --- Zones à ne pas indexer (authentification) ---
 Disallow: /login
 Disallow: /register
 Disallow: /auth/forgot-password
 Disallow: /auth/reset-password
 
-# Emplacement du sitemap
+# --- Sitemap officiel ---
 Sitemap: https://jocke.be/sitemap.xml
 
-# Signature symbolique
-# ────────
-#  L’Œil JocKeCorp observe.
+# --- Signature symbolique ---
+# L’Œil JocKeCorp observe.
+

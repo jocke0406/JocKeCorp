@@ -1,0 +1,329 @@
+<main class="jkc-cert-page" data-cert-ref="CIEA-02">
+    <!-- HEADER -->
+    <header class="jkc-cert-header">
+        <div class="jkc-cert-breadcrumb">
+            <a routerLink="/certificats">Certificats</a>
+            <span aria-hidden="true">›</span>
+            <span>CIEA-02</span>
+        </div>
+
+        <div class="jkc-cert-header-main">
+            <div>
+                <p class="jkc-cert-department">DÉPARTEMENT DE L’ÊTRE</p>
+                <h1 class="jkc-cert-title">
+                    Certificat d’Incertitude Existentielle Active
+                </h1>
+            </div>
+
+            <div class="jkc-cert-ref-block">
+                <span class="jkc-cert-ref-label">Réf.</span>
+                <span class="jkc-cert-ref-code">CIEA-02</span>
+            </div>
+        </div>
+
+        <p class="jkc-cert-tagline">
+            Certificat destiné à documenter la coexistence stable entre une identité présente
+            et l’absence de direction claire, sans jugement moral ni obligation de plan.
+        </p>
+
+        <!-- Petit bloc sujet + date côté UI -->
+        <div class="jkc-cert-header-meta">
+            <span class="jkc-chip">
+                Sujet observé&nbsp;: {{ displayName() }}
+            </span>
+            <span class="jkc-chip jkc-chip--soft">
+                Date d’émission (exemple)&nbsp;:
+                {{ today | jkcDate : jkcLongWithGregorian }}
+            </span>
+        </div>
+    </header>
+
+    <!-- LAYOUT 2 COLONNES -->
+    <div class="jkc-cert-layout">
+        <!-- SIDEBAR -->
+        <aside class="jkc-cert-sidebar">
+            <section class="jkc-cert-meta-card">
+                <h2 class="jkc-cert-meta-title">Informations</h2>
+
+                <dl class="jkc-cert-meta-list">
+                    <div>
+                        <dt>Département</dt>
+                        <dd>Département de l’Être</dd>
+                    </div>
+                    <div>
+                        <dt>Type</dt>
+                        <dd>Certificat d’Incertitude Existentielle Active</dd>
+                    </div>
+                    <div>
+                        <dt>Référence</dt>
+                        <dd>CIEA-02</dd>
+                    </div>
+                    <div>
+                        <dt>Statut</dt>
+                        <dd>Actif · Édition standard</dd>
+                    </div>
+                </dl>
+            </section>
+
+            <section class="jkc-cert-actions-card">
+                <h2 class="jkc-cert-meta-title">Actions</h2>
+
+                <button type="button" class="jkc-btn jkc-btn--primary" (click)="requireAuth('demander-certificat')">
+                    Demander ce certificat
+                </button>
+
+                <button type="button" class="jkc-btn jkc-btn--ghost" (click)="requireAuth('ajouter-dossier')">
+                    Ajouter au Dossier existentiel
+                </button>
+
+                <button type="button" class="jkc-btn jkc-btn--ghost" (click)="requireAuth('pdf')">
+                    Télécharger en PDF
+                </button>
+            </section>
+
+            <section class="jkc-cert-links-card">
+                <h2 class="jkc-cert-meta-title">Certificats voisins</h2>
+                <ul class="jkc-cert-links-list">
+                    <li>
+                        <a routerLink="/certificats/ceic-07-ae">
+                            CEIC — Certificat d’Effondrement Identitaire Contrôlé
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/certificats/csio-03">
+                            CSIO — Certificat de Surmenage Intérieur Officiel
+                        </a>
+                    </li>
+                    <!-- autres liens à ajouter plus tard -->
+                </ul>
+            </section>
+        </aside>
+
+        <!-- ÉCRAN PRINCIPAL -->
+        <section class="jkc-cert-main">
+            <div class="jkc-cert-screen">
+                <!-- Bandeau de ref / statut -->
+                <header class="jkc-cert-screen-header">
+                    <div class="jkc-cert-screen-id">
+                        <span class="jkc-chip">CIEA-02</span>
+                        <span class="jkc-chip jkc-chip--soft">Département de l’Être</span>
+                    </div>
+                    <div class="jkc-cert-screen-status">
+                        <span class="jkc-status-dot"></span>
+                        <span class="jkc-status-label">Présence confirmée · Direction optionnelle</span>
+                    </div>
+                </header>
+
+                <!-- Onglets -->
+                <nav class="jkc-cert-tabs" aria-label="Navigation du certificat">
+                    <button type="button" class="jkc-cert-tab"
+                        [class.jkc-cert-tab--active]="isActivePanel('certificat')" (click)="selectPanel('certificat')">
+                        Certificat
+                    </button>
+                    <button type="button" class="jkc-cert-tab" [class.jkc-cert-tab--active]="isActivePanel('fiche')"
+                        (click)="selectPanel('fiche')">
+                        Fiche de service
+                    </button>
+                    <button type="button" class="jkc-cert-tab"
+                        [class.jkc-cert-tab--active]="isActivePanel('temoignages')"
+                        (click)="selectPanel('temoignages')">
+                        Témoignages enregistrés
+                    </button>
+                </nav>
+
+                <!-- 1) CERTIFICAT (texte officiel) -->
+                <article class="jkc-cert-panel" [class.jkc-cert-panel--active]="isActivePanel('certificat')"
+                    [attr.hidden]="!isActivePanel('certificat')" data-panel-id="certificat">
+                    <section class="jkc-cert-body">
+                        <p>
+                            En date du {{ today | jkcDate : jkcLong }},<br />
+                            le Département de l’Être atteste ce qui suit&nbsp;:
+                        </p>
+                        <p>
+                            Il est constaté que la Personne observée se définit, au moment de l’émission du
+                            présent certificat, de façon suffisante pour permettre l’échange et la
+                            coopération avec son environnement immédiat.
+                        </p>
+                        <p>
+                            Il est simultanément constaté que la Personne observée ne fournit pas, à ce
+                            même instant, de trajectoire personnelle claire, stable ou annoncée concernant
+                            sa direction future.
+                        </p>
+                        <p>
+                            Il est reconnu que ces deux états — identité actuelle et absence de direction —
+                            ne constituent pas une contradiction.
+                        </p>
+                        <p>
+                            Aucune interprétation morale n’est autorisée.
+                        </p>
+                        <p>
+                            L’absence de cap n’est pas un défaut ; c’est une condition de mouvement.
+                        </p>
+                        <p>
+                            Le Département ne délivre pas de plan.<br />
+                            Stock épuisé depuis la création.
+                        </p>
+                        <p>L’Œil constate.</p>
+                    </section>
+
+                    <footer class="jkc-cert-footer">
+                        <div class="jkc-cert-visa">
+                            <span class="jkc-cert-visa-label">Visa&nbsp;:</span>
+                            <span class="jkc-cert-visa-mark">■</span>
+                        </div>
+                        <p class="jkc-cert-footnote">Fin du document.</p>
+                    </footer>
+                </article>
+
+                <!-- 2) FICHE DE SERVICE — texte exact -->
+                <article class="jkc-cert-panel" [class.jkc-cert-panel--active]="isActivePanel('fiche')"
+                    [attr.hidden]="!isActivePanel('fiche')" data-panel-id="fiche">
+                    <header class="jkc-cert-subheader">
+                        <h2>FICHE DE SERVICE — CIEA-02</h2>
+                    </header>
+
+                    <section class="jkc-cert-section">
+                        <h3>Objet</h3>
+                        <p>
+                            Objet&nbsp;: documenter la coexistence stable entre la présence d’une identité
+                            déclarée et l’absence d’un plan envisagé.
+                        </p>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Constats possibles ou observables</h3>
+                        <ul class="jkc-cert-list">
+                            <li>Identité actuelle lisible ; futur indéterminé.</li>
+                            <li>Cap suspendu, trajectoire floue, moteur intact.</li>
+                            <li>Fonctionnement social maintenu malgré désorientation.</li>
+                            <li>
+                                Équilibre entre présence et absence reconnu comme état semi-permanent de
+                                l’espèce pensante.
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Mentions administratives</h3>
+                        <ul class="jkc-cert-taglist">
+                            <li>Observation valide ; orientation non mesurable.</li>
+                        </ul>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Mention officielle de classement</h3>
+                        <ul class="jkc-cert-list">
+                            <li>Présence confirmée ; direction optionnelle.</li>
+                        </ul>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Nota bene</h3>
+                        <p>
+                            Le Département ne délivre pas de boussole.<br />
+                            Stock épuisé depuis toujours.
+                        </p>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Service émetteur</h3>
+                        <p>Service émetteur&nbsp;: Département de l’Être — sous l’Œil de l’Œil.</p>
+                        <p>Visa&nbsp;: ■</p>
+                    </section>
+                </article>
+
+                <!-- 3) TÉMOIGNAGES ENREGISTRÉS -->
+                <article class="jkc-cert-panel" [class.jkc-cert-panel--active]="isActivePanel('temoignages')"
+                    [attr.hidden]="!isActivePanel('temoignages')" data-panel-id="temoignages">
+                    <header class="jkc-cert-subheader">
+                        <h2>TÉMOIGNAGES ENREGISTRÉS — CIEA-02</h2>
+                    </header>
+
+                    <section class="jkc-cert-testimonies">
+                        <!-- Michael Jordan -->
+                        <article class="jkc-cert-testimony">
+                            <header class="jkc-cert-testimony-header">
+                                <h3 class="jkc-cert-testimony-title">
+                                    ■■ Dossier Michael Jordan — Témoignage enregistré
+                                </h3>
+                                <p class="jkc-cert-testimony-meta">
+                                    Date d’émission&nbsp;: 6 octobre 1993, Chicago — annonce de la première
+                                    retraite
+                                </p>
+                            </header>
+                            <p class="jkc-cert-testimony-quote">
+                                “L’élan demeure, mais la trajectoire s’efface.”
+                            </p>
+                            <p class="jkc-cert-testimony-body">
+                                Michael Jordan a sollicité un Certificat d’Incertitude Existentielle Active
+                                pour officialiser un paradoxe humain&nbsp;: atteindre le sommet sans savoir où
+                                poursuivre. Une identité parfaite, privée d’horizon immédiat. Le certificat a
+                                été délivré sans délai. La présence a été jugée complète, la direction
+                                suspendue. L’Œil a certifié.
+                            </p>
+                            <footer class="jkc-cert-testimony-footer">
+                                <span class="jkc-cert-visa-label">Visa&nbsp;:</span>
+                                <span class="jkc-cert-visa-mark">■</span>
+                            </footer>
+                        </article>
+
+                        <!-- Royaume de Belgique -->
+                        <article class="jkc-cert-testimony">
+                            <header class="jkc-cert-testimony-header">
+                                <h3 class="jkc-cert-testimony-title">
+                                    ■■ Dossier Royaume de Belgique — Témoignage enregistré
+                                </h3>
+                                <p class="jkc-cert-testimony-meta">
+                                    Date d’émission&nbsp;: 13 juin 2010 — début de la période sans gouvernement
+                                    fédéral (589 jours)
+                                </p>
+                            </header>
+                            <p class="jkc-cert-testimony-quote">
+                                “Tout fonctionne, mais personne ne conduit.”
+                            </p>
+                            <p class="jkc-cert-testimony-body">
+                                Le Royaume de Belgique a sollicité un Certificat d’Incertitude Existentielle
+                                Active pour officialiser un paradoxe structurel&nbsp;: exister pleinement sans
+                                direction identifiée. Une entité stable, privée d’axe exécutif. Le certificat a
+                                été délivré avec flegme institutionnel. La continuité a été reconnue,
+                                l’orientation déclarée non pertinente. L’Œil a certifié.
+                            </p>
+                            <footer class="jkc-cert-testimony-footer">
+                                <span class="jkc-cert-visa-label">Visa&nbsp;:</span>
+                                <span class="jkc-cert-visa-mark">■</span>
+                            </footer>
+                        </article>
+
+                        <!-- Malcolm X -->
+                        <article class="jkc-cert-testimony">
+                            <header class="jkc-cert-testimony-header">
+                                <h3 class="jkc-cert-testimony-title">
+                                    ■■ Dossier Malcolm X — Témoignage enregistré
+                                </h3>
+                                <p class="jkc-cert-testimony-meta">
+                                    Date d’émission&nbsp;: 13 avril 1964 — retour du pèlerinage à La Mecque
+                                </p>
+                            </header>
+                            <p class="jkc-cert-testimony-quote">
+                                “Je ne sais plus qui je suis, et c’est peut-être le début de quelque chose.”
+                            </p>
+                            <p class="jkc-cert-testimony-body">
+                                Malcolm X a sollicité un Certificat d’Incertitude Existentielle Active pour
+                                officialiser un paradoxe humain&nbsp;: être défini, mais en cours de
+                                redéfinition. Une identité solide, traversée par une transformation en
+                                mouvement. Le certificat a été délivré sans annotation idéologique. La
+                                présence a été confirmée, la direction laissée ouverte. L’Œil a certifié.
+                            </p>
+                            <footer class="jkc-cert-testimony-footer">
+                                <span class="jkc-cert-visa-label">Visa&nbsp;:</span>
+                                <span class="jkc-cert-visa-mark">■</span>
+                            </footer>
+                        </article>
+                    </section>
+                </article>
+            </div>
+        </section>
+    </div>
+</main>
+
+<p-toast position="top-center"></p-toast>

@@ -1,0 +1,327 @@
+<main class="jkc-cert-page" data-cert-ref="CIP-05">
+    <!-- HEADER -->
+    <header class="jkc-cert-header">
+        <div class="jkc-cert-breadcrumb">
+            <a routerLink="/certificats">Certificats</a>
+            <span aria-hidden="true">›</span>
+            <span>CIP-05</span>
+        </div>
+
+        <div class="jkc-cert-header-main">
+            <div>
+                <p class="jkc-cert-department">DÉPARTEMENT DE L’ÊTRE</p>
+                <h1 class="jkc-cert-title">
+                    Certificat d’Intrication Persistante
+                </h1>
+            </div>
+
+            <div class="jkc-cert-ref-block">
+                <span class="jkc-cert-ref-label">Réf.</span>
+                <span class="jkc-cert-ref-code">CIP-05</span>
+            </div>
+        </div>
+
+        <p class="jkc-cert-tagline">
+            Certificat destiné à documenter un lien d’état réciproque entre deux consciences,
+            actif malgré la distance, le temps ou le silence.
+        </p>
+
+        <!-- Petit bloc sujet + date côté UI -->
+        <div class="jkc-cert-header-meta">
+            <span class="jkc-chip">
+                Sujet observé&nbsp;: {{ displayName() }}
+            </span>
+            <span class="jkc-chip jkc-chip--soft">
+                Date d’émission (exemple)&nbsp;:
+                {{ today | jkcDate : jkcLongWithGregorian }}
+            </span>
+        </div>
+    </header>
+
+    <!-- LAYOUT 2 COLONNES -->
+    <div class="jkc-cert-layout">
+        <!-- SIDEBAR -->
+        <aside class="jkc-cert-sidebar">
+            <section class="jkc-cert-meta-card">
+                <h2 class="jkc-cert-meta-title">Informations</h2>
+
+                <dl class="jkc-cert-meta-list">
+                    <div>
+                        <dt>Département</dt>
+                        <dd>Département de l’Être</dd>
+                    </div>
+                    <div>
+                        <dt>Type</dt>
+                        <dd>Certificat d’Intrication Persistante</dd>
+                    </div>
+                    <div>
+                        <dt>Référence</dt>
+                        <dd>CIP-05</dd>
+                    </div>
+                    <div>
+                        <dt>Statut</dt>
+                        <dd>Actif · Édition standard</dd>
+                    </div>
+                </dl>
+            </section>
+
+            <section class="jkc-cert-actions-card">
+                <h2 class="jkc-cert-meta-title">Actions</h2>
+
+                <button type="button" class="jkc-btn jkc-btn--primary" (click)="requireAuth('demander-certificat')">
+                    Demander ce certificat
+                </button>
+
+                <button type="button" class="jkc-btn jkc-btn--ghost" (click)="requireAuth('ajouter-dossier')">
+                    Ajouter au Dossier existentiel
+                </button>
+
+                <button type="button" class="jkc-btn jkc-btn--ghost" (click)="requireAuth('pdf')">
+                    Télécharger en PDF
+                </button>
+            </section>
+
+            <section class="jkc-cert-links-card">
+                <h2 class="jkc-cert-meta-title">Certificats voisins</h2>
+                <ul class="jkc-cert-links-list">
+                    <li>
+                        <a routerLink="/certificats/ceic-07-ae">
+                            CEIC — Certificat d’Effondrement Identitaire Contrôlé
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/certificats/ciea-02">
+                            CIEA — Certificat d’Incertitude Existentielle Active
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/certificats/csio-03">
+                            CSIO — Certificat de Surmenage Intérieur Officiel
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/certificats/cpo-04">
+                            CPO — Certificat de Poursuite sous Obstacle
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+
+        <!-- ÉCRAN PRINCIPAL -->
+        <section class="jkc-cert-main">
+            <div class="jkc-cert-screen">
+                <!-- Bandeau de ref / statut -->
+                <header class="jkc-cert-screen-header">
+                    <div class="jkc-cert-screen-id">
+                        <span class="jkc-chip">CIP-05</span>
+                        <span class="jkc-chip jkc-chip--soft">Département de l’Être</span>
+                    </div>
+                    <div class="jkc-cert-screen-status">
+                        <span class="jkc-status-dot"></span>
+                        <span class="jkc-status-label">
+                            Connexion observée · Séparation théorique
+                        </span>
+                    </div>
+                </header>
+
+                <!-- Onglets -->
+                <nav class="jkc-cert-tabs" aria-label="Navigation du certificat">
+                    <button type="button" class="jkc-cert-tab"
+                        [class.jkc-cert-tab--active]="isActivePanel('certificat')" (click)="selectPanel('certificat')">
+                        Certificat
+                    </button>
+                    <button type="button" class="jkc-cert-tab" [class.jkc-cert-tab--active]="isActivePanel('fiche')"
+                        (click)="selectPanel('fiche')">
+                        Fiche de service
+                    </button>
+                    <button type="button" class="jkc-cert-tab"
+                        [class.jkc-cert-tab--active]="isActivePanel('temoignages')"
+                        (click)="selectPanel('temoignages')">
+                        Témoignages enregistrés
+                    </button>
+                </nav>
+
+                <!-- 1) CERTIFICAT (texte officiel) -->
+                <article class="jkc-cert-panel" [class.jkc-cert-panel--active]="isActivePanel('certificat')"
+                    [attr.hidden]="!isActivePanel('certificat')" data-panel-id="certificat">
+                    <section class="jkc-cert-body">
+                        <p>
+                            En date du {{ today | jkcDate : jkcLong }}, à ________ heures,<br />
+                            le Département de l’Être atteste ce qui suit&nbsp;:
+                        </p>
+                        <p>
+                            Il est constaté qu’entre deux consciences observées subsiste un lien d’état
+                            réciproque.
+                        </p>
+                        <p>
+                            Ce lien demeure actif, indépendamment du temps, de la distance ou du silence.
+                        </p>
+                        <p>
+                            Il est reconnu que toute variation perçue chez l’une trouve un écho, mesurable
+                            ou non, chez l’autre.
+                        </p>
+                        <p>
+                            La dissymétrie d’expression n’annule pas la réciprocité.
+                        </p>
+                        <p>
+                            Le Département de l’Être n’établit pas la cause du lien.
+                        </p>
+                        <p>
+                            Il en consigne la persistance.
+                        </p>
+                        <p>L’Œil constate.</p>
+                    </section>
+
+                    <footer class="jkc-cert-footer">
+                        <div class="jkc-cert-visa">
+                            <span class="jkc-cert-visa-label">Visa&nbsp;:</span>
+                            <span class="jkc-cert-visa-mark">■</span>
+                        </div>
+                        <p class="jkc-cert-footnote">Fin du document.</p>
+                    </footer>
+                </article>
+
+                <!-- 2) FICHE DE SERVICE -->
+                <article class="jkc-cert-panel" [class.jkc-cert-panel--active]="isActivePanel('fiche')"
+                    [attr.hidden]="!isActivePanel('fiche')" data-panel-id="fiche">
+                    <header class="jkc-cert-subheader">
+                        <h2>FICHE DE SERVICE — CIP-05</h2>
+                    </header>
+
+                    <section class="jkc-cert-section">
+                        <h3>Objet</h3>
+                        <p>
+                            Documenter les corrélations affectives, créatives ou existentielles
+                            persistantes entre deux consciences séparées.
+                        </p>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Constats possibles ou observables</h3>
+                        <ul class="jkc-cert-list">
+                            <li>Résonance émotionnelle non locale.</li>
+                            <li>Communication implicite sans contact.</li>
+                            <li>Évolution parallèle des états internes.</li>
+                            <li>Dissymétrie d’intensité tolérée.</li>
+                            <li>Persistance du lien malgré rupture, absence ou mort.</li>
+                        </ul>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Mentions administratives</h3>
+                        <ul class="jkc-cert-taglist">
+                            <li>Corrélation&nbsp;: confirmée.</li>
+                            <li>Distance&nbsp;: annulée.</li>
+                        </ul>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Mention officielle de classement</h3>
+                        <ul class="jkc-cert-list">
+                            <li>Connexion observée ; séparation théorique.</li>
+                        </ul>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Nota bene</h3>
+                        <p>
+                            Le Département ne tranche pas entre hasard et destin.<br />
+                            Il archive la coïncidence.
+                        </p>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Service émetteur</h3>
+                        <p>Service émetteur&nbsp;: Département de l’Être — sous l’Œil de l’Œil.</p>
+                        <p>Visa&nbsp;: ■</p>
+                    </section>
+                </article>
+
+                <!-- 3) TÉMOIGNAGES ENREGISTRÉS -->
+                <article class="jkc-cert-panel" [class.jkc-cert-panel--active]="isActivePanel('temoignages')"
+                    [attr.hidden]="!isActivePanel('temoignages')" data-panel-id="temoignages">
+                    <header class="jkc-cert-subheader">
+                        <h2>TÉMOIGNAGES ENREGISTRÉS — CIP-05</h2>
+                    </header>
+
+                    <section class="jkc-cert-testimonies">
+                        <!-- Roméo & Juliette -->
+                        <article class="jkc-cert-testimony">
+                            <header class="jkc-cert-testimony-header">
+                                <h3 class="jkc-cert-testimony-title">
+                                    ■■ Dossier Roméo &amp; Juliette — Témoignage enregistré
+                                </h3>
+                                <p class="jkc-cert-testimony-meta">
+                                    Date d’émission&nbsp;: 23 avril 1597 — Vérone
+                                </p>
+                            </header>
+                            <p class="jkc-cert-testimony-body">
+                                Roméo et Juliette ont sollicité un Certificat d’Intrication Persistante pour
+                                officialiser une corrélation terminale&nbsp;: deux consciences synchronisées
+                                au-delà du possible. Chaque mouvement de l’un déclenche une variation chez
+                                l’autre, sans communication directe, jusqu’à la dissolution mutuelle. Le
+                                Département de l’Être a consigné la corrélation sous scellé dramatique. La
+                                persistance du lien demeure observable dans les réécritures successives, les
+                                adaptations, les soupirs adolescents. L’Œil a certifié.
+                            </p>
+                            <footer class="jkc-cert-testimony-footer">
+                                <span class="jkc-cert-visa-label">Visa&nbsp;:</span>
+                                <span class="jkc-cert-visa-mark">■</span>
+                            </footer>
+                        </article>
+
+                        <!-- John Lennon & Paul McCartney -->
+                        <article class="jkc-cert-testimony">
+                            <header class="jkc-cert-testimony-header">
+                                <h3 class="jkc-cert-testimony-title">
+                                    ■■ Dossier John Lennon &amp; Paul McCartney — Témoignage enregistré
+                                </h3>
+                                <p class="jkc-cert-testimony-meta">
+                                    Date d’émission&nbsp;: 8 décembre 1980 — New York
+                                </p>
+                            </header>
+                            <p class="jkc-cert-testimony-body">
+                                John Lennon et Paul McCartney ont sollicité un Certificat d’Intrication
+                                Persistante pour attester d’une connexion musicale post-rupture&nbsp;:
+                                mélodies, thèmes et silences se répondant à distance. Un fil tendu entre
+                                ateliers, une symphonie bipolaire. Le certificat a été délivré sans annotation
+                                harmonique. L’Œil a certifié&nbsp;: résonance confirmée ; communication
+                                implicite active.
+                            </p>
+                            <footer class="jkc-cert-testimony-footer">
+                                <span class="jkc-cert-visa-label">Visa&nbsp;:</span>
+                                <span class="jkc-cert-visa-mark">■</span>
+                            </footer>
+                        </article>
+
+                        <!-- Serena & Venus Williams -->
+                        <article class="jkc-cert-testimony">
+                            <header class="jkc-cert-testimony-header">
+                                <h3 class="jkc-cert-testimony-title">
+                                    ■■ Dossier Serena &amp; Venus Williams — Témoignage enregistré
+                                </h3>
+                                <p class="jkc-cert-testimony-meta">
+                                    Date d’émission&nbsp;: 9 septembre 2001 — New York
+                                </p>
+                            </header>
+                            <p class="jkc-cert-testimony-body">
+                                Serena et Venus Williams ont sollicité un Certificat d’Intrication Persistante
+                                pour documenter un phénomène sportif observable&nbsp;: deux trajectoires
+                                distinctes recalculant mutuellement leurs performances. Quand l’une avance,
+                                l’autre s’ajuste. Le certificat a été délivré à la suite d’un échange croisé.
+                                L’Œil a certifié&nbsp;: corrélation active sur surface dure.
+                            </p>
+                            <footer class="jkc-cert-testimony-footer">
+                                <span class="jkc-cert-visa-label">Visa&nbsp;:</span>
+                                <span class="jkc-cert-visa-mark">■</span>
+                            </footer>
+                        </article>
+                    </section>
+                </article>
+            </div>
+        </section>
+    </div>
+</main>
+
+<p-toast position="top-center"></p-toast>

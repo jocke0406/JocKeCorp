@@ -4,7 +4,7 @@
   <!-- Page d'accueil -->
   <url>
     <loc>https://jocke.be/</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-12-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,7 +12,7 @@
   <!-- Connexion -->
   <url>
     <loc>https://jocke.be/login</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-12-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -20,7 +20,7 @@
   <!-- Inscriptions fermées -->
   <url>
     <loc>https://jocke.be/register</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-12-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -28,7 +28,7 @@
   <!-- Mot de passe oublié -->
   <url>
     <loc>https://jocke.be/auth/forgot-password</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-12-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -36,19 +36,19 @@
   <!-- Réinitialiser mot de passe -->
   <url>
     <loc>https://jocke.be/auth/reset-password</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-12-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <!-- ========================== -->
-  <!--    5 nouvelles sections    -->
+  <!--      Sections globales     -->
   <!-- ========================== -->
 
   <!-- Certificats -->
   <url>
     <loc>https://jocke.be/certificats</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-12-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -56,7 +56,7 @@
   <!-- Déculpabilisation -->
   <url>
     <loc>https://jocke.be/deculpabilisation</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-12-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -64,7 +64,7 @@
   <!-- Dossier Existentiel -->
   <url>
     <loc>https://jocke.be/dossier</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-12-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -72,7 +72,7 @@
   <!-- Formations -->
   <url>
     <loc>https://jocke.be/formations</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-12-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -80,9 +80,53 @@
   <!-- Anomalies -->
   <url>
     <loc>https://jocke.be/anomalies</loc>
-    <lastmod>2025-10-29</lastmod>
+    <lastmod>2025-12-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- ============================== -->
+  <!--      5 Certificats officiels   -->
+  <!-- ============================== -->
+
+  <!-- CEIC-07/AE -->
+  <url>
+    <loc>https://jocke.be/certificats/ceic-07-ae</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- CIEA-02 -->
+  <url>
+    <loc>https://jocke.be/certificats/ciea-02</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- CSIO-03 -->
+  <url>
+    <loc>https://jocke.be/certificats/csio-03</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- CPO-04 -->
+  <url>
+    <loc>https://jocke.be/certificats/cpo-04</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- CIP-05 -->
+  <url>
+    <loc>https://jocke.be/certificats/cip-05</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>

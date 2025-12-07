@@ -13,7 +13,9 @@
     "twitterSite": "@JocKeCorp",
 
     "schemaType": "WebPage",
-    "breadcrumbs": [{ "name": "Accueil", "url": "https://jocke.be/" }],
+    "breadcrumbs": [
+      { "name": "Accueil", "url": "https://jocke.be/" }
+    ],
     "datePublished": "",
     "dateModified": "",
 
@@ -43,7 +45,7 @@
 
     "ogTitle": "Connexion — JocKeCorp",
     "ogDescription": "Connectez-vous à JocKeCorp. Ici, nous vérifierons si vous existez.",
-    "ogImage": "https://jocke.be/og/login.jpg",
+    "ogImage": "https://jocke.be/og/home.jpg",
     "ogImageAlt": "L’Œil JocKeCorp observe l’inutile d’un léger tremblement existentiel.",
     "twitterCard": "summary_large_image",
     "twitterSite": "@JocKeCorp",
@@ -71,16 +73,112 @@
     "lcpImageAlt": "L’Œil ultime veille, silencieux et mobile."
   },
 
+  "/register": {
+    "title": "Inscriptions — JocKeCorp",
+    "description": "Les inscriptions sont actuellement fermées. Le Bureau de l’Inutile prend son temps.",
+    "canonical": "https://jocke.be/register",
+    "robots": "noindex,follow",
+
+    "ogTitle": "Inscriptions fermées — JocKeCorp",
+    "ogDescription": "Les inscriptions sont temporairement closes. Revenez lorsque le néant aura besoin de vous.",
+    "ogImage": "https://jocke.be/og/home.jpg",
+    "ogImageAlt": "Porte administrative close, éclairée par l’Œil JocKeCorp.",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@JocKeCorp",
+
+    "schemaType": "WebPage",
+    "breadcrumbs": [
+      { "name": "Accueil", "url": "https://jocke.be/" },
+      { "name": "Inscriptions", "url": "https://jocke.be/register" }
+    ],
+    "datePublished": "",
+    "dateModified": "",
+
+    "h1": "Inscriptions fermées",
+    "primaryKeyword": "inscription JocKeCorp",
+    "secondaryKeywords": [
+      "inscription fermée",
+      "accès JocKeCorp",
+      "bureau de l’inutile",
+      "création de compte bloquée"
+    ],
+    "lcpImage": "/hero/home.avif",
+    "lcpImageAlt": "L’Œil ultime veille sur une porte close."
+  },
+
+  "/auth/forgot-password": {
+    "title": "Mot de passe oublié — JocKeCorp",
+    "description": "Réinitialisez votre mot de passe JocKeCorp. Nous vérifierons si vous avez vraiment existé ici.",
+    "canonical": "https://jocke.be/auth/forgot-password",
+    "robots": "noindex,follow",
+
+    "ogTitle": "Mot de passe oublié — JocKeCorp",
+    "ogDescription": "Procédure de récupération de mot de passe pour les êtres distraits mais encore recensés.",
+    "ogImage": "https://jocke.be/og/home.jpg",
+    "ogImageAlt": "Formulaire lumineux perdu dans un fond sombre JocKeCorp.",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@JocKeCorp",
+
+    "schemaType": "WebPage",
+    "breadcrumbs": [
+      { "name": "Accueil", "url": "https://jocke.be/" },
+      { "name": "Mot de passe oublié", "url": "https://jocke.be/auth/forgot-password" }
+    ],
+    "datePublished": "",
+    "dateModified": "",
+
+    "h1": "Mot de passe oublié",
+    "primaryKeyword": "mot de passe oublié JocKeCorp",
+    "secondaryKeywords": [
+      "réinitialisation mot de passe",
+      "compte JocKeCorp",
+      "identifiants perdus"
+    ],
+    "lcpImage": "/hero/home.avif",
+    "lcpImageAlt": "Formulaire administratif dans la pénombre."
+  },
+
+  "/auth/reset-password": {
+    "title": "Réinitialiser le mot de passe — JocKeCorp",
+    "description": "Choisissez un nouveau mot de passe pour votre dossier JocKeCorp.",
+    "canonical": "https://jocke.be/auth/reset-password",
+    "robots": "noindex,follow",
+
+    "ogTitle": "Réinitialiser le mot de passe — JocKeCorp",
+    "ogDescription": "Fin de procédure de réinitialisation : une nouvelle clé pour le même néant.",
+    "ogImage": "https://jocke.be/og/home.jpg",
+    "ogImageAlt": "Clé lumineuse sur fond sombre.",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@JocKeCorp",
+
+    "schemaType": "WebPage",
+    "breadcrumbs": [
+      { "name": "Accueil", "url": "https://jocke.be/" },
+      { "name": "Réinitialiser le mot de passe", "url": "https://jocke.be/auth/reset-password" }
+    ],
+    "datePublished": "",
+    "dateModified": "",
+
+    "h1": "Réinitialiser le mot de passe",
+    "primaryKeyword": "réinitialiser mot de passe JocKeCorp",
+    "secondaryKeywords": [
+      "nouveau mot de passe",
+      "sécurité compte JocKeCorp"
+    ],
+    "lcpImage": "/hero/home.avif",
+    "lcpImageAlt": "Clé stylisée émergeant de l’ombre."
+  },
+
   "/certificats": {
-    "title": "Certificats — JocKeCorp",
-    "description": "Là où les états internes deviennent documents poético-administratifs.",
+    "title": "Certificats — Département de l’Être — JocKeCorp",
+    "description": "Là où les états internes deviennent documents. Le Bureau prépare encore ses formulaires.",
     "canonical": "https://jocke.be/certificats",
     "robots": "index,follow",
 
-    "ogTitle": "Certificats — JocKeCorp",
-    "ogDescription": "Le Département des Certificats JocKeCorp™ transforme vos états intérieurs en documents officiels.",
+    "ogTitle": "Certificats — Département de l’Être — JocKeCorp",
+    "ogDescription": "Section administrative en cours d’établissement : les certificats JocKeCorp arrivent.",
     "ogImage": "https://jocke.be/og/construction.jpg",
-    "ogImageAlt": "Page JocKeCorp en construction poético-administrative.",
+    "ogImageAlt": "Panneau JocKeCorp indiquant une section en cours d’établissement.",
     "twitterCard": "summary_large_image",
     "twitterSite": "@JocKeCorp",
 
@@ -95,52 +193,25 @@
     "h1": "Certificats",
     "primaryKeyword": "certificats JocKeCorp",
     "secondaryKeywords": [
-      "certificats émotionnels",
-      "documents poétiques",
-      "certificats officiels"
+      "certificats poético-administratifs",
+      "département de l’être",
+      "documents absurdes",
+      "bureau des certificats"
     ],
     "lcpImage": "/hero/home.avif",
-    "lcpImageAlt": "L’Œil ultime veille, silencieux et mobile."
-  },
-
-  "/deculpabilisation": {
-    "title": "Déculpabilisation — JocKeCorp",
-    "description": "Le guichet où l’on dépose ce qui pèse, même si ça ne pèse rien.",
-    "canonical": "https://jocke.be/deculpabilisation",
-    "robots": "index,follow",
-
-    "ogTitle": "Déculpabilisation — JocKeCorp",
-    "ogDescription": "Guichet officiel des regrets, maladresses et fautes douces.",
-    "ogImage": "https://jocke.be/og/construction.jpg",
-    "ogImageAlt": "Page JocKeCorp en construction poético-administrative.",
-    "twitterCard": "summary_large_image",
-    "twitterSite": "@JocKeCorp",
-
-    "schemaType": "WebPage",
-    "breadcrumbs": [
-      { "name": "Accueil", "url": "https://jocke.be/" },
-      { "name": "Déculpabilisation", "url": "https://jocke.be/deculpabilisation" }
-    ],
-    "datePublished": "",
-    "dateModified": "",
-
-    "h1": "Déculpabilisation",
-    "primaryKeyword": "déculpabilisation JocKeCorp",
-    "secondaryKeywords": ["gestion des regrets", "reçu de déculpabilisation"],
-    "lcpImage": "/hero/home.avif",
-    "lcpImageAlt": "L’Œil ultime veille, silencieux et mobile."
+    "lcpImageAlt": "Interface lumineuse de certificats en préparation."
   },
 
   "/dossier": {
     "title": "Dossier Existentiel — JocKeCorp",
-    "description": "Le dossier où l’ordre tente de rester flou.",
+    "description": "Dossier où l’ordre tente de rester flou. Les pages refusent encore d’entrer dans les classeurs.",
     "canonical": "https://jocke.be/dossier",
     "robots": "index,follow",
 
     "ogTitle": "Dossier Existentiel — JocKeCorp",
-    "ogDescription": "Votre Dossier Existentiel : timeline, liens entre Anomalies, Certificats et Dépôts.",
+    "ogDescription": "Section en cours de reliure : votre dossier existentiel sera bientôt classable.",
     "ogImage": "https://jocke.be/og/construction.jpg",
-    "ogImageAlt": "Page JocKeCorp en construction poético-administrative.",
+    "ogImageAlt": "Classeur bancal tentant de contenir des feuilles lumineuses.",
     "twitterCard": "summary_large_image",
     "twitterSite": "@JocKeCorp",
 
@@ -154,21 +225,59 @@
 
     "h1": "Dossier Existentiel",
     "primaryKeyword": "dossier existentiel JocKeCorp",
-    "secondaryKeywords": ["timeline existentielle", "relevé d’existence"],
+    "secondaryKeywords": [
+      "dossier de l’être",
+      "timeline existentielle",
+      "relevé d’existence",
+      "archives absurdes"
+    ],
     "lcpImage": "/hero/home.avif",
-    "lcpImageAlt": "L’Œil ultime veille, silencieux et mobile."
+    "lcpImageAlt": "Classeur lumineux au milieu du néant."
+  },
+
+  "/deculpabilisation": {
+    "title": "Déculpabilisation — JocKeCorp",
+    "description": "Le guichet où l’on dépose ce qui pèse, même si ça ne pèse rien.",
+    "canonical": "https://jocke.be/deculpabilisation",
+    "robots": "index,follow",
+
+    "ogTitle": "Déculpabilisation — JocKeCorp",
+    "ogDescription": "Section en cours de calibration émotionnelle : reçus de déculpabilisation à venir.",
+    "ogImage": "https://jocke.be/og/construction.jpg",
+    "ogImageAlt": "Extincteur stylisé posé sur un formulaire administratif.",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@JocKeCorp",
+
+    "schemaType": "WebPage",
+    "breadcrumbs": [
+      { "name": "Accueil", "url": "https://jocke.be/" },
+      { "name": "Déculpabilisation", "url": "https://jocke.be/deculpabilisation" }
+    ],
+    "datePublished": "",
+    "dateModified": "",
+
+    "h1": "Déculpabilisation",
+    "primaryKeyword": "déculpabilisation JocKeCorp",
+    "secondaryKeywords": [
+      "reçu de déculpabilisation",
+      "remords légers",
+      "fautes douces",
+      "bureau des regrets"
+    ],
+    "lcpImage": "/hero/home.avif",
+    "lcpImageAlt": "Bureau lumineux recueillant de petites culpabilités."
   },
 
   "/formations": {
-    "title": "Formations — JocKeCorp",
-    "description": "Formations destinées à n’améliorer personne, mais à poser de meilleures questions.",
+    "title": "Formations Inutiles — JocKeCorp",
+    "description": "Ne rien apprendre, mais pourquoi.",
     "canonical": "https://jocke.be/formations",
     "robots": "index,follow",
 
-    "ogTitle": "Formations — JocKeCorp",
-    "ogDescription": "Initiation aux Anomalies, auto-certification et maîtrise du Dossier Existentiel.",
+    "ogTitle": "Formations Inutiles — JocKeCorp",
+    "ogDescription": "Section en préparation pédagogique : des cours qui n’amélioreront personne.",
     "ogImage": "https://jocke.be/og/construction.jpg",
-    "ogImageAlt": "Page JocKeCorp en construction poético-administrative.",
+    "ogImageAlt": "Chapeau de diplômé flottant au-dessus d’un vide administratif.",
     "twitterCard": "summary_large_image",
     "twitterSite": "@JocKeCorp",
 
@@ -181,22 +290,27 @@
     "dateModified": "",
 
     "h1": "Formations",
-    "primaryKeyword": "formations JocKeCorp",
-    "secondaryKeywords": ["formation anomalies", "auto-certification"],
+    "primaryKeyword": "formations inutiles JocKeCorp",
+    "secondaryKeywords": [
+      "formations absurdes",
+      "atelier s’auto-certifier",
+      "détection d’anomalies",
+      "dossier existentiel universel"
+    ],
     "lcpImage": "/hero/home.avif",
-    "lcpImageAlt": "L’Œil ultime veille, silencieux et mobile."
+    "lcpImageAlt": "Salle de cours fantomatique pleine de formulaires."
   },
 
   "/anomalies": {
-    "title": "Anomalies — JocKeCorp",
+    "title": "Observatoire des Anomalies — JocKeCorp",
     "description": "Là où les phénomènes refusent d’être ordinaires.",
     "canonical": "https://jocke.be/anomalies",
     "robots": "index,follow",
 
-    "ogTitle": "Anomalies — JocKeCorp",
-    "ogDescription": "Galerie des Anomalies JocKeCorp™ : phénomènes qui vibrent trop ou pas assez.",
+    "ogTitle": "Observatoire des Anomalies — JocKeCorp",
+    "ogDescription": "Section en calibrage : les anomalies négocient encore leurs intensités.",
     "ogImage": "https://jocke.be/og/construction.jpg",
-    "ogImageAlt": "Page JocKeCorp en construction poético-administrative.",
+    "ogImageAlt": "Tableau lumineux brouillé par des anomalies.",
     "twitterCard": "summary_large_image",
     "twitterSite": "@JocKeCorp",
 
@@ -210,8 +324,200 @@
 
     "h1": "Anomalies",
     "primaryKeyword": "anomalies JocKeCorp",
-    "secondaryKeywords": ["galerie anomalies", "art génératif"],
+    "secondaryKeywords": [
+      "galerie d’anomalies",
+      "phénomènes non-ordinaires",
+      "fiches d’anomalies",
+      "ponts vers les étoiles"
+    ],
     "lcpImage": "/hero/home.avif",
-    "lcpImageAlt": "L’Œil ultime veille, silencieux et mobile."
-  }
+    "lcpImageAlt": "Mur d’images étranges sous l’Œil JocKeCorp."
+  },
+
+ "/certificats/ceic-07-ae": {
+  "title": "CEIC-07/AE — Certificat d’Effondrement Identitaire Contrôlé",
+  "description": "Certificat destiné à constater la stabilité apparente d’un être pluriel, sans exiger de cohérence unique ni de simplification forcée.",
+  "canonical": "https://jocke.be/certificats/ceic-07-ae",
+  "robots": "index,follow",
+
+  "ogTitle": "CEIC-07/AE — Certificat d’Effondrement Identitaire Contrôlé",
+  "ogDescription": "Certificat destiné à constater la stabilité apparente d’un être pluriel, sans exiger de cohérence unique ni de simplification forcée.",
+  "ogImage": "https://jocke.be/og/home.jpg",
+  "ogImageAlt": "Certificat CEIC-07/AE émis par le Département de l’Être.",
+  "twitterCard": "summary_large_image",
+  "twitterSite": "@JocKeCorp",
+
+  "schemaType": "WebPage",
+  "breadcrumbs": [
+    { "name": "Accueil", "url": "https://jocke.be/" },
+    { "name": "Certificats", "url": "https://jocke.be/certificats" },
+    { "name": "CEIC-07/AE", "url": "https://jocke.be/certificats/ceic-07-ae" }
+  ],
+  "datePublished": "",
+  "dateModified": "",
+
+  "h1": "Certificat d’Effondrement Identitaire Contrôlé",
+  "primaryKeyword": "certificat effondrement identitaire contrôlé",
+  "secondaryKeywords": [
+    "CEIC-07/AE",
+    "certificat identité multiple",
+    "département de l’être",
+    "certificat JocKeCorp",
+    "être pluriel",
+    "stabilité apparente",
+    "certificat poético-administratif"
+  ],
+  "lcpImage": "/hero/home.avif",
+  "lcpImageAlt": "L’Œil ultime veille sur les certificats."
+},
+"/certificats/ciea-02": {
+  "title": "CIEA-02 — Certificat d’Incertitude Existentielle Active",
+  "description": "Certificat destiné à documenter la coexistence stable entre une identité présente et l’absence de direction claire, sans jugement moral ni obligation de plan.",
+  "canonical": "https://jocke.be/certificats/ciea-02",
+  "robots": "index,follow",
+
+  "ogTitle": "CIEA-02 — Certificat d’Incertitude Existentielle Active",
+  "ogDescription": "Document JocKeCorp™ pour celles et ceux qui existent pleinement tout en avançant sans cap défini — présence confirmée, direction optionnelle.",
+  "ogImage": "https://jocke.be/og/home.jpg",
+  "ogImageAlt": "Certificat CIEA-02 émis par le Département de l’Être.",
+  "twitterCard": "summary_large_image",
+  "twitterSite": "@JocKeCorp",
+
+  "schemaType": "WebPage",
+  "breadcrumbs": [
+    { "name": "Accueil", "url": "https://jocke.be/" },
+    { "name": "Certificats", "url": "https://jocke.be/certificats" },
+    { "name": "CIEA-02", "url": "https://jocke.be/certificats/ciea-02" }
+  ],
+  "datePublished": "",
+  "dateModified": "",
+
+  "h1": "Certificat d’Incertitude Existentielle Active",
+  "primaryKeyword": "certificat incertitude existentielle active",
+  "secondaryKeywords": [
+    "CIEA-02",
+    "certificat incertitude existentielle",
+    "identité sans plan",
+    "département de l’être",
+    "certificat JocKeCorp",
+    "présence confirmée direction optionnelle",
+    "certificat poético-administratif"
+  ],
+  "lcpImage": "/hero/home.avif",
+  "lcpImageAlt": "L’Œil ultime veille sur les certificats."
+},
+"/certificats/csio-03": {
+  "title": "CSIO-03 — Certificat de Stabilisation Identitaire Observée",
+  "description": "Certificat destiné à documenter une forme stable au moment T, sans présumer de sa durée ni de la prochaine métamorphose.",
+  "canonical": "https://jocke.be/certificats/csio-03",
+  "robots": "index,follow",
+
+  "ogTitle": "CSIO-03 — Certificat de Stabilisation Identitaire Observée",
+  "ogDescription": "Document JocKeCorp™ pour les formes identitaires momentanément stables — respiration entre deux métamorphoses, avec dossiers Bowie, Day-Lewis et Prince.",
+  "ogImage": "https://jocke.be/og/home.jpg",
+  "ogImageAlt": "Certificat CSIO-03 émis par le Département de l’Être.",
+  "twitterCard": "summary_large_image",
+  "twitterSite": "@JocKeCorp",
+
+  "schemaType": "WebPage",
+  "breadcrumbs": [
+    { "name": "Accueil", "url": "https://jocke.be/" },
+    { "name": "Certificats", "url": "https://jocke.be/certificats" },
+    { "name": "CSIO-03", "url": "https://jocke.be/certificats/csio-03" }
+  ],
+  "datePublished": "",
+  "dateModified": "",
+
+  "h1": "Certificat de Stabilisation Identitaire Observée",
+  "primaryKeyword": "certificat de stabilisation identitaire observée",
+  "secondaryKeywords": [
+    "CSIO-03",
+    "stabilité identitaire temporaire",
+    "forme identitaire observée",
+    "département de l’être",
+    "certificat JocKeCorp",
+    "forme actuelle admise",
+    "certificat poético-administratif"
+  ],
+  "lcpImage": "/hero/home.avif",
+  "lcpImageAlt": "L’Œil ultime veille sur les certificats."
+},
+
+"/certificats/cpo-04": {
+  "title": "CPO-04 — Certificat de Poursuite sous Obstacle",
+  "description": "Certificat destiné à attester qu’un obstacle réel est présent, mais que la trajectoire, la pensée ou le geste se poursuivent malgré tout.",
+  "canonical": "https://jocke.be/certificats/cpo-04",
+  "robots": "index,follow",
+
+  "ogTitle": "CPO-04 — Certificat de Poursuite sous Obstacle",
+  "ogDescription": "Document JocKeCorp™ pour les êtres qui avancent malgré la résistance : obstacles confirmés, trajectoire maintenue. Dossiers Hawking, Mandela et Curie inclus.",
+  "ogImage": "https://jocke.be/og/home.jpg",
+  "ogImageAlt": "Certificat CPO-04 émis par le Département de l’Être.",
+  "twitterCard": "summary_large_image",
+  "twitterSite": "@JocKeCorp",
+
+  "schemaType": "WebPage",
+  "breadcrumbs": [
+    { "name": "Accueil", "url": "https://jocke.be/" },
+    { "name": "Certificats", "url": "https://jocke.be/certificats" },
+    { "name": "CPO-04", "url": "https://jocke.be/certificats/cpo-04" }
+  ],
+  "datePublished": "",
+  "dateModified": "",
+
+  "h1": "Certificat de Poursuite sous Obstacle",
+  "primaryKeyword": "certificat de poursuite sous obstacle",
+  "secondaryKeywords": [
+    "CPO-04",
+    "poursuite malgré obstacle",
+    "résistance intérieure",
+    "continuité sous contrainte",
+    "département de l’être",
+    "certificat JocKeCorp",
+    "persévérance existentielle",
+    "certificat poético-administratif"
+  ],
+  "lcpImage": "/hero/home.avif",
+  "lcpImageAlt": "L’Œil ultime veille sur les certificats."
+}
+,"/certificats/cip-05": {
+  "title": "CIP-05 — Certificat d’Intrication Persistante",
+  "description": "Certificat destiné à documenter un lien d’état réciproque entre deux consciences, actif malgré la distance, le temps ou le silence.",
+  "canonical": "https://jocke.be/certificats/cip-05",
+  "robots": "index,follow",
+
+  "ogTitle": "CIP-05 — Certificat d’Intrication Persistante",
+  "ogDescription": "Document JocKeCorp™ pour les liens qui persistent : deux consciences intriquées malgré la distance, le temps ou le silence. Dossiers Roméo & Juliette, Lennon/McCartney et Serena & Venus.",
+  "ogImage": "https://jocke.be/og/home.jpg",
+  "ogImageAlt": "Certificat CIP-05 émis par le Département de l’Être.",
+  "twitterCard": "summary_large_image",
+  "twitterSite": "@JocKeCorp",
+
+  "schemaType": "WebPage",
+  "breadcrumbs": [
+    { "name": "Accueil", "url": "https://jocke.be/" },
+    { "name": "Certificats", "url": "https://jocke.be/certificats" },
+    { "name": "CIP-05", "url": "https://jocke.be/certificats/cip-05" }
+  ],
+  "datePublished": "",
+  "dateModified": "",
+
+  "h1": "Certificat d’Intrication Persistante",
+  "primaryKeyword": "certificat d’intrication persistante",
+  "secondaryKeywords": [
+    "CIP-05",
+    "intrication persistante",
+    "lien entre deux consciences",
+    "corrélation affective",
+    "résonance non locale",
+    "département de l’être",
+    "certificat JocKeCorp",
+    "connexion au-delà de la distance",
+    "certificat poético-administratif"
+  ],
+  "lcpImage": "/hero/home.avif",
+  "lcpImageAlt": "L’Œil ultime veille sur les certificats."
+}
+
+
 }

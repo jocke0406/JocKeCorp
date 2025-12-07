@@ -1,0 +1,343 @@
+<main class="jkc-cert-page" data-cert-ref="CEIC-07/AE">
+    <!-- HEADER -->
+    <header class="jkc-cert-header">
+        <div class="jkc-cert-breadcrumb">
+            <a routerLink="/certificats">Certificats</a>
+            <span aria-hidden="true">›</span>
+            <span>CEIC-07/AE</span>
+        </div>
+
+        <div class="jkc-cert-header-main">
+            <div>
+                <p class="jkc-cert-department">DÉPARTEMENT DE L’ÊTRE</p>
+                <h1 class="jkc-cert-title">
+                    Certificat d’Effondrement Identitaire Contrôlé
+                </h1>
+            </div>
+
+            <div class="jkc-cert-ref-block">
+                <span class="jkc-cert-ref-label">Réf.</span>
+                <span class="jkc-cert-ref-code">CEIC-07/AE</span>
+            </div>
+        </div>
+
+        <p class="jkc-cert-tagline">
+            Certificat destiné à constater la stabilité apparente d’un être pluriel, sans exiger
+            de cohérence unique ni de simplification forcée.
+        </p>
+
+        <!-- Petit bloc sujet + date côté UI -->
+        <div class="jkc-cert-header-meta">
+            <span class="jkc-chip">
+                Sujet observé&nbsp;: {{ displayName() }}
+            </span>
+            <span class="jkc-chip jkc-chip--soft">
+                Date d’émission (exemple)&nbsp;:
+                {{ today | jkcDate :jkcLongWithGregorian}}
+            </span>
+        </div>
+    </header>
+
+    <!-- LAYOUT 2 COLONNES -->
+    <div class="jkc-cert-layout">
+        <!-- SIDEBAR -->
+        <aside class="jkc-cert-sidebar">
+            <section class="jkc-cert-meta-card">
+                <h2 class="jkc-cert-meta-title">Informations</h2>
+
+                <dl class="jkc-cert-meta-list">
+                    <div>
+                        <dt>Département</dt>
+                        <dd>Département de l’Être</dd>
+                    </div>
+                    <div>
+                        <dt>Type</dt>
+                        <dd>Certificat d’Effondrement Identitaire Contrôlé</dd>
+                    </div>
+                    <div>
+                        <dt>Référence</dt>
+                        <dd>CEIC-07/AE</dd>
+                    </div>
+                    <div>
+                        <dt>Statut</dt>
+                        <dd>Actif · Édition standard</dd>
+                    </div>
+                </dl>
+            </section>
+
+            <section class="jkc-cert-actions-card">
+                <h2 class="jkc-cert-meta-title">Actions</h2>
+
+                <button type="button" class="jkc-btn jkc-btn--primary" (click)="requireAuth('demander-certificat')">
+                    Demander ce certificat
+                </button>
+
+                <button type="button" class="jkc-btn jkc-btn--ghost" (click)="requireAuth('ajouter-dossier')">
+                    Ajouter au Dossier existentiel
+                </button>
+
+                <button type="button" class="jkc-btn jkc-btn--ghost" (click)="requireAuth('pdf')">
+                    Télécharger en PDF
+                </button>
+            </section>
+
+
+            <section class="jkc-cert-links-card">
+                <h2 class="jkc-cert-meta-title">Certificats voisins</h2>
+                <ul class="jkc-cert-links-list">
+                    <li>
+                        <a routerLink="/certificats/ciea-02">
+                            CIEA — Certificat d’Incertitude Existentielle Acceptée
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/certificats/csio-03">
+                            CSIO — Certificat de Surmenage Intérieur Officiel
+                        </a>
+                    </li>
+                    <!-- autres liens à ajouter plus tard -->
+                </ul>
+            </section>
+        </aside>
+
+        <!-- ÉCRAN PRINCIPAL -->
+        <section class="jkc-cert-main">
+            <div class="jkc-cert-screen">
+                <!-- Bandeau de ref / statut -->
+                <header class="jkc-cert-screen-header">
+                    <div class="jkc-cert-screen-id">
+                        <span class="jkc-chip">CEIC-07/AE</span>
+                        <span class="jkc-chip jkc-chip--soft">Département de l’Être</span>
+                    </div>
+                    <div class="jkc-cert-screen-status">
+                        <span class="jkc-status-dot"></span>
+                        <span class="jkc-status-label">Forme admise · Contenu fluctuant</span>
+                    </div>
+                </header>
+
+                <!-- Onglets -->
+                <nav class="jkc-cert-tabs" aria-label="Navigation du certificat">
+                    <button type="button" class="jkc-cert-tab"
+                        [class.jkc-cert-tab--active]="isActivePanel('certificat')" (click)="selectPanel('certificat')">
+                        Certificat
+                    </button>
+                    <button type="button" class="jkc-cert-tab" [class.jkc-cert-tab--active]="isActivePanel('fiche')"
+                        (click)="selectPanel('fiche')">
+                        Fiche de service
+                    </button>
+                    <button type="button" class="jkc-cert-tab"
+                        [class.jkc-cert-tab--active]="isActivePanel('temoignages')"
+                        (click)="selectPanel('temoignages')">
+                        Témoignages enregistrés
+                    </button>
+                </nav>
+
+                <!-- 1) CERTIFICAT (texte officiel) -->
+                <article class="jkc-cert-panel" [class.jkc-cert-panel--active]="isActivePanel('certificat')"
+                    [attr.hidden]="!isActivePanel('certificat')" data-panel-id="certificat">
+
+
+                    <section class="jkc-cert-body">
+                        <p>
+                            En date du {{ today | jkcDate:jkcLong }},<br />
+                            le Département de l’Être atteste ce qui suit&nbsp;:
+                        </p>
+                        <p>
+                            Il est constaté que le Sujet se présente au monde sous une forme lisible,
+                            administrativement stable et socialement praticable.
+                        </p>
+                        <p>
+                            Il est constaté que cette forme unique ne constitue pas la totalité de l’être
+                            observé.
+                        </p>
+                        <p>
+                            Des états internes multiples, parfois contradictoires, coexistent sans
+                            expression publique.
+                        </p>
+                        <p>
+                            Il est reconnu que ces états invisibles ne remettent pas en cause la validité de
+                            la forme affichée.
+                        </p>
+                        <p>
+                            Le Département admet la coexistence des contraires comme condition de
+                            continuité fonctionnelle.
+                        </p>
+                        <p>
+                            Le présent certificat n’a pas vocation à guérir, corriger ou trancher.
+                        </p>
+                        <p>
+                            Il se borne à constater la présence stable d’un être pluriel.
+                        </p>
+                        <p>
+                            Le Département ne délivre pas de sens.<br />
+                            Stock épuisé depuis toujours.
+                        </p>
+                        <p>L’Œil constate et classe.</p>
+                    </section>
+
+                    <footer class="jkc-cert-footer">
+                        <div class="jkc-cert-visa">
+                            <span class="jkc-cert-visa-label">Visa&nbsp;:</span>
+                            <span class="jkc-cert-visa-mark">■</span>
+                        </div>
+                        <p class="jkc-cert-footnote">Fin du document.</p>
+                    </footer>
+                </article>
+
+                <!-- 2) FICHE DE SERVICE — texte exact -->
+                <article class="jkc-cert-panel" [class.jkc-cert-panel--active]="isActivePanel('fiche')"
+                    [attr.hidden]="!isActivePanel('fiche')" data-panel-id="fiche">
+                    <header class="jkc-cert-subheader">
+                        <h2>FICHE DE SERVICE — CEIC-07/AE</h2>
+                    </header>
+
+                    <section class="jkc-cert-section">
+                        <h3>Objet</h3>
+                        <p>
+                            Objet&nbsp;: Documenter la coexistence entre la stabilité apparente et la
+                            multiplicité interne.
+                        </p>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Constats possibles ou observables</h3>
+                        <ul class="jkc-cert-list">
+                            <li>
+                                Une forme humaine homogène, jugée administrativement crédible.
+                            </li>
+                            <li>
+                                Des états simultanés cohabitant sans incident notable.
+                            </li>
+                            <li>
+                                Le maintien d’une stabilité pouvant relever du hasard.
+                            </li>
+                            <li>
+                                L’ensemble reconnu comme manifestation adaptative.
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Mentions administratives</h3>
+                        <ul class="jkc-cert-taglist">
+                            <li>Présence multiple&nbsp;;&nbsp;état stable provisoire.</li>
+                        </ul>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Mention officielle de classement</h3>
+                        <ul class="jkc-cert-list">
+                            <li>Forme admise. Contenu fluctuant.</li>
+                        </ul>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Nota bene</h3>
+                        <p>
+                            Le Département ne délivre pas de sens. Stock épuisé depuis toujours.
+                        </p>
+                    </section>
+
+                    <section class="jkc-cert-section">
+                        <h3>Service émetteur</h3>
+                        <p>Service émetteur&nbsp;: Département de l’Être — sous l’Œil de l’Œil.</p>
+                        <p>Visa&nbsp;: ■</p>
+                    </section>
+                </article>
+
+                <!-- 3) TÉMOIGNAGES ENREGISTRÉS — texte exact -->
+                <article class="jkc-cert-panel" [class.jkc-cert-panel--active]="isActivePanel('temoignages')"
+                    [attr.hidden]="!isActivePanel('temoignages')" data-panel-id="temoignages">
+                    <header class="jkc-cert-subheader">
+                        <h2>TÉMOIGNAGES ENREGISTRÉS — CEIC-07/AE</h2>
+                    </header>
+
+                    <section class="jkc-cert-testimonies">
+                        <!-- Banksy -->
+                        <article class="jkc-cert-testimony">
+                            <header class="jkc-cert-testimony-header">
+                                <h3 class="jkc-cert-testimony-title">
+                                    ■■ Dossier Banksy — Témoignage enregistré
+                                </h3>
+                                <p class="jkc-cert-testimony-meta">
+                                    Date d’émission&nbsp;: 5 octobre 2018, Londres — soir de l’autodéchiquetage
+                                    partiel de “Girl with Balloon”
+                                </p>
+                            </header>
+                            <p class="jkc-cert-testimony-quote">
+                                “Le mur reste un, même quand la bombe s’éparpille.”
+                            </p>
+                            <p class="jkc-cert-testimony-body">
+                                Banksy a sollicité un Certificat d’Effondrement Identitaire Contrôlé pour
+                                officialiser un paradoxe humain&nbsp;: être plusieurs et n’avoir qu’un seul
+                                visage. Un Janus inversé&nbsp;: une multitude abritée derrière un pseudonyme.
+                                Le certificat a été délivré sans débat. Un nom suffit à contenir la dispersion.
+                                L’Œil a certifié.
+                            </p>
+                            <footer class="jkc-cert-testimony-footer">
+                                <span class="jkc-cert-visa-label">Visa&nbsp;:</span>
+                                <span class="jkc-cert-visa-mark">■</span>
+                            </footer>
+                        </article>
+
+                        <!-- Satoshi -->
+                        <article class="jkc-cert-testimony">
+                            <header class="jkc-cert-testimony-header">
+                                <h3 class="jkc-cert-testimony-title">
+                                    ■■ Dossier Satoshi Nakamoto — Témoignage enregistré
+                                </h3>
+                                <p class="jkc-cert-testimony-meta">
+                                    Date d’émission&nbsp;: 3 janvier 2009, Réseau mondial — activation du bloc 0,
+                                    protocole Bitcoin
+                                </p>
+                            </header>
+                            <p class="jkc-cert-testimony-quote">
+                                “Je souhaite que l’extérieur reste cohérent, même si personne n’habite
+                                vraiment à l’intérieur.”
+                            </p>
+                            <p class="jkc-cert-testimony-body">
+                                Satoshi Nakamoto a sollicité un Certificat d’Effondrement Identitaire
+                                Contrôlé pour officialiser un paradoxe humain&nbsp;: exister partout sans être
+                                localisable. Un nom sans corps, une présence distribuée. Le certificat a été
+                                délivré sans contact. La forme a été reconnue stable, malgré l’absence de
+                                sujet observable. L’Œil a certifié.
+                            </p>
+                            <footer class="jkc-cert-testimony-footer">
+                                <span class="jkc-cert-visa-label">Visa&nbsp;:</span>
+                                <span class="jkc-cert-visa-mark">■</span>
+                            </footer>
+                        </article>
+
+                        <!-- Eminem / Slim Shady / Marshall Mathers -->
+                        <article class="jkc-cert-testimony">
+                            <header class="jkc-cert-testimony-header">
+                                <h3 class="jkc-cert-testimony-title">
+                                    ■■ Dossier Eminem / Slim Shady / Marshall Mathers — Témoignage enregistré
+                                </h3>
+                                <p class="jkc-cert-testimony-meta">
+                                    Date d’émission&nbsp;: 23 février 1999, Detroit — sortie de “The Slim Shady
+                                    LP”
+                                </p>
+                            </header>
+                            <p class="jkc-cert-testimony-quote">
+                                “Je garde une seule signature pour plusieurs voix.”
+                            </p>
+                            <p class="jkc-cert-testimony-body">
+                                Marshall Mathers a sollicité un Certificat d’Effondrement Identitaire Contrôlé
+                                afin de régulariser la coexistence de ses instances internes&nbsp;: Eminem, Slim
+                                Shady, et lui-même. Trois tonalités, un seul corps administratif. Le
+                                certificat a été délivré dans un silence rythmique. Un nom a suffi à
+                                contenir la mélodie. L’Œil a certifié.
+                            </p>
+                            <footer class="jkc-cert-testimony-footer">
+                                <span class="jkc-cert-visa-label">Visa&nbsp;:</span>
+                                <span class="jkc-cert-visa-mark">■</span>
+                            </footer>
+                        </article>
+                    </section>
+                </article>
+            </div>
+        </section>
+    </div>
+</main>
+<p-toast position="top-center"></p-toast>

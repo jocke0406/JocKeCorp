@@ -21,15 +21,28 @@ export class AuthService {
         } catch { }
     }
 
-    setUser(u: AuthUser) {
+    // Login response now includes token
+    setSession(u: AuthUser, token: string) {
         this._user.set(u);
-        try { localStorage.setItem('jocke:user', JSON.stringify(u)); } catch { }
+        try {
+            localStorage.setItem('jocke:user', JSON.stringify(u));
+            localStorage.setItem('jocke:token', token);
+        } catch { }
+    }
+
+    getToken(): string | null {
+        try {
+            return localStorage.getItem('jocke:token');
+        } catch {
+            return null;
+        }
     }
 
     clear() {
         this._user.set(null);
         try {
             localStorage.removeItem('jocke:user');
+            localStorage.removeItem('jocke:token');
             localStorage.removeItem('jocke:alias');
         } catch { }
     }

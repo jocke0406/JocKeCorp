@@ -21,6 +21,7 @@ interface LoginResponse {
   email: string;
   role?: string;
   display_name?: string | null;
+  token: string;
 }
 
 @Component({
@@ -143,9 +144,10 @@ export class LoginComponent implements OnInit {
       .post<LoginResponse>('/auth/login', payload)
       .pipe(finalize(() => this.pending.set(false)))
       .subscribe({
-        next: async (user) => {
+        next: async (res) => {
           // ✅ mets à jour l’état global d’auth: l’UI bascule sans reload
-          this.auth.setUser(user);
+          const { token, ...user } = res;
+          this.auth.setSession(user, token);
           console.log('[DEBUG] display_name reçu du back:', user.display_name);
 
           // Choix du nom d’affichage — jamais l’email
