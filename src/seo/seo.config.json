@@ -13,9 +13,7 @@
     "twitterSite": "@JocKeCorp",
 
     "schemaType": "WebPage",
-    "breadcrumbs": [
-      { "name": "Accueil", "url": "https://jocke.be/" }
-    ],
+    "breadcrumbs": [{ "name": "Accueil", "url": "https://jocke.be/" }],
     "datePublished": "",
     "dateModified": "",
 
@@ -161,10 +159,7 @@
 
     "h1": "Réinitialiser le mot de passe",
     "primaryKeyword": "réinitialiser mot de passe JocKeCorp",
-    "secondaryKeywords": [
-      "nouveau mot de passe",
-      "sécurité compte JocKeCorp"
-    ],
+    "secondaryKeywords": ["nouveau mot de passe", "sécurité compte JocKeCorp"],
     "lcpImage": "/hero/home.avif",
     "lcpImageAlt": "Clé stylisée émergeant de l’ombre."
   },
@@ -177,7 +172,7 @@
 
     "ogTitle": "Certificats — Département de l’Être — JocKeCorp",
     "ogDescription": "Section administrative en cours d’établissement : les certificats JocKeCorp arrivent.",
-    "ogImage": "https://jocke.be/og/construction.jpg",
+    "ogImage": "https://jocke.be/og/home.jpg",
     "ogImageAlt": "Panneau JocKeCorp indiquant une section en cours d’établissement.",
     "twitterCard": "summary_large_image",
     "twitterSite": "@JocKeCorp",
@@ -210,7 +205,7 @@
 
     "ogTitle": "Dossier Existentiel — JocKeCorp",
     "ogDescription": "Section en cours de reliure : votre dossier existentiel sera bientôt classable.",
-    "ogImage": "https://jocke.be/og/construction.jpg",
+    "ogImage": "https://jocke.be/og/home.jpg",
     "ogImageAlt": "Classeur bancal tentant de contenir des feuilles lumineuses.",
     "twitterCard": "summary_large_image",
     "twitterSite": "@JocKeCorp",
@@ -234,17 +229,16 @@
     "lcpImage": "/hero/home.avif",
     "lcpImageAlt": "Classeur lumineux au milieu du néant."
   },
-
   "/deculpabilisation": {
-    "title": "Déculpabilisation — JocKeCorp",
-    "description": "Le guichet où l’on dépose ce qui pèse, même si ça ne pèse rien.",
+    "title": "Déculpabilisation — Service Central | JocKeCorp™",
+    "description": "Service Central de Déculpabilisation : inventaire administratif des charges morales. Sélectionnez un dossier, examinez la charge. L’absolution, si elle survient, est strictement administrative.",
     "canonical": "https://jocke.be/deculpabilisation",
     "robots": "index,follow",
 
-    "ogTitle": "Déculpabilisation — JocKeCorp",
-    "ogDescription": "Section en cours de calibration émotionnelle : reçus de déculpabilisation à venir.",
-    "ogImage": "https://jocke.be/og/construction.jpg",
-    "ogImageAlt": "Extincteur stylisé posé sur un formulaire administratif.",
+    "ogTitle": "Service Central de Déculpabilisation — JocKeCorp™",
+    "ogDescription": "Inventaire des charges morales ordinaires. Chaque dossier est traité séparément. Aucune absolution immédiate.",
+    "ogImage": "https://jocke.be/og/home.jpg",
+    "ogImageAlt": "Terminal du Service Central de Déculpabilisation (JocKeCorp™).",
     "twitterCard": "summary_large_image",
     "twitterSite": "@JocKeCorp",
 
@@ -253,21 +247,178 @@
       { "name": "Accueil", "url": "https://jocke.be/" },
       { "name": "Déculpabilisation", "url": "https://jocke.be/deculpabilisation" }
     ],
-    "datePublished": "",
-    "dateModified": "",
 
-    "h1": "Déculpabilisation",
-    "primaryKeyword": "déculpabilisation JocKeCorp",
+    "h1": "Service Central de Déculpabilisation",
+    "primaryKeyword": "déculpabilisation",
     "secondaryKeywords": [
-      "reçu de déculpabilisation",
-      "remords légers",
-      "fautes douces",
-      "bureau des regrets"
-    ],
-    "lcpImage": "/hero/home.avif",
-    "lcpImageAlt": "Bureau lumineux recueillant de petites culpabilités."
+      "charges morales",
+      "inventaire administratif",
+      "dossiers de culpabilité",
+      "absolution administrative",
+      "JocKeCorp"
+    ]
   },
+  "/deculpabilisation/deculp-ouch-23": {
+    "title": "OU-23 — Continuer pendant que le monde s’effondre | Déculpabilisation — JocKeCorp™",
+    "description": "Dossier OU-23 : constat d’un confort maintenu en contexte global dégradé. Deux constats administratifs, une conclusion brève. Aucune consolation.",
+    "canonical": "https://jocke.be/deculpabilisation/deculp-ouch-23",
+    "robots": "index,follow",
 
+    "ogTitle": "OU-23 — Continuer pendant que le monde s’effondre (Dossier)",
+    "ogDescription": "Déculpabilisation standard : lecture recommandée avant culpabilité performative. Constat #1, Constat #2, conclusion administrative.",
+    "ogImage": "https://jocke.be/og/home.jpg",
+    "ogImageAlt": "Dossier OU-23 — Service Central de Déculpabilisation (JocKeCorp™).",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@JocKeCorp",
+
+    "schemaType": "WebPage",
+    "breadcrumbs": [
+      { "name": "Accueil", "url": "https://jocke.be/" },
+      { "name": "Déculpabilisation", "url": "https://jocke.be/deculpabilisation" },
+      { "name": "OU-23", "url": "https://jocke.be/deculpabilisation/deculp-ouch-23" }
+    ],
+
+    "h1": "OU-23 — Continuer pendant que le monde s’effondre",
+    "primaryKeyword": "OU-23",
+    "secondaryKeywords": [
+      "déculpabilisation",
+      "charge morale",
+      "culpabilité",
+      "confort",
+      "procédure standard",
+      "conclusion administrative"
+    ]
+  },
+  "/deculpabilisation/deculp-ouch-24": {
+    "title": "OU-24 — Profiter de ce que l’on condamne | Déculpabilisation — JocKeCorp™",
+    "description": "Dossier OU-24 : usage confirmé d’un système contesté. Écart entre discours et infrastructures relevé. Culpabilité examinée, non recevable administrativement.",
+    "canonical": "https://jocke.be/deculpabilisation/deculp-ouch-24",
+    "robots": "index,follow",
+
+    "ogTitle": "OU-24 — Profiter de ce que l’on condamne (Dossier)",
+    "ogDescription": "Déculpabilisation standard : discours vs usage. Constat #1, Constat #2, conclusion administrative. Zéro morale requise.",
+    "ogImage": "https://jocke.be/og/home.jpg",
+    "ogImageAlt": "Dossier OU-24 — Service Central de Déculpabilisation (JocKeCorp™).",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@JocKeCorp",
+
+    "schemaType": "WebPage",
+    "breadcrumbs": [
+      { "name": "Accueil", "url": "https://jocke.be/" },
+      { "name": "Déculpabilisation", "url": "https://jocke.be/deculpabilisation" },
+      { "name": "OU-24", "url": "https://jocke.be/deculpabilisation/deculp-ouch-24" }
+    ],
+
+    "h1": "OU-24 — Profiter de ce que l’on condamne",
+    "primaryKeyword": "OU-24",
+    "secondaryKeywords": [
+      "déculpabilisation",
+      "contradiction",
+      "discours et usage",
+      "système",
+      "culpabilité",
+      "procédure standard"
+    ]
+  },
+  "/deculpabilisation/deculp-ouch-25": {
+    "title": "OU-25 — S’indigner de manière sélective",
+    "description": "Dossier OU-25 du Service Central de Déculpabilisation (JocKeCorp™). Constat administratif : indignation partielle, empathie régulée, cohérence morale non exigée.",
+    "canonical": "https://jocke.be/deculpabilisation/deculp-ouch-25",
+    "robots": "index,follow",
+
+    "ogTitle": "OU-25 — S’indigner de manière sélective",
+    "ogDescription": "Empathie à géométrie variable : certaines injustices déclenchent une réaction, d’autres non. Dossier recevable. Absolution conditionnelle.",
+    "ogImage": "https://jocke.be/og/home.jpg",
+    "ogImageAlt": "Dossier OU-25 — Déculpabilisation JocKeCorp.",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@JocKeCorp",
+
+    "schemaType": "WebPage",
+    "breadcrumbs": [
+      { "name": "Accueil", "url": "https://jocke.be/" },
+      { "name": "Déculpabilisation", "url": "https://jocke.be/deculpabilisation" },
+      { "name": "OU-25", "url": "https://jocke.be/deculpabilisation/deculp-ouch-25" }
+    ],
+
+    "h1": "OU-25 — S’indigner de manière sélective",
+    "primaryKeyword": "OU-25",
+    "secondaryKeywords": [
+      "déculpabilisation",
+      "empathie partielle",
+      "indignation sélective",
+      "empathie régulée",
+      "cohérence morale",
+      "procédure standard",
+      "culpabilité",
+      "limites humaines"
+    ]
+  },
+  "/deculpabilisation/deculp-ouch-26": {
+    "title": "OU-26 — Parler, commenter, partager à la place d’agir",
+    "description": "Dossier OU-26 du Service Central de Déculpabilisation (JocKeCorp™). Constat : expression substitutive, action matérielle absente, culpabilité administrativement irrecevable. Conclusion : engagement symbolique enregistré.",
+    "canonical": "https://jocke.be/deculpabilisation/deculp-ouch-26",
+    "robots": "index,follow",
+
+    "ogTitle": "OU-26 — Parler, commenter, partager à la place d’agir",
+    "ogDescription": "Vous commentez, vous analysez, vous partagez. Action matérielle : absente. Substitution identifiée. Impact matériel non requis (selon le formulaire).",
+    "ogImage": "https://jocke.be/og/home.jpg",
+    "ogImageAlt": "Dossier OU-26 — Déculpabilisation JocKeCorp. Expression validée, action non exigée.",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@JocKeCorp",
+
+    "schemaType": "WebPage",
+    "breadcrumbs": [
+      { "name": "Accueil", "url": "https://jocke.be/" },
+      { "name": "Déculpabilisation", "url": "https://jocke.be/deculpabilisation" },
+      { "name": "OU-26", "url": "https://jocke.be/deculpabilisation/deculp-ouch-26" }
+    ],
+
+    "h1": "OU-26 — Parler, commenter, partager à la place d’agir",
+    "primaryKeyword": "OU-26",
+    "secondaryKeywords": [
+      "déculpabilisation",
+      "expression substitutive",
+      "engagement performatif",
+      "commenter au lieu d’agir",
+      "partager au lieu d’agir",
+      "inaction",
+      "discours",
+      "procédure standard"
+    ]
+  },
+  "/deculpabilisation/deculp-ouch-27": {
+    "title": "OU-27 — S’habituer à l’inacceptable",
+    "description": "Dossier OU-27 du Service Central de Déculpabilisation (JocKeCorp™). Constat : seuil de tolérance déplacé, état d’alerte diminué, continuité maintenue. Décision : culpabilité administrativement irrecevable. Conclusion : mécanisme de survie reconnu, anesthésie fonctionnelle validée.",
+    "canonical": "https://jocke.be/deculpabilisation/deculp-ouch-27",
+    "robots": "index,follow",
+
+    "ogTitle": "OU-27 — S’habituer à l’inacceptable",
+    "ogDescription": "L’inacceptable ne provoque plus d’arrêt réflexe. Habituation enregistrée. Lucidité constante non exigée (survie prioritaire).",
+    "ogImage": "https://jocke.be/og/home.jpg",
+    "ogImageAlt": "Dossier OU-27 — Déculpabilisation JocKeCorp. Survie validée, lucidité non exigée.",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@JocKeCorp",
+
+    "schemaType": "WebPage",
+    "breadcrumbs": [
+      { "name": "Accueil", "url": "https://jocke.be/" },
+      { "name": "Déculpabilisation", "url": "https://jocke.be/deculpabilisation" },
+      { "name": "OU-27", "url": "https://jocke.be/deculpabilisation/deculp-ouch-27" }
+    ],
+
+    "h1": "OU-27 — S’habituer à l’inacceptable",
+    "primaryKeyword": "OU-27",
+    "secondaryKeywords": [
+      "déculpabilisation",
+      "habituation",
+      "inacceptable",
+      "anesthésie fonctionnelle",
+      "mécanisme de survie",
+      "seuil de tolérance",
+      "lucidité tardive",
+      "procédure standard"
+    ]
+  },
   "/formations": {
     "title": "Formations Inutiles — JocKeCorp",
     "description": "Ne rien apprendre, mais pourquoi.",
@@ -276,7 +427,7 @@
 
     "ogTitle": "Formations Inutiles — JocKeCorp",
     "ogDescription": "Section en préparation pédagogique : des cours qui n’amélioreront personne.",
-    "ogImage": "https://jocke.be/og/construction.jpg",
+    "ogImage": "https://jocke.be/og/home.jpg",
     "ogImageAlt": "Chapeau de diplômé flottant au-dessus d’un vide administratif.",
     "twitterCard": "summary_large_image",
     "twitterSite": "@JocKeCorp",
@@ -309,7 +460,7 @@
 
     "ogTitle": "Observatoire des Anomalies — JocKeCorp",
     "ogDescription": "Section en calibrage : les anomalies négocient encore leurs intensités.",
-    "ogImage": "https://jocke.be/og/construction.jpg",
+    "ogImage": "https://jocke.be/og/home.jpg",
     "ogImageAlt": "Tableau lumineux brouillé par des anomalies.",
     "twitterCard": "summary_large_image",
     "twitterSite": "@JocKeCorp",
@@ -334,190 +485,188 @@
     "lcpImageAlt": "Mur d’images étranges sous l’Œil JocKeCorp."
   },
 
- "/certificats/ceic-07-ae": {
-  "title": "CEIC-07/AE — Certificat d’Effondrement Identitaire Contrôlé",
-  "description": "Certificat destiné à constater la stabilité apparente d’un être pluriel, sans exiger de cohérence unique ni de simplification forcée.",
-  "canonical": "https://jocke.be/certificats/ceic-07-ae",
-  "robots": "index,follow",
+  "/certificats/ceic-07-ae": {
+    "title": "CEIC-07/AE — Certificat d’Effondrement Identitaire Contrôlé",
+    "description": "Certificat destiné à constater la stabilité apparente d’un être pluriel, sans exiger de cohérence unique ni de simplification forcée.",
+    "canonical": "https://jocke.be/certificats/ceic-07-ae",
+    "robots": "index,follow",
 
-  "ogTitle": "CEIC-07/AE — Certificat d’Effondrement Identitaire Contrôlé",
-  "ogDescription": "Certificat destiné à constater la stabilité apparente d’un être pluriel, sans exiger de cohérence unique ni de simplification forcée.",
-  "ogImage": "https://jocke.be/og/home.jpg",
-  "ogImageAlt": "Certificat CEIC-07/AE émis par le Département de l’Être.",
-  "twitterCard": "summary_large_image",
-  "twitterSite": "@JocKeCorp",
+    "ogTitle": "CEIC-07/AE — Certificat d’Effondrement Identitaire Contrôlé",
+    "ogDescription": "Certificat destiné à constater la stabilité apparente d’un être pluriel, sans exiger de cohérence unique ni de simplification forcée.",
+    "ogImage": "https://jocke.be/og/home.jpg",
+    "ogImageAlt": "Certificat CEIC-07/AE émis par le Département de l’Être.",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@JocKeCorp",
 
-  "schemaType": "WebPage",
-  "breadcrumbs": [
-    { "name": "Accueil", "url": "https://jocke.be/" },
-    { "name": "Certificats", "url": "https://jocke.be/certificats" },
-    { "name": "CEIC-07/AE", "url": "https://jocke.be/certificats/ceic-07-ae" }
-  ],
-  "datePublished": "",
-  "dateModified": "",
+    "schemaType": "WebPage",
+    "breadcrumbs": [
+      { "name": "Accueil", "url": "https://jocke.be/" },
+      { "name": "Certificats", "url": "https://jocke.be/certificats" },
+      { "name": "CEIC-07/AE", "url": "https://jocke.be/certificats/ceic-07-ae" }
+    ],
+    "datePublished": "",
+    "dateModified": "",
 
-  "h1": "Certificat d’Effondrement Identitaire Contrôlé",
-  "primaryKeyword": "certificat effondrement identitaire contrôlé",
-  "secondaryKeywords": [
-    "CEIC-07/AE",
-    "certificat identité multiple",
-    "département de l’être",
-    "certificat JocKeCorp",
-    "être pluriel",
-    "stabilité apparente",
-    "certificat poético-administratif"
-  ],
-  "lcpImage": "/hero/home.avif",
-  "lcpImageAlt": "L’Œil ultime veille sur les certificats."
-},
-"/certificats/ciea-02": {
-  "title": "CIEA-02 — Certificat d’Incertitude Existentielle Active",
-  "description": "Certificat destiné à documenter la coexistence stable entre une identité présente et l’absence de direction claire, sans jugement moral ni obligation de plan.",
-  "canonical": "https://jocke.be/certificats/ciea-02",
-  "robots": "index,follow",
+    "h1": "Certificat d’Effondrement Identitaire Contrôlé",
+    "primaryKeyword": "certificat effondrement identitaire contrôlé",
+    "secondaryKeywords": [
+      "CEIC-07/AE",
+      "certificat identité multiple",
+      "département de l’être",
+      "certificat JocKeCorp",
+      "être pluriel",
+      "stabilité apparente",
+      "certificat poético-administratif"
+    ],
+    "lcpImage": "/hero/home.avif",
+    "lcpImageAlt": "L’Œil ultime veille sur les certificats."
+  },
+  "/certificats/ciea-02": {
+    "title": "CIEA-02 — Certificat d’Incertitude Existentielle Active",
+    "description": "Certificat destiné à documenter la coexistence stable entre une identité présente et l’absence de direction claire, sans jugement moral ni obligation de plan.",
+    "canonical": "https://jocke.be/certificats/ciea-02",
+    "robots": "index,follow",
 
-  "ogTitle": "CIEA-02 — Certificat d’Incertitude Existentielle Active",
-  "ogDescription": "Document JocKeCorp™ pour celles et ceux qui existent pleinement tout en avançant sans cap défini — présence confirmée, direction optionnelle.",
-  "ogImage": "https://jocke.be/og/home.jpg",
-  "ogImageAlt": "Certificat CIEA-02 émis par le Département de l’Être.",
-  "twitterCard": "summary_large_image",
-  "twitterSite": "@JocKeCorp",
+    "ogTitle": "CIEA-02 — Certificat d’Incertitude Existentielle Active",
+    "ogDescription": "Document JocKeCorp™ pour celles et ceux qui existent pleinement tout en avançant sans cap défini — présence confirmée, direction optionnelle.",
+    "ogImage": "https://jocke.be/og/home.jpg",
+    "ogImageAlt": "Certificat CIEA-02 émis par le Département de l’Être.",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@JocKeCorp",
 
-  "schemaType": "WebPage",
-  "breadcrumbs": [
-    { "name": "Accueil", "url": "https://jocke.be/" },
-    { "name": "Certificats", "url": "https://jocke.be/certificats" },
-    { "name": "CIEA-02", "url": "https://jocke.be/certificats/ciea-02" }
-  ],
-  "datePublished": "",
-  "dateModified": "",
+    "schemaType": "WebPage",
+    "breadcrumbs": [
+      { "name": "Accueil", "url": "https://jocke.be/" },
+      { "name": "Certificats", "url": "https://jocke.be/certificats" },
+      { "name": "CIEA-02", "url": "https://jocke.be/certificats/ciea-02" }
+    ],
+    "datePublished": "",
+    "dateModified": "",
 
-  "h1": "Certificat d’Incertitude Existentielle Active",
-  "primaryKeyword": "certificat incertitude existentielle active",
-  "secondaryKeywords": [
-    "CIEA-02",
-    "certificat incertitude existentielle",
-    "identité sans plan",
-    "département de l’être",
-    "certificat JocKeCorp",
-    "présence confirmée direction optionnelle",
-    "certificat poético-administratif"
-  ],
-  "lcpImage": "/hero/home.avif",
-  "lcpImageAlt": "L’Œil ultime veille sur les certificats."
-},
-"/certificats/csio-03": {
-  "title": "CSIO-03 — Certificat de Stabilisation Identitaire Observée",
-  "description": "Certificat destiné à documenter une forme stable au moment T, sans présumer de sa durée ni de la prochaine métamorphose.",
-  "canonical": "https://jocke.be/certificats/csio-03",
-  "robots": "index,follow",
+    "h1": "Certificat d’Incertitude Existentielle Active",
+    "primaryKeyword": "certificat incertitude existentielle active",
+    "secondaryKeywords": [
+      "CIEA-02",
+      "certificat incertitude existentielle",
+      "identité sans plan",
+      "département de l’être",
+      "certificat JocKeCorp",
+      "présence confirmée direction optionnelle",
+      "certificat poético-administratif"
+    ],
+    "lcpImage": "/hero/home.avif",
+    "lcpImageAlt": "L’Œil ultime veille sur les certificats."
+  },
+  "/certificats/csio-03": {
+    "title": "CSIO-03 — Certificat de Stabilisation Identitaire Observée",
+    "description": "Certificat destiné à documenter une forme stable au moment T, sans présumer de sa durée ni de la prochaine métamorphose.",
+    "canonical": "https://jocke.be/certificats/csio-03",
+    "robots": "index,follow",
 
-  "ogTitle": "CSIO-03 — Certificat de Stabilisation Identitaire Observée",
-  "ogDescription": "Document JocKeCorp™ pour les formes identitaires momentanément stables — respiration entre deux métamorphoses, avec dossiers Bowie, Day-Lewis et Prince.",
-  "ogImage": "https://jocke.be/og/home.jpg",
-  "ogImageAlt": "Certificat CSIO-03 émis par le Département de l’Être.",
-  "twitterCard": "summary_large_image",
-  "twitterSite": "@JocKeCorp",
+    "ogTitle": "CSIO-03 — Certificat de Stabilisation Identitaire Observée",
+    "ogDescription": "Document JocKeCorp™ pour les formes identitaires momentanément stables — respiration entre deux métamorphoses, avec dossiers Bowie, Day-Lewis et Prince.",
+    "ogImage": "https://jocke.be/og/home.jpg",
+    "ogImageAlt": "Certificat CSIO-03 émis par le Département de l’Être.",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@JocKeCorp",
 
-  "schemaType": "WebPage",
-  "breadcrumbs": [
-    { "name": "Accueil", "url": "https://jocke.be/" },
-    { "name": "Certificats", "url": "https://jocke.be/certificats" },
-    { "name": "CSIO-03", "url": "https://jocke.be/certificats/csio-03" }
-  ],
-  "datePublished": "",
-  "dateModified": "",
+    "schemaType": "WebPage",
+    "breadcrumbs": [
+      { "name": "Accueil", "url": "https://jocke.be/" },
+      { "name": "Certificats", "url": "https://jocke.be/certificats" },
+      { "name": "CSIO-03", "url": "https://jocke.be/certificats/csio-03" }
+    ],
+    "datePublished": "",
+    "dateModified": "",
 
-  "h1": "Certificat de Stabilisation Identitaire Observée",
-  "primaryKeyword": "certificat de stabilisation identitaire observée",
-  "secondaryKeywords": [
-    "CSIO-03",
-    "stabilité identitaire temporaire",
-    "forme identitaire observée",
-    "département de l’être",
-    "certificat JocKeCorp",
-    "forme actuelle admise",
-    "certificat poético-administratif"
-  ],
-  "lcpImage": "/hero/home.avif",
-  "lcpImageAlt": "L’Œil ultime veille sur les certificats."
-},
+    "h1": "Certificat de Stabilisation Identitaire Observée",
+    "primaryKeyword": "certificat de stabilisation identitaire observée",
+    "secondaryKeywords": [
+      "CSIO-03",
+      "stabilité identitaire temporaire",
+      "forme identitaire observée",
+      "département de l’être",
+      "certificat JocKeCorp",
+      "forme actuelle admise",
+      "certificat poético-administratif"
+    ],
+    "lcpImage": "/hero/home.avif",
+    "lcpImageAlt": "L’Œil ultime veille sur les certificats."
+  },
 
-"/certificats/cpo-04": {
-  "title": "CPO-04 — Certificat de Poursuite sous Obstacle",
-  "description": "Certificat destiné à attester qu’un obstacle réel est présent, mais que la trajectoire, la pensée ou le geste se poursuivent malgré tout.",
-  "canonical": "https://jocke.be/certificats/cpo-04",
-  "robots": "index,follow",
+  "/certificats/cpo-04": {
+    "title": "CPO-04 — Certificat de Poursuite sous Obstacle",
+    "description": "Certificat destiné à attester qu’un obstacle réel est présent, mais que la trajectoire, la pensée ou le geste se poursuivent malgré tout.",
+    "canonical": "https://jocke.be/certificats/cpo-04",
+    "robots": "index,follow",
 
-  "ogTitle": "CPO-04 — Certificat de Poursuite sous Obstacle",
-  "ogDescription": "Document JocKeCorp™ pour les êtres qui avancent malgré la résistance : obstacles confirmés, trajectoire maintenue. Dossiers Hawking, Mandela et Curie inclus.",
-  "ogImage": "https://jocke.be/og/home.jpg",
-  "ogImageAlt": "Certificat CPO-04 émis par le Département de l’Être.",
-  "twitterCard": "summary_large_image",
-  "twitterSite": "@JocKeCorp",
+    "ogTitle": "CPO-04 — Certificat de Poursuite sous Obstacle",
+    "ogDescription": "Document JocKeCorp™ pour les êtres qui avancent malgré la résistance : obstacles confirmés, trajectoire maintenue. Dossiers Hawking, Mandela et Curie inclus.",
+    "ogImage": "https://jocke.be/og/home.jpg",
+    "ogImageAlt": "Certificat CPO-04 émis par le Département de l’Être.",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@JocKeCorp",
 
-  "schemaType": "WebPage",
-  "breadcrumbs": [
-    { "name": "Accueil", "url": "https://jocke.be/" },
-    { "name": "Certificats", "url": "https://jocke.be/certificats" },
-    { "name": "CPO-04", "url": "https://jocke.be/certificats/cpo-04" }
-  ],
-  "datePublished": "",
-  "dateModified": "",
+    "schemaType": "WebPage",
+    "breadcrumbs": [
+      { "name": "Accueil", "url": "https://jocke.be/" },
+      { "name": "Certificats", "url": "https://jocke.be/certificats" },
+      { "name": "CPO-04", "url": "https://jocke.be/certificats/cpo-04" }
+    ],
+    "datePublished": "",
+    "dateModified": "",
 
-  "h1": "Certificat de Poursuite sous Obstacle",
-  "primaryKeyword": "certificat de poursuite sous obstacle",
-  "secondaryKeywords": [
-    "CPO-04",
-    "poursuite malgré obstacle",
-    "résistance intérieure",
-    "continuité sous contrainte",
-    "département de l’être",
-    "certificat JocKeCorp",
-    "persévérance existentielle",
-    "certificat poético-administratif"
-  ],
-  "lcpImage": "/hero/home.avif",
-  "lcpImageAlt": "L’Œil ultime veille sur les certificats."
-}
-,"/certificats/cip-05": {
-  "title": "CIP-05 — Certificat d’Intrication Persistante",
-  "description": "Certificat destiné à documenter un lien d’état réciproque entre deux consciences, actif malgré la distance, le temps ou le silence.",
-  "canonical": "https://jocke.be/certificats/cip-05",
-  "robots": "index,follow",
+    "h1": "Certificat de Poursuite sous Obstacle",
+    "primaryKeyword": "certificat de poursuite sous obstacle",
+    "secondaryKeywords": [
+      "CPO-04",
+      "poursuite malgré obstacle",
+      "résistance intérieure",
+      "continuité sous contrainte",
+      "département de l’être",
+      "certificat JocKeCorp",
+      "persévérance existentielle",
+      "certificat poético-administratif"
+    ],
+    "lcpImage": "/hero/home.avif",
+    "lcpImageAlt": "L’Œil ultime veille sur les certificats."
+  },
+  "/certificats/cip-05": {
+    "title": "CIP-05 — Certificat d’Intrication Persistante",
+    "description": "Certificat destiné à documenter un lien d’état réciproque entre deux consciences, actif malgré la distance, le temps ou le silence.",
+    "canonical": "https://jocke.be/certificats/cip-05",
+    "robots": "index,follow",
 
-  "ogTitle": "CIP-05 — Certificat d’Intrication Persistante",
-  "ogDescription": "Document JocKeCorp™ pour les liens qui persistent : deux consciences intriquées malgré la distance, le temps ou le silence. Dossiers Roméo & Juliette, Lennon/McCartney et Serena & Venus.",
-  "ogImage": "https://jocke.be/og/home.jpg",
-  "ogImageAlt": "Certificat CIP-05 émis par le Département de l’Être.",
-  "twitterCard": "summary_large_image",
-  "twitterSite": "@JocKeCorp",
+    "ogTitle": "CIP-05 — Certificat d’Intrication Persistante",
+    "ogDescription": "Document JocKeCorp™ pour les liens qui persistent : deux consciences intriquées malgré la distance, le temps ou le silence. Dossiers Roméo & Juliette, Lennon/McCartney et Serena & Venus.",
+    "ogImage": "https://jocke.be/og/home.jpg",
+    "ogImageAlt": "Certificat CIP-05 émis par le Département de l’Être.",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@JocKeCorp",
 
-  "schemaType": "WebPage",
-  "breadcrumbs": [
-    { "name": "Accueil", "url": "https://jocke.be/" },
-    { "name": "Certificats", "url": "https://jocke.be/certificats" },
-    { "name": "CIP-05", "url": "https://jocke.be/certificats/cip-05" }
-  ],
-  "datePublished": "",
-  "dateModified": "",
+    "schemaType": "WebPage",
+    "breadcrumbs": [
+      { "name": "Accueil", "url": "https://jocke.be/" },
+      { "name": "Certificats", "url": "https://jocke.be/certificats" },
+      { "name": "CIP-05", "url": "https://jocke.be/certificats/cip-05" }
+    ],
+    "datePublished": "",
+    "dateModified": "",
 
-  "h1": "Certificat d’Intrication Persistante",
-  "primaryKeyword": "certificat d’intrication persistante",
-  "secondaryKeywords": [
-    "CIP-05",
-    "intrication persistante",
-    "lien entre deux consciences",
-    "corrélation affective",
-    "résonance non locale",
-    "département de l’être",
-    "certificat JocKeCorp",
-    "connexion au-delà de la distance",
-    "certificat poético-administratif"
-  ],
-  "lcpImage": "/hero/home.avif",
-  "lcpImageAlt": "L’Œil ultime veille sur les certificats."
-}
-
-
+    "h1": "Certificat d’Intrication Persistante",
+    "primaryKeyword": "certificat d’intrication persistante",
+    "secondaryKeywords": [
+      "CIP-05",
+      "intrication persistante",
+      "lien entre deux consciences",
+      "corrélation affective",
+      "résonance non locale",
+      "département de l’être",
+      "certificat JocKeCorp",
+      "connexion au-delà de la distance",
+      "certificat poético-administratif"
+    ],
+    "lcpImage": "/hero/home.avif",
+    "lcpImageAlt": "L’Œil ultime veille sur les certificats."
+  }
 }

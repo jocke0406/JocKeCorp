@@ -14,6 +14,21 @@ import { getSeoFor } from '../../core/seo.loader';
 export class DossierExistentielComponent implements OnInit {
   private seo = inject(SeoService);
 
+  subjects = [
+    {
+      id: 'OU-23',
+      slug: 'deculp-ouch-23',
+      title: 'Vous avez fait semblant d’aller bien',
+      excerpt:
+        'Vous avez répondu “ça va” alors que ce n’était manifestement pas le cas.',
+      tags: ['Mensonge social', 'Auto-contrôle', 'Politesse'],
+    },
+    // autres charges plus tard…
+  ];
+
+  trackById = (_: number, item: { id: string }) => item.id;
+
+
   ngOnInit(): void {
     const cfg = getSeoFor('/dossier');
 

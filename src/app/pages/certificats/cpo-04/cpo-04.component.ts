@@ -34,6 +34,9 @@ export class Cpo04Component implements OnInit {
 
     /** Date d’émission utilisée comme exemple */
     readonly today = new Date();
+    readonly hawkingDate = new Date('2018-03-14');
+    readonly mandelaDate = new Date('1990-02-11');
+    readonly curieDate = new Date('1911-12-10');
 
     readonly jkcLongWithGregorian: JkcDateFormatOptions = {
         format: 'long',

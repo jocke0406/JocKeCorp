@@ -1,45 +1,93 @@
-<main class="jkc-construction-page" data-section="deculpabilisation">
-    <header class="jkc-construction-header">
-        <h1 class="jkc-construction-title">Déculpabilisation</h1>
-        <p class="jkc-construction-subtitle">
-            Le guichet où l’on dépose ce qui pèse, même si ça ne pèse rien.
+<main class="jkc-dec-hub-page">
+    <!-- HEADER -->
+    <header class="jkc-dec-hub-header">
+        <div class="jkc-dec-breadcrumb">
+            <a routerLink="/">Accueil</a>
+            <span aria-hidden="true">›</span>
+            <span>Déculpabilisation</span>
+        </div>
+
+        <h1 class="jkc-dec-title">Service Central de Déculpabilisation JocKeCorp™</h1>
+
+        <!-- Texte d’intro : à faire valider / affiner par Mots -->
+        <p class="jkc-dec-subtitle">
+            Bienvenue au Service Central de Déculpabilisation.<br>
+            Ici sont recensés les mécanismes ordinaires par lesquels un individu fonctionnel
+            se reproche de continuer à vivre.<br>
+            Chaque dossier est traité séparément.
+            L’absolution, lorsqu’elle intervient, est de nature strictement administrative.
         </p>
+
+        <div class="jkc-dec-hint">
+            <span class="jkc-chip jkc-chip--soft">Aucune absolution à ce stade</span>
+            <span class="jkc-chip">Procédure officielle : recensement → examen → décision</span>
+        </div>
+
+
     </header>
 
-    <section class="jkc-construction-card" data-stamp="PROCESSUS DE PURIFICATION EN COURS">
-        <div class="jkc-construction-icon">🧯</div>
+    <!-- TERMINAL CRT -->
+    <section class="jkc-dec-terminal" aria-label="Catalogue des charges morales">
+        <header class="jkc-dec-terminal-header">
+            <div class="jkc-dec-terminal-meta">
+                <span class="jkc-chip jkc-chip--soft">Absolutions disponibles : {{ subjects.length }}</span>
+                <span class="jkc-chip jkc-chip--soft">Format : 1 absolution = 1 page</span>
+            </div>
 
-        <h2 class="jkc-construction-card-title">Section administrative en cours d’établissement</h2>
+            <!-- Zone réservée (futur filtre / recherche) -->
+            <div class="jkc-dec-terminal-tools" aria-hidden="true">
+                <span class="jkc-tool">Filtre : désactivé</span>
+                <span class="jkc-tool">Tri : administratif</span>
+            </div>
+        </header>
 
-        <p class="jkc-construction-card-intro">
-            Notre machine à reçus émotionnels chauffe encore.<br>
-            Le service ouvrira dès que les regrets légers auront fini de se réorganiser.
-        </p>
-
-        <div class="jkc-separator"></div>
-
-        <section class="jkc-construction-section">
-            <h3 class="jkc-construction-section-title">Ce que vous trouverez ici bientôt</h3>
-            <ul class="jkc-construction-list">
-                <li>Dépôt officiel des remords, maladresses et fautes douces</li>
-                <li>Réception d’un Reçu de Déculpabilisation</li>
-                <li>Passerelle immédiate vers la création d’un Certificat</li>
-            </ul>
+        <section class="jkc-dec-legend">
+            <p>
+                <span class="jkc-label">Instruction :</span>
+                sélectionnez un dossier et cliquez sur <strong>Examiner ce dossier</strong>.
+                Cette page ne juge pas, ne corrige pas et ne soulage pas.
+                Elle établit simplement l’inventaire.
+            </p>
         </section>
 
-        <section class="jkc-construction-section jkc-construction-section--alt">
-            <h3 class="jkc-construction-section-title">En attendant</h3>
-            <ul class="jkc-construction-list">
-                <li>
-                    Relire un Certificat →
-                    <a routerLink="/certificats">Certificats</a>
-                </li>
-                <li>
-                    Envoyer un regret →
-                    <a href="mailto:jockecorp&#64;jocke.be">jockecorp&#64;jocke.be</a>
-                </li>
-                <li>Regarder l’Œil pour voir s’il compatit</li>
-            </ul>
+
+
+        <!-- LISTE -->
+        <section class="jkc-dec-list" aria-label="Liste des charges">
+            <article class="jkc-dec-row" *ngFor="let s of subjects; trackBy: trackById">
+                <header class="jkc-dec-row-head">
+                    <div class="jkc-dec-row-id">
+                        <span class="jkc-dec-code">{{ s.id | uppercase }}</span>
+                    </div>
+
+                    <ul class="jkc-dec-tags" *ngIf="s.tags?.length">
+                        <li *ngFor="let t of s.tags">{{ t }}</li>
+                    </ul>
+                </header>
+
+                <div class="jkc-dec-row-main">
+                    <h2 class="jkc-dec-row-title">{{ s.title }}</h2>
+                    <p class="jkc-dec-row-desc">{{ s.excerpt }}</p>
+                </div>
+
+                <footer class="jkc-dec-row-footer">
+                    <a class="jkc-dec-row-link" [routerLink]="['/deculpabilisation', s.slug]">
+                        ➜ Examiner cette charge
+                    </a>
+                    <span class="jkc-dec-row-note">
+                        Absolution : indisponible à ce stade de la procédure
+                    </span>
+
+                </footer>
+            </article>
         </section>
     </section>
+    <section class="jkc-dec-footer">
+        <p>
+            Toute décision est rendue exclusivement sur la page dédiée au dossier concerné.
+            L’absence de réponse immédiate ne vaut pas refus.
+        </p>
+    </section>
+
+
 </main>

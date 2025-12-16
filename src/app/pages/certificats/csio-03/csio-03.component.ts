@@ -34,6 +34,9 @@ export class Csio03Component implements OnInit {
 
     /** Date d’émission utilisée comme exemple */
     readonly today = new Date();
+    readonly bowieDate = new Date('1973-07-03');
+    readonly lewisDate = new Date('2012-11-20');
+    readonly princeDate = new Date('1993-06-07');
 
     readonly jkcLongWithGregorian: JkcDateFormatOptions = {
         format: 'long',

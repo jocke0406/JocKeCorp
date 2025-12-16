@@ -34,6 +34,9 @@ export class Cip05Component implements OnInit {
 
     /** Date d’émission utilisée comme exemple */
     readonly today = new Date();
+    readonly romeoDate = new Date('1597-04-23');
+    readonly lennonDate = new Date('1980-12-08');
+    readonly williamsDate = new Date('2001-09-09');
 
     readonly jkcLongWithGregorian: JkcDateFormatOptions = {
         format: 'long',

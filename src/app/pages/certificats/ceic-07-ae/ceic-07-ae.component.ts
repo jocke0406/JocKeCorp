@@ -35,6 +35,9 @@ export class Ceic07AeComponent implements OnInit {
     private message = inject(MessageService);
     /** Date d’émission utilisée comme exemple */
     readonly today = new Date(); // tu peux forcer une autre date si tu veux
+    readonly banksyDate = new Date('2018-10-05');
+    readonly satoshiDate = new Date('2009-01-03');
+    readonly eminemDate = new Date('1999-02-23');
 
     readonly jkcLongWithGregorian: JkcDateFormatOptions = {
         format: 'long',

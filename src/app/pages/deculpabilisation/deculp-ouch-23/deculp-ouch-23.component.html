@@ -1,0 +1,128 @@
+<main class="jkc-cert-page jkc-dec-subject-page" data-dec-ref="OU-23" data-dec-theme="ambre">
+    <!-- HEADER (clone cert) -->
+    <header class="jkc-cert-header">
+        <div class="jkc-cert-breadcrumb">
+            <a routerLink="/">Accueil</a>
+            <span aria-hidden="true">›</span>
+            <a routerLink="/deculpabilisation">Déculpabilisation</a>
+            <span aria-hidden="true">›</span>
+            <span>OU-23</span>
+        </div>
+
+        <div class="jkc-cert-header-main">
+            <div>
+                <p class="jkc-cert-department">SERVICE CENTRAL DE DÉCULPABILISATION</p>
+                <h1 class="jkc-cert-title">{{ subjectTitle }}</h1>
+            </div>
+
+            <div class="jkc-cert-ref-block">
+                <span class="jkc-cert-ref-label">Réf.</span>
+                <span class="jkc-cert-ref-code">OU-23</span>
+            </div>
+        </div>
+
+        <p class="jkc-cert-tagline">
+            Dossier de déculpabilisation standard. Lecture recommandée avant culpabilité performative.
+        </p>
+        <span class="jkc-chip jkc-chip--soft">Sujet observé : {{ displayName() }}</span>
+
+        <div class="jkc-cert-header-meta">
+            <span class="jkc-chip">Procédure standard</span>
+            <span class="jkc-chip jkc-chip--soft">Traitement : confort en contexte dégradé</span>
+        </div>
+    </header>
+
+    <!-- LAYOUT 2 COLONNES (clone cert) -->
+    <div class="jkc-cert-layout">
+        <!-- SIDEBAR -->
+        <aside class="jkc-cert-sidebar">
+            <section class="jkc-cert-meta-card">
+                <h2 class="jkc-cert-meta-title">Informations</h2>
+
+                <dl class="jkc-cert-meta-list">
+                    <div>
+                        <dt>Charge</dt>
+                        <dd>OU-23</dd>
+                    </div>
+                    <div>
+                        <dt>Statut</dt>
+                        <dd>Traitement simulé · Absolution conditionnelle</dd>
+                    </div>
+                    <div>
+                        <dt>Sortie</dt>
+                        <dd>Décision brève · Aucune consolation</dd>
+                    </div>
+                </dl>
+            </section>
+
+            <section class="jkc-cert-actions-card">
+                <h2 class="jkc-cert-meta-title">Action</h2>
+
+
+
+                <p class="jkc-dec-mini-note">
+                    Toute absolution est définitive. Les remords ultérieurs seront classés séparément.
+                </p>
+            </section>
+
+            <section class="jkc-cert-links-card">
+                <h2 class="jkc-cert-meta-title">Navigation</h2>
+                <ul class="jkc-cert-links-list">
+                    <li><a routerLink="/deculpabilisation">Retour au catalogue</a></li>
+                    <li><a routerLink="/certificats">Aller aux Certificats</a></li>
+                </ul>
+            </section>
+        </aside>
+
+        <!-- ÉCRAN PRINCIPAL (CRT clone cert) -->
+        <section class="jkc-cert-main">
+            <div class="jkc-cert-screen">
+                <header class="jkc-cert-screen-header">
+                    <div class="jkc-cert-screen-id">
+                        <span class="jkc-chip">OU-23</span>
+                        <span class="jkc-chip jkc-chip--soft">Déculpabilisation</span>
+                    </div>
+                    <div class="jkc-cert-screen-status">
+                        <span class="jkc-status-dot jkc-status-dot--amber"></span>
+                        <span class="jkc-status-label">Forme admise · Morale non requise</span>
+                    </div>
+                </header>
+
+                <!-- Bloc 1 -->
+                <article class="jkc-dec-panel">
+                    <header class="jkc-dec-panel-head">
+                        <h2 class="jkc-dec-panel-title">{{ blockWhyGuiltyTitle }}</h2>
+                        <span class="jkc-dec-panel-badge">Constat #1</span>
+                    </header>
+                    <div class="jkc-dec-panel-body">
+                        <p>{{ blockWhyGuiltyText }}</p>
+                    </div>
+                </article>
+
+                <!-- Bloc 2 -->
+                <article class="jkc-dec-panel jkc-dec-panel--alt">
+                    <header class="jkc-dec-panel-head">
+                        <h2 class="jkc-dec-panel-title">{{ blockNoReasonTitle }}</h2>
+                        <span class="jkc-dec-panel-badge">Constat #2</span>
+                    </header>
+                    <div class="jkc-dec-panel-body">
+                        <p>{{ blockNoReasonText }}</p>
+                    </div>
+                </article>
+
+                <!-- Conclusion -->
+                <section class="jkc-dec-conclusion">
+                    <p class="jkc-dec-conclusion-label">Conclusion administrative</p>
+                    <p class="jkc-dec-conclusion-text">{{ conclusionText }}</p>
+                </section>
+
+                <footer class="jkc-dec-actionbar">
+                    <button type="button" class="jkc-dec-absolve-btn" (click)="requestAbsolution()">
+                        Demander l’absolution à l’Œil
+                    </button>
+                </footer>
+            </div>
+        </section>
+    </div>
+</main>
+<p-toast position="top-center"></p-toast>

@@ -35,6 +35,9 @@ export class Ciea02Component implements OnInit {
 
     /** Date d’émission utilisée comme exemple */
     readonly today = new Date();
+    readonly jordanDate = new Date('1993-10-06');
+    readonly belgiumDate = new Date('2010-06-13');
+    readonly malcolmDate = new Date('1964-04-13');
 
     readonly jkcLongWithGregorian: JkcDateFormatOptions = {
         format: 'long',

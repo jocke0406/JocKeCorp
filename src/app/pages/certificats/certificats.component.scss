@@ -1,17 +1,17 @@
 /* =======================================
-   JocKeCorp — Bureau des Certificats
-   Page /certificats
+   JocKeCorp — Hub Certificats (/certificats)
+   Harmonisé avec le rendu CEIC (CRT vert toxique)
    ======================================= */
+
 .jkc-cert-hub-page {
+  /* Palette identique au certificat */
   --cert-accent: #aaff00;
   --cert-accent-soft: rgba(170, 255, 0, 0.18);
   --cert-bg-deep: #020a02;
   --cert-bg-card: #061306;
-  --cert-border: #295f00;
+  --cert-border: rgba(41, 95, 0, 0.95);
   --cert-ink: #e6ffcc;
-}
 
-.jkc-cert-hub-page {
   max-width: 1040px;
   margin: 0 auto;
   padding: 40px 16px 56px;
@@ -22,14 +22,17 @@
   }
 }
 
-/* HEADER GLOBAL — bandeau CRT */
+/* =========================
+   HEADER GLOBAL — "bandeau CRT" (copie du CEIC)
+   ========================= */
 
 .jkc-cert-hub-header {
   position: relative;
   margin-bottom: 20px;
   padding: 14px 16px 12px;
-  border-radius: 18px;
+  border-radius: var(--r-md);
   border: 1px solid var(--cert-border);
+
   background-color: var(--cert-bg-deep);
   background-image:
     radial-gradient(circle at top left, var(--cert-accent-soft), transparent 55%),
@@ -40,9 +43,11 @@
       transparent 1px,
       transparent 3px
     );
+
   box-shadow:
-    0 0 16px rgba(0, 0, 0, 0.9),
-    0 0 20px rgba(170, 255, 0, 0.22);
+    0 0 20px rgba(0, 0, 0, 0.85),
+    0 0 24px rgba(170, 255, 0, 0.25);
+
   color: var(--cert-ink);
 
   @media (max-width: 768px) {
@@ -50,40 +55,34 @@
   }
 }
 
-/* vignettage interne pour l’effet écran */
+/* vignettage interne (effet écran bombé) */
 .jkc-cert-hub-header::before {
   content: '';
   position: absolute;
-  inset: -12%;
-  background: radial-gradient(
-    ellipse at center,
-    transparent 40%,
-    rgba(0, 0, 0, 0.6) 100%
-  );
+  inset: -10%;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.6) 100%);
   mix-blend-mode: multiply;
   opacity: 0.85;
   pointer-events: none;
   z-index: 0;
 }
 
-/* contenu au-dessus du vignettage */
 .jkc-cert-hub-header > * {
   position: relative;
   z-index: 1;
 }
 
-/* Fil d’Ariane */
-
+/* Breadcrumb (forcer le vert, pas le ink-muted global) */
 .jkc-cert-hub-breadcrumb {
   font-size: var(--fs-xs);
-  color: rgba(230, 255, 204, 0.8);
+  color: rgba(230, 255, 204, 0.7);
   display: flex;
   align-items: center;
   gap: 6px;
   margin-bottom: 6px;
 
   a {
-    color: rgba(230, 255, 204, 0.95);
+    color: rgba(230, 255, 204, 0.9);
     text-decoration: none;
 
     &:hover {
@@ -92,19 +91,18 @@
   }
 }
 
-/* Titre principal */
-
+/* Titre = glow net (comme CEIC) */
 .jkc-cert-hub-title {
   margin: 0 0 4px;
   font-size: var(--fs-lg);
   letter-spacing: -0.02em;
+  font-weight: 600;
   color: var(--cert-ink);
+
   text-shadow:
     0 0 4px rgba(170, 255, 0, 0.7),
     0 0 10px rgba(170, 255, 0, 0.4);
 }
-
-/* Sous-titre */
 
 .jkc-cert-hub-subtitle {
   margin: 0;
@@ -113,20 +111,20 @@
   max-width: 720px;
 }
 
-
-
-/* ÉCRAN CENTRAL (CRT LÉGER) */
+/* =========================
+   TERMINAL CRT CENTRAL
+   (ton terminal est déjà bon, on l’aligne sur CEIC)
+   ========================= */
 
 .jkc-cert-hub-terminal {
-  --dept-accent: #aaff00;
-
   position: relative;
-  margin-top: 24px;
-  border-radius: 18px;
+  margin-top: 18px;
+  border-radius: var(--r-md);
   padding: 18px 16px 14px;
-  background-color: #020a02;
+
+  background-color: var(--cert-bg-deep);
   background-image:
-    radial-gradient(circle at top center, rgba(170, 255, 0, 0.16), transparent 55%),
+    radial-gradient(circle at top center, var(--cert-accent-soft), transparent 55%),
     repeating-linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.45) 0,
@@ -134,11 +132,13 @@
       transparent 1px,
       transparent 3px
     );
-  border: 1px solid #295f00;
+
+  border: 1px solid var(--cert-border);
   box-shadow:
     0 0 18px rgba(0, 0, 0, 0.9),
-    0 0 24px rgba(170, 255, 0, 0.25);
-  color: #e6ffcc;
+    0 0 22px rgba(170, 255, 0, 0.25);
+
+  color: var(--cert-ink);
   overflow: hidden;
 
   @media (max-width: 768px) {
@@ -147,7 +147,6 @@
 }
 
 .jkc-cert-hub-terminal::before {
-  /* léger vignettage interne */
   content: '';
   position: absolute;
   inset: -12%;
@@ -163,8 +162,7 @@
   z-index: 1;
 }
 
-/* HEADER DE L’ÉCRAN */
-
+/* Header terminal */
 .jkc-cert-hub-terminal-header {
   display: flex;
   justify-content: space-between;
@@ -184,23 +182,7 @@
   font-size: var(--fs-xxs);
 }
 
-.jkc-chip {
-  display: inline-flex;
-  align-items: center;
-  padding: 2px 8px;
-  border-radius: 999px;
-  border: 1px solid rgba(230, 255, 204, 0.5);
-  font-size: var(--fs-xxs);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.jkc-chip--soft {
-  background: rgba(0, 26, 0, 0.85);
-}
-
-/* TOGGLES DE DÉPARTEMENT */
-
+/* Toggles */
 .jkc-cert-dept-toggle {
   display: inline-flex;
   flex-wrap: wrap;
@@ -209,9 +191,9 @@
 
 .jkc-cert-dept-btn {
   border-radius: 999px;
-  border: 1px solid rgba(230, 255, 204, 0.4);
-  background: rgba(0, 26, 0, 0.8);
-  color: #e6ffcc;
+  border: 1px solid rgba(170, 255, 0, 0.55);
+  background: rgba(0, 16, 0, 0.9);
+  color: rgba(230, 255, 204, 0.9);
   font-size: var(--fs-xxs);
   padding: 4px 10px;
   text-transform: uppercase;
@@ -220,15 +202,14 @@
   white-space: nowrap;
 
   &:hover:not(.jkc-cert-dept-btn--disabled) {
-    background: rgba(10, 40, 0, 0.95);
+    background: rgba(0, 26, 0, 0.95);
   }
 }
 
 .jkc-cert-dept-btn--active {
-  border-color: var(--dept-accent);
   box-shadow:
-    0 0 6px rgba(170, 255, 0, 0.6),
-    inset 0 0 4px rgba(0, 0, 0, 0.8);
+    0 0 8px rgba(170, 255, 0, 0.4),
+    inset 0 0 4px rgba(0, 0, 0, 0.7);
 }
 
 .jkc-cert-dept-btn--disabled {
@@ -236,8 +217,7 @@
   cursor: default;
 }
 
-/* LÉGENDE */
-
+/* Légende */
 .jkc-cert-hub-legend {
   margin-bottom: 8px;
   font-size: var(--fs-xs);
@@ -250,12 +230,13 @@
   letter-spacing: 0.11em;
   border-radius: 999px;
   padding: 1px 8px;
-  border: 1px solid rgba(230, 255, 204, 0.5);
+  border: 1px solid rgba(170, 255, 0, 0.7);
+  background: rgba(0, 16, 0, 0.9);
   margin-right: 6px;
+  color: rgba(230, 255, 204, 0.9);
 }
 
-/* LISTE DES CERTIFICATS (LIGNES) */
-
+/* Liste (tes rows sont déjà proches de CEIC, je les “CEIC-ise” un poil) */
 .jkc-cert-hub-list {
   display: flex;
   flex-direction: column;
@@ -267,7 +248,9 @@
   border: 1px solid rgba(62, 122, 0, 0.9);
   padding: 8px 9px 6px;
   background: rgba(0, 18, 0, 0.9);
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9);
+  box-shadow:
+    inset 0 0 6px rgba(0, 0, 0, 0.9),
+    0 0 10px rgba(0, 0, 0, 0.8);
   font-size: var(--fs-xs);
 }
 
@@ -295,7 +278,7 @@
   font-size: var(--fs-xs);
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--dept-accent);
+  color: var(--cert-accent);
 }
 
 .jkc-cert-dept {
@@ -315,33 +298,17 @@
 
   li {
     border-radius: 999px;
-    border: 1px dashed rgba(230, 255, 204, 0.6);
+    border: 1px dashed rgba(170, 255, 0, 0.7);
     padding: 1px 7px;
     font-size: var(--fs-xxs);
-  }
-}
-
-/* Corps */
-
-.jkc-cert-row-main {
-  margin-bottom: 4px;
-}
-
-.jkc-cert-row-titleblock {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-  align-items: baseline;
-
-  @media (max-width: 640px) {
-    flex-direction: column;
-    align-items: flex-start;
+    color: rgba(230, 255, 204, 0.9);
   }
 }
 
 .jkc-cert-row-title {
   margin: 0;
   font-size: var(--fs-sm);
+  color: rgba(242, 255, 224, 0.98);
 }
 
 .jkc-cert-row-status {
@@ -353,6 +320,7 @@
 
 .jkc-cert-row-status--active {
   color: #b4ff6b;
+  text-shadow: 0 0 6px rgba(180, 255, 107, 0.35);
 }
 
 .jkc-cert-row-status--pending {
@@ -364,8 +332,6 @@
   font-size: var(--fs-xs);
   color: rgba(230, 255, 204, 0.9);
 }
-
-/* Footer ligne */
 
 .jkc-cert-row-footer {
   margin-top: 4px;
@@ -383,23 +349,34 @@
 
 .jkc-cert-row-link {
   text-decoration: none;
-  color: #e6ffcc;
-  border-bottom: 1px solid rgba(230, 255, 204, 0.9);
+  color: rgba(230, 255, 204, 0.95);
+  border-bottom: 1px solid rgba(170, 255, 0, 0.55);
 
   &:hover {
     color: #ffffff;
+    border-bottom-color: rgba(230, 255, 204, 0.9);
   }
 }
 
 .jkc-cert-row-note {
-  color: rgba(230, 255, 204, 0.75);
+  color: rgba(214, 242, 190, 0.75);
 }
-
-/* Bas de page */
 
 .jkc-cert-hub-footer {
   margin-top: 18px;
   font-size: var(--fs-xs);
-  color: var(--ink-muted);
+  color: rgba(230, 255, 204, 0.7);
   text-align: center;
+}
+.jkc-cert-hub-page .jkc-chip {
+  border: 1px solid rgba(170, 255, 0, 0.7);
+  background: rgba(0, 16, 0, 0.9);
+  color: rgba(230, 255, 204, 0.9);
+  padding: 3px 8px;
+  letter-spacing: 0.12em;
+}
+
+.jkc-cert-hub-page .jkc-chip--soft {
+  border-color: rgba(230, 255, 204, 0.6);
+  background: rgba(0, 26, 0, 0.85);
 }

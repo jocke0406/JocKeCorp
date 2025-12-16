@@ -52,7 +52,7 @@ export function formatJkcDate(
     // Avant la naissance du calendrier JocKeCorp
     if (date < JKC_EPOCH) {
         // Tu peux rendre ça plus poétique si tu veux
-        const base = `${pad2(day)} ${monthName} (avant le calendrier JocKeCorp)`;
+        const base = `${pad2(day)} ${monthName} (avant le calendrier JocKeCorp™)`;
         return showGregorianYear ? `${base} (${gregYear})` : base;
     }
 
